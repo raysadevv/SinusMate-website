@@ -229,44 +229,106 @@ nav li a:hover {
 /* ===== SECTIONS ===== */
 .content-section {
   max-width: 900px;
-  margin: 50px auto;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  margin: 60px auto;
+  padding: 35px 30px;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #fff0f5, #ffe6f0);
+  box-shadow: 0 10px 30px rgba(210, 63, 106, 0.1);
   display: none;
+  opacity: 0;
+  transform: translateY(25px);
+  animation: fadeInUp 0.7s ease forwards;
+  transition: all 0.4s ease;
 }
 
 .content-section.active {
   display: block;
 }
 
+/* Heading cantik */
 .content-section h2 {
   color: #d23f6a;
-  margin-bottom: 15px;
-  font-size: 1.8rem;
+  margin-bottom: 18px;
+  font-size: 1.9rem;
   position: relative;
+  text-align: center;
+  letter-spacing: 0.5px;
 }
 
 .content-section h2::after {
   content: "";
   display: block;
-  width: 50px;
+  width: 60px;
   height: 3px;
   background-color: #f8bbd0;
-  margin-top: 5px;
-  border-radius: 2px;
+  margin: 8px auto 0;
+  border-radius: 3px;
 }
 
-.content-section p, 
+/* Paragraf dan daftar */
+.content-section p,
 .content-section li {
-  color: #444;
+  color: #5a2a3c;
   font-size: 1rem;
+  line-height: 1.7;
 }
 
-.content-section ul, 
+.content-section ul,
 .content-section ol {
-  padding-left: 20px;
-  margin-top: 10px;
+  padding-left: 25px;
+  margin-top: 12px;
+}
+
+/* Efek hover ringan pada list */
+.content-section li:hover {
+  color: #b33558;
+  transition: 0.3s ease;
+}
+
+/* ===== ANIMASI ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .content-section {
+    padding: 25px 20px;
+    margin: 40px 15px;
+    border-radius: 20px;
+  }
+
+  .content-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .content-section p,
+  .content-section li {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-section {
+    padding: 20px 15px;
+    margin: 30px 10px;
+  }
+
+  .content-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .content-section p,
+  .content-section li {
+    font-size: 0.9rem;
+  }
 }
 
 /* ===== FAQ ===== */
@@ -726,6 +788,7 @@ footer a:hover {
     margin-bottom: 6px;
   }
 }
+
 
 
 
