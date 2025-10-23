@@ -436,68 +436,117 @@ nav li a:hover {
   opacity: 1;
   margin-top: 10px;
 }
-/* 🌸 ===== FORM INTERAKTIF (Cek Gejala / Kalkulator) ===== */
-.interactive-form {
-  max-width: 650px;
-  margin: 50px auto;
-  padding: 35px 40px;
-  background: linear-gradient(145deg, #fff0f5, #ffe6f0);
+/* =========================================================
+   🌸 FORM INTERACTIVE SINUSITIS
+   ========================================================= */
+
+/* ===== CONTAINER UTAMA ===== */
+.interactive-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px 35px;
+  background: linear-gradient(135deg, #fff0f5, #ffe4f1); /* gradient soft pink */
   border-radius: 25px;
-  box-shadow: 0 12px 35px rgba(243, 173, 195, 0.25);
-  font-family: "Poppins", sans-serif;
+  box-shadow: 0 12px 30px rgba(243, 173, 195, 0.2),
+              0 4px 12px rgba(243, 173, 195, 0.1);
   color: #6a1b4d;
-  animation: fadeInUp 0.8s ease-in-out;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease-in-out;
 }
 
-.interactive-form:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(243, 173, 195, 0.35);
-}
-
-.interactive-form h3 {
-  color: #b33558;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* 🩺 Pertanyaan */
-.interactive-form .pertanyaan {
-  margin-bottom: 25px;
-}
-
-.interactive-form .pertanyaan p {
+/* ===== PERTANYAAN ===== */
+.interactive-container .pertanyaan p {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  margin-bottom: 16px;
   color: #b35c72;
-  margin-bottom: 10px;
 }
 
-/* 💗 Input (radio & checkbox) */
-.interactive-form label {
+/* ===== PILIHAN (LABEL) ===== */
+.interactive-container label {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   background-color: #fce4ec;
-  padding: 12px 16px;
-  margin-bottom: 10px;
-  border-radius: 20px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  border-radius: 30px;
   cursor: pointer;
   font-weight: 600;
   color: #8a3a5a;
-  box-shadow: 0 3px 10px rgba(211, 63, 106, 0.15);
+  box-shadow: 0 5px 15px rgba(211, 63, 106, 0.12);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-container label:hover {
+  background: linear-gradient(135deg, #f8bbd0, #fdd0e0); /* subtle hover gradient */
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(210, 63, 106, 0.2);
+}
+
+/* ===== CHECKED STATE ===== */
+.interactive-container label input[type="radio"]:checked + span,
+.interactive-container label input[type="checkbox"]:checked + span {
+  font-weight: 700;
+  color: #6a1b4d;
+  transition: all 0.25s ease-in-out;
+}
+
+/* ===== TEKS DI DALAM LABEL ===== */
+label span {
+  flex: 1;
+}
+
+/* =========================================================
+   🌷 TOMBOL INTERAKTIF
+   ========================================================= */
+button,
+#cekBtn,
+#hitungBtn,
+#resetBtn,
+.quiz-btn {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  margin-top: 18px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #f48fb1, #ec407a);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(236, 64, 122, 0.3);
 }
 
-.interactive-form label:hover {
-  background: linear-gradient(135deg, #f8bbd0, #fdd0e0);
-  transform: translateY(-2px);
+button:hover,
+#cekBtn:hover,
+#hitungBtn:hover,
+.quiz-btn:hover {
+  background: linear-gradient(135deg, #ec407a, #d81b60);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(216, 27, 96, 0.35);
 }
 
-/* Custom checkbox & radio */
-.interactive-form input[type="radio"],
-.interactive-form input[type="checkbox"] {
+/* ===== RESET BUTTON ===== */
+#resetBtn {
+  background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+  color: #6a1b4d;
+  box-shadow: 0 6px 15px rgba(243, 173, 195, 0.3);
+}
+
+#resetBtn:hover {
+  background: linear-gradient(135deg, #f48fb1, #ec407a);
+  color: white;
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* =========================================================
+   💗 CHECKBOX & RADIO CUSTOM STYLE
+   ========================================================= */
+.interactive-container input[type="radio"],
+.interactive-container input[type="checkbox"] {
   appearance: none;
   width: 20px;
   height: 20px;
@@ -507,20 +556,24 @@ nav li a:hover {
   cursor: pointer;
   position: relative;
   transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
-.interactive-form input[type="checkbox"] {
+/* checkbox berbentuk kotak */
+.interactive-container input[type="checkbox"] {
   border-radius: 6px;
 }
 
-.interactive-form input[type="radio"]:checked,
-.interactive-form input[type="checkbox"]:checked {
+/* checked effect */
+.interactive-container input[type="radio"]:checked,
+.interactive-container input[type="checkbox"]:checked {
   background-color: #ec407a;
   border-color: #ec407a;
-  box-shadow: 0 0 8px rgba(236, 64, 122, 0.4);
+  box-shadow: 0 0 10px rgba(236, 64, 122, 0.4);
 }
 
-.interactive-form input[type="checkbox"]:checked::after {
+/* tanda centang checkbox */
+.interactive-container input[type="checkbox"]:checked::after {
   content: "✔";
   position: absolute;
   color: white;
@@ -530,7 +583,8 @@ nav li a:hover {
   transform: translate(-50%, -55%);
 }
 
-.interactive-form input[type="radio"]:checked::after {
+/* titik di radio */
+.interactive-container input[type="radio"]:checked::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -542,98 +596,73 @@ nav li a:hover {
   transform: translate(-50%, -50%);
 }
 
-/* ✨ Tombol */
-.btn-cek,
-.btn-hitung,
-.btn-reset {
-  display: inline-block;
-  width: 100%;
-  padding: 12px 0;
-  border: none;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 18px;
-  transition: all 0.3s ease;
-}
+/* =========================================================
+   📱 RESPONSIVE DESIGN
+   ========================================================= */
 
-.btn-cek,
-.btn-hitung {
-  background: linear-gradient(135deg, #f48fb1, #ec407a);
-  color: white;
-  box-shadow: 0 6px 15px rgba(236, 64, 122, 0.3);
-}
-
-.btn-cek:hover,
-.btn-hitung:hover {
-  background: linear-gradient(135deg, #ec407a, #d81b60);
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 10px 25px rgba(216, 27, 96, 0.35);
-}
-
-.btn-reset {
-  background: linear-gradient(135deg, #f8bbd0, #f48fb1);
-  color: #6a1b4d;
-  box-shadow: 0 6px 15px rgba(243, 173, 195, 0.3);
-}
-
-.btn-reset:hover {
-  background: linear-gradient(135deg, #f48fb1, #ec407a);
-  color: white;
-  transform: translateY(-2px) scale(1.05);
-}
-
-/* 🌿 Responsif */
+/* Tablet */
 @media (max-width: 768px) {
-  .interactive-form {
+  .interactive-container {
     padding: 25px 20px;
+    margin: 30px 15px;
   }
 
-  .interactive-form h3 {
-    font-size: 1.3rem;
+  .interactive-container .pertanyaan p {
+    font-size: 1rem;
   }
 
-  .interactive-form label {
+  .interactive-container label {
+    padding: 12px 14px;
     font-size: 0.95rem;
-    padding: 10px 12px;
   }
 
-  .btn-cek,
-  .btn-hitung,
-  .btn-reset {
+  button,
+  #cekBtn,
+  #hitungBtn,
+  #resetBtn,
+  .quiz-btn {
     font-size: 0.95rem;
+    padding: 10px 0;
+  }
+
+  .interactive-container input[type="radio"],
+  .interactive-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
-  .interactive-form {
+  .interactive-container {
     padding: 20px 15px;
+    margin: 20px 10px;
   }
 
-  .interactive-form h3 {
-    font-size: 1.1rem;
+  .interactive-container .pertanyaan p {
+    font-size: 0.95rem;
   }
 
-  .interactive-form label {
+  .interactive-container label {
+    padding: 10px 12px;
     font-size: 0.9rem;
   }
 
-  .btn-cek,
-  .btn-hitung,
-  .btn-reset {
+  button,
+  #cekBtn,
+  #hitungBtn,
+  #resetBtn,
+  .quiz-btn {
     font-size: 0.9rem;
+    padding: 9px 0;
+  }
+
+  .interactive-container input[type="radio"],
+  .interactive-container input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
   }
 }
-
-/* ===== MITOS & FAKTA ===== */
-.mitos-fakta-section {
-  max-width: 850px;
-  margin: 50px auto;
-  padding: 35px 30px;
-  background: linear-gradient(145deg, #fff0f5, #ffe6f0);
-  border-radius: 28px;
-  box-shadow: 0 10px 30px rgba(243, 173, 195, 0.25);
   color: #6a1b4d;
   font-family: "Poppins", sans-serif;
   transition: all 0.4s ease;
@@ -807,6 +836,7 @@ footer a:hover {
     margin-bottom: 6px;
   }
 }
+
 
 
 
