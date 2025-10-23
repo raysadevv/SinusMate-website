@@ -13,39 +13,41 @@ body {
   padding-bottom: 70px;
 }
 
-/* ===== HEADER ===== */
+/* === HEADER === */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  padding: 15px 40px;
+  padding: 16px 35px;
   background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 header h1 {
+  font-size: 1.6rem;
   color: #fff;
-  font-size: 1.8rem;
   font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
-/* === MENU BUTTON === */
+/* === MENU BUTTON (Versi Simple Elegan) === */
 .menu-button {
   display: none;
-  font-size: 1.9rem;
+  font-size: 1.5rem;
   color: #fff;
   background: none;
   border: none;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
+
 .menu-button:hover {
-  transform: scale(1.1);
+  color: #ffe6f0; /* sedikit lebih muda, bukan terlalu mencolok */
+  transform: scale(1.05);
 }
 
 /* === NAV LIST === */
@@ -814,6 +816,7 @@ footer a:hover {
     margin-bottom: 6px;
   }
 }
+
 
 
 
