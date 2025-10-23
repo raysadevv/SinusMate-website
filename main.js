@@ -1,147 +1,146 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // --- MINI QUIZ INTERAKTIF ---
+  // MINI QUIZ
   const miniQuizForm = document.getElementById('miniQuizForm');
   const btnMulaiQuiz = document.getElementById('btnMulaiQuiz');
   const hasilQuiz = document.getElementById('hasilQuiz');
   const tombolCek = document.getElementById('cekQuiz');
 
-  if (miniQuizForm) {
-    miniQuizForm.style.display = 'none';
-    const totalPertanyaan = miniQuizForm.querySelectorAll('.pertanyaan').length;
+  if (miniQuizForm) miniQuizForm.style.display = 'none';
 
-    const resetQuiz = () => {
-      hasilQuiz.innerHTML = '';
-      miniQuizForm.querySelectorAll('.pertanyaan').forEach(q => q.classList.remove('benar', 'salah'));
-      miniQuizForm.reset();
-    };
-
-    btnMulaiQuiz?.addEventListener('click', () => {
+  if (btnMulaiQuiz && miniQuizForm) {
+    btnMulaiQuiz.addEventListener('click', () => {
       btnMulaiQuiz.style.display = 'none';
       miniQuizForm.style.display = 'block';
       hasilQuiz.innerHTML = '';
-      resetQuiz();
     });
+  }
 
-    tombolCek?.addEventListener('click', () => {
+  if (tombolCek && miniQuizForm) {
+    tombolCek.addEventListener('click', () => {
       let skor = 0;
+      const totalPertanyaan = 3;
 
       for (let i = 1; i <= totalPertanyaan; i++) {
-        const pertanyaan = miniQuizForm.querySelector(`.pertanyaan:nth-of-type(${i})`);
         const jawaban = miniQuizForm.querySelector(`input[name="q${i}"]:checked`);
-
         if (jawaban && jawaban.value === 'benar') {
           skor++;
-          pertanyaan.classList.add('benar');
-        } else {
-          pertanyaan.classList.add('salah');
         }
       }
 
-      let pesan = '';
-      if (skor === totalPertanyaan) pesan = `🎉 Hebat! Semua benar! Skor: <strong>${skor}/${totalPertanyaan}</strong> 🩷`;
-      else if (skor >= totalPertanyaan * 0.6) pesan = `👏 Bagus! Skor kamu <strong>${skor}/${totalPertanyaan}</strong> 🌟`;
-      else if (skor > 0) pesan = `✨ Skor kamu <strong>${skor}/${totalPertanyaan}</strong>. Yuk belajar lagi 💪`;
-      else pesan = `😅 Belum ada jawaban benar. Coba lagi ya 📖`;
-
-      hasilQuiz.innerHTML = `
-        <div class="hasil-box">
-          ${pesan}<br><br>
-          <button id="ulangQuiz" class="quiz-btn">Ulangi Quiz</button>
-        </div>
-      `;
-
-      document.getElementById('ulangQuiz')?.addEventListener('click', () => {
-        resetQuiz();
-        hasilQuiz.innerHTML = '';
-        btnMulaiQuiz.style.display = 'inline-block';
-        miniQuizForm.style.display = 'none';
-      });
-    });
-
-    miniQuizForm.addEventListener('change', (e) => {
-      e.target.closest('.pertanyaan')?.classList.add('aktif');
+      if (skor === totalPertanyaan) {
+        hasilQuiz.innerHTML = `🎉 Jawabanmu benar semua! Skor: <strong>${skor}/${totalPertanyaan}</strong> 🩷`;
+      } else if (skor > 0) {
+        hasilQuiz.innerHTML = `✨ Skor kamu: <strong>${skor}/${totalPertanyaan}</strong> — Bagus, tapi masih bisa lebih baik 💪`;
+      } else {
+        hasilQuiz.innerHTML = `😅 Belum ada jawaban benar. Yuk belajar lagi 📖`;
+      }
     });
   }
 
-  // --- CEK GEJALA ---
+  // CEK GEJALA
   const cekBtn = document.getElementById("cekBtn");
-  cekBtn?.addEventListener("click", () => {
-    const checkboxes = document.querySelectorAll('input[name="gejala"]:checked');
-    const hasilDiv = document.getElementById("hasilCek");
-    if (!hasilDiv) return;
+  if (cekBtn) {
+    cekBtn.addEventListener("click", function () {
+      const checkboxes = document.querySelectorAll('input[name="gejala"]:checked');
+      const hasilDiv = document.getElementById("hasilCek");
 
-    if (checkboxes.length === 0) {
-      hasilDiv.innerHTML = "Silakan pilih minimal satu gejala.";
-      return;
-    }
+      if (checkboxes.length === 0) {
+        hasilDiv.innerHTML = "Silakan pilih minimal satu gejala.";
+        return;
+      }
 
-    let hasil = "";
-    if (checkboxes.length <= 2) hasil = "Kemungkinan sinusitis ringan. Istirahat dan jaga kesehatan.";
-    else if (checkboxes.length <= 4) hasil = "Kemungkinan sinusitis sedang. Pertimbangkan untuk konsultasi ke dokter.";
-    else hasil = "Kemungkinan sinusitis berat. Segera periksa ke dokter!";
+      let hasil = "";
 
-    hasilDiv.innerHTML = `<p>${hasil}</p>`;
-  });
+      if (checkboxes.length <= 2) {
+        hasil = "Kemungkinan sinusitis ringan. Istirahat dan jaga kesehatan.";
+      } else if (checkboxes.length <= 4) {
+        hasil = "Kemungkinan sinusitis sedang. Pertimbangkan untuk konsultasi ke dokter.";
+      } else {
+        hasil = "Kemungkinan sinusitis berat. Segera periksa ke dokter!";
+      }
 
-  // --- KALKULATOR SEMBUH ---
-  const hitungBtn = document.getElementById("hitungBtn");
-  hitungBtn?.addEventListener("click", () => {
-    const tglMulai = document.getElementById("tglMulai")?.value;
-    const severity = document.querySelector('input[name="severity"]:checked');
-    const hasilKalkulator = document.getElementById("hasilKalkulator");
-    if (!hasilKalkulator) return;
-
-    if (!tglMulai || !severity) {
-      hasilKalkulator.innerHTML = "Silakan isi tanggal mulai dan pilih tingkat keparahan.";
-      return;
-    }
-
-    const startDate = new Date(tglMulai);
-    const hariSembuh = parseInt(severity.value);
-    const endDate = new Date(startDate);
-    endDate.setDate(startDate.getDate() + hariSembuh);
-
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    hasilKalkulator.innerHTML = `Perkiraan sembuh: <strong>${endDate.toLocaleDateString("id-ID", options)}</strong>`;
-  });
-
-  document.getElementById("resetBtn")?.addEventListener("click", () => {
-    document.getElementById("formKalkulator")?.reset();
-    document.getElementById("hasilKalkulator").innerHTML = "";
-  });
-
-  // --- TOGGLE MENU ---
-  const menuBtn = document.querySelector('.menu-button');
-  const nav = document.querySelector('header nav');
-  menuBtn?.addEventListener('click', () => {
-    nav.classList.toggle('show');
-  });
-
-  // Tutup menu saat klik link
-  document.querySelectorAll('header nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('show');
+      hasilDiv.innerHTML = `<p>${hasil}</p>`;
     });
-  });
-
-  // --- SHOW SECTION ---
-  window.showSection = function(id) {
-    const allSections = document.querySelectorAll('section.content-section');
-    allSections.forEach(section => {
-      section.style.display = 'none';
-      section.classList.remove('active');
-    });
-
-    const target = document.getElementById(id);
-    if (target) {
-      target.style.display = 'block';
-      target.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    if (nav.classList.contains('show')) nav.classList.remove('show');
   }
 
-  // Tampilkan beranda pertama kali
+  // KALKULATOR SEMBUH
+  const hitungBtn = document.getElementById("hitungBtn");
+  if (hitungBtn) {
+    hitungBtn.addEventListener("click", function () {
+      const tglMulai = document.getElementById("tglMulai").value;
+      const severity = document.querySelector('input[name="severity"]:checked');
+      const hasilKalkulator = document.getElementById("hasilKalkulator");
+
+      if (!tglMulai || !severity) {
+        hasilKalkulator.innerHTML = "Silakan isi tanggal mulai dan pilih tingkat keparahan.";
+        return;
+      }
+
+      const startDate = new Date(tglMulai);
+      const hariSembuh = parseInt(severity.value);
+      const endDate = new Date(startDate);
+      endDate.setDate(startDate.getDate() + hariSembuh);
+
+      const options = { year: "numeric", month: "long", day: "numeric" };
+      hasilKalkulator.innerHTML = `Perkiraan sembuh: <strong>${endDate.toLocaleDateString("id-ID", options)}</strong>`;
+    });
+  }
+
+  // RESET KALKULATOR
+  const resetBtn = document.getElementById("resetBtn");
+  if (resetBtn) {
+    resetBtn.addEventListener("click", function () {
+      document.getElementById("formKalkulator").reset();
+      document.getElementById("hasilKalkulator").innerHTML = "";
+    });
+  }
+
+  // MENU TOGGLE UNTUK HP
+const menuToggle = document.getElementById("menu-toggle");
+const navList = document.querySelector("nav ul");
+if (menuToggle && navList) {
+  menuToggle.addEventListener("click", () => {
+    navList.classList.toggle("active");
+  });
+}
+// Tombol menu (☰) buka/tutup navigasi
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.querySelector("nav");
+
+if (menuBtn && nav) {
+  menuBtn.addEventListener("click", () => {
+    nav.classList.toggle("show");
+  });
+}
+
+// Tutup menu otomatis setelah link diklik
+document.querySelectorAll("nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("show");
+  });
+});
+
+  // Tampilkan section beranda saat halaman pertama kali dimuat
   showSection('beranda');
 });
+
+// Fungsi untuk menampilkan section tertentu (misal cek-gejala, kalkulator-sembuh)
+function showSection(id) {
+  const allSections = document.querySelectorAll('section.content-section');
+  allSections.forEach(section => {
+    section.style.display = 'none';
+    section.classList.remove('active');
+  });
+
+  const target = document.getElementById(id);
+  if (target) {
+    target.style.display = 'block';
+    target.classList.add('active');
+  }
+}
+
+function toggleMenu() {
+  const nav = document.querySelector("header nav");
+  nav.classList.toggle("show");
+}
+
