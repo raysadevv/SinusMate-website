@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sinusitis</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+  <button class="menu-button" onclick="toggleMenu()">Menu</button>
+  <nav>
+    <a href="#" onclick="showSection('beranda')">Beranda</a>
+    <a href="#" onclick="showSection('pengertian')">Pengertian</a>
+    <a href="#" onclick="showSection('gejala')">Gejala</a>
+    <a href="#" onclick="showSection('penyebab')">Penyebab</a>
+    <a href="#" onclick="showSection('faktor-risiko')">Faktor Risiko</a>
+    <a href="#" onclick="showSection('pengobatan')">Pengobatan</a>
+    <a href="#" onclick="showSection('pencegahan')">Pencegahan</a>
+    <a href="#" onclick="showSection('info-darurat')">Info Darurat</a>
+    <a href="#" onclick="showSection('faq')">FAQ</a>
+  </nav>
+</header>
+
+  <main>
+    <!-- BERANDA -->
+    <section id="beranda" class="content-section active">
+    <div id="hero">
+        <h1>🩺 Kenali dan Pantau Sinusitis</h1>
+        <p>
+    Yuk pelajari lebih dalam tentang <strong>Sinusitis</strong> — dari gejala, penyebab,
+    hingga cara pencegahannya agar kamu bisa lebih waspada dan menjaga kesehatan.
+  </p>
+        <p class="subtext">Karena kesehatan sinus kamu penting untuk kenyamanan setiap hari 🌿</p>
+
+      <div class="hero-buttons">
+      <button class="btn-utama" onclick="showSection('cek-gejala')">Cek Gejala</button>
+      <button class="btn-secondary" onclick="showSection('kalkulator-sembuh')">Kalkulator Sembuh</button>
+      <button class="btn-utama" onclick="showSection('mini-quiz')">Mini Quiz</button>
+      </div>
+   </div>
+</section>
+
+    <!-- PENGERTIAN -->
+    <section id="pengertian" class="content-section">
+      <h2>Pengertian</h2>
+      <p>Sinusitis adalah peradangan atau pembengkakan pada jaringan yang melapisi sinus. Sinus adalah rongga udara di
+        tulang wajah (dahi, pipi, dan sekitar hidung) yang berfungsi menghasilkan lendir untuk menjaga kelembapan
+        saluran pernapasan dan menyaring kotoran.</p>
+    </section>
+
+    <!-- GEJALA -->
+    <section id="gejala" class="content-section">
+      <h2>Gejala</h2>
+      <p>Berikut beberapa gejala umum sinusitis:</p>
+      <ol>
+        <li>Nyeri pada wajah, terutama saat menunduk</li>
+        <li>Penyumbatan di hidung</li>
+        <li>Bau napas tidak sedap</li>
+        <li>Demam</li>
+        <li>Lendir kental berwarna kuning kehijauan</li>
+        <li>Indra penciuman terganggu</li>
+      </ol>
+    </section>
+
+    <!-- PENYEBAB -->
+    <section id="penyebab" class="content-section">
+      <h2>Penyebab</h2>
+      <ol>
+        <li><strong>Kelainan Bawaan:</strong> Septum bengkok atau struktur hidung tidak normal.</li>
+        <li><strong>Virus:</strong> Umumnya berasal dari flu dan tidak butuh antibiotik.</li>
+        <li><strong>Infeksi Gigi:</strong> Bakteri dari gigi bisa menyebar ke sinus maksila.</li>
+        <li><strong>Alergi Rhinitis:</strong> Reaksi alergi yang memicu produksi lendir berlebih.</li>
+      </ol>
+    </section>
+
+    <!-- FAKTOR RISIKO -->
+    <section id="faktor-risiko" class="content-section">
+      <h2>Faktor Risiko</h2>
+      <ul>
+        <li>Infeksi jamur atau gigi</li>
+        <li>Cedera hidung</li>
+        <li>Tulang hidung bengkok</li>
+        <li>Daya tahan tubuh lemah</li>
+        <li>Reaksi sensitif terhadap aspirin</li>
+        <li>Perokok atau terpapar polusi</li>
+        <li>Perubahan tekanan udara ekstrem</li>
+        <li>Benda asing di hidung</li>
+        <li>Tinggal di lingkungan berpolusi tinggi</li>
+      </ul>
+    </section>
+
+    <!-- PENGOBATAN -->
+    <section id="pengobatan" class="content-section">
+      <h2>Pengobatan</h2>
+
+      <p><strong>Perawatan mandiri:</strong></p>
+      <ul>
+        <li>Kompres hangat</li>
+        <li>Minum air hangat</li>
+        <li>Hindari pemicu alergi</li>
+        <li>Gunakan humidifier</li>
+        <li>Hirup uap air hangat</li>
+        <li>Gunakan semprotan dekongestan (maks. 7 hari)</li>
+      </ul>
+
+      <p><strong>Perawatan dokter:</strong></p>
+      <ul>
+        <li>Pencucian hidung dengan saline atau dekongestan</li>
+        <li>Semprotan kortikosteroid</li>
+        <li>Antibiotik (jika infeksi bakteri)</li>
+        <li>Operasi bila parah</li>
+      </ul>
+    </section>
+
+    <!-- PENCEGAHAN -->
+    <section id="pencegahan" class="content-section">
+      <h2>Pencegahan</h2>
+      <ol>
+        <li>Menjaga Kesehatan Saluran Pernapasan
+          <ol type="a">
+            <li>Hindari asap rokok dan polusi</li>
+            <li>Rajin mencuci tangan</li>
+            <li>Gunakan masker saat di lingkungan berdebu</li>
+          </ol>
+        </li>
+        <li>Menjaga Kebersihan Hidung
+          <ol type="a">
+            <li>Irigasi hidung dengan air saline</li>
+            <li>Hindari mengorek hidung</li>
+          </ol>
+        </li>
+        <li>Mengontrol Alergi
+          <ol type="a">
+            <li>Hindari pencetus alergi</li>
+            <li>Minum obat alergi sesuai anjuran</li>
+          </ol>
+        </li>
+        <li>Menjaga Kelembapan Udara
+          <ol type="a">
+            <li>Gunakan humidifier</li>
+            <li>Minum air cukup</li>
+          </ol>
+        </li>
+        <li>Pola Hidup Sehat
+          <ol type="a">
+            <li>Istirahat cukup dan konsumsi makanan bergizi</li>
+            <li>Olahraga teratur</li>
+          </ol>
+        </li>
+        <li>Perawatan Dini Saat Flu atau Pilek
+          <ol type="a">
+            <li>Obati segera</li>
+            <li>Hindari menahan bersin</li>
+          </ol>
+        </li>
+      </ol>
+    </section>
+
+    <!-- INFO DARURAT -->
+    <section id="info-darurat" class="content-section">
+      <h2>Info Darurat</h2>
+      <p>Segera ke dokter jika mengalami:</p>
+      <ul>
+        <li>Demam tinggi &gt;39°C tidak turun dengan obat</li>
+        <li>Nyeri kepala hebat disertai muntah, leher kaku, atau kejang</li>
+        <li>Pembengkakan di sekitar mata/wajah dengan kemerahan atau nyeri</li>
+        <li>Perubahan penglihatan (kabur, ganda, sulit menggerakkan mata)</li>
+        <li>Kebingungan, mengantuk berat, atau penurunan kesadaran</li>
+        <li>Cairan bernanah atau berdarah dari hidung terus-menerus</li>
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="content-section">
+      <h2>FAQ</h2>
+      <details>
+        <summary>Apa bedanya sinusitis dengan pilek?</summary>
+        <p>Pilek sembuh dalam 7–10 hari, sinusitis lebih lama dan disertai nyeri wajah serta lendir kental.</p>
+      </details>
+      <details>
+        <summary>Apakah sinusitis menular?</summary>
+        <p>Tidak secara langsung, tetapi virus penyebabnya bisa menular.</p>
+      </details>
+      <details>
+        <summary>Apakah sinusitis bisa sembuh total?</summary>
+        <p>Bisa sembuh, terutama jika ditangani dengan benar.</p>
+      </details>
+      <details>
+        <summary>Apakah sinusitis bisa sembuh tanpa operasi?</summary>
+        <p>Bisa. Sebagian besar kasus ringan dapat sembuh dengan pengobatan medis, istirahat cukup, menjaga kelembapan
+          udara, dan mengatasi alergi. Operasi hanya diperlukan jika sinusitis kronis atau tidak membaik.</p>
+      </details>
+    </section>
+
+    <!-- CEK GEJALA -->
+    <section id="cek-gejala" class="content-section">
+      <h2>Cek Gejala Sinusitis Kamu</h2>
+      <p>Pilih gejala yang kamu alami, lalu klik tombol untuk melihat hasil:</p>
+
+      <form id="gejalaForm">
+        <label><input type="checkbox" name="gejala" value="nyeri-wajah" /><span>Nyeri pada wajah</span></label><br />
+        <label><input type="checkbox" name="gejala" value="hidung-tersumbat" /><span>Hidung tersumbat</span></label><br />
+        <label><input type="checkbox" name="gejala" value="bau-napas" /><span>Bau napas tidak sedap</span></label><br />
+        <label><input type="checkbox" name="gejala" value="demam" /><span>Demam</span></label><br />
+        <label><input type="checkbox" name="gejala" value="lendir-hijau" /><span>Lendir kehijauan</span></label><br />
+        <label><input type="checkbox" name="gejala" value="indra-penciuman-terganggu" /><span>Indra penciuman
+            terganggu</span></label>
+      </form>
+
+      <button type="button" id="cekBtn">Cek Sekarang</button>
+      <div id="hasilCek"></div>
+    </section>
+
+    <!-- KALKULATOR SEMBUH -->
+    <section id="kalkulator-sembuh" class="content-section" style="display: none;">
+      <h2>🧮 Kalkulator Hari Sembuh Sinusitis</h2>
+      <p>Gunakan kalkulator ini untuk memperkirakan kapan gejala sinusitis kamu akan membaik berdasarkan tanggal mulai
+        gejala dan tingkat keparahan.</p>
+
+      <form id="formKalkulator">
+        <label for="tglMulai"><strong>Tanggal Mulai Gejala:</strong></label>
+        <input type="date" id="tglMulai" name="tglMulai" /><br /><br />
+
+        <fieldset>
+          <legend><strong>Tingkat Keparahan:</strong></legend>
+
+          <input type="radio" name="severity" id="ringan" value="7" />
+          <label for="ringan">Ringan (±7 hari)</label>
+
+          <input type="radio" name="severity" id="sedang" value="10" />
+          <label for="sedang">Sedang (±10 hari)</label>
+
+          <input type="radio" name="severity" id="berat" value="14" />
+          <label for="berat">Berat (±14 hari)</label>
+        </fieldset>
+        
+        <button id="hitungBtn" type="button">Hitung</button>
+        <button id="resetBtn" type="button">Reset</button>
+      </form>
+
+      <div id="hasilKalkulator" style="margin-top: 15px; font-weight: bold;"></div>
+
+
+      <div class="tips">
+        <h3>🌤️ Tips Perawatan Sinusitis</h3>
+        <ul>
+          <li>Minum air putih yang cukup setiap hari.</li>
+          <li>Gunakan uap hangat untuk membantu melonggarkan hidung.</li>
+          <li>Jika gejala lebih dari 14 hari, segera periksa ke dokter.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MINI QUIZ -->
+    <section id="mini-quiz" class="content-section">
+      <h2>Mini Quiz: Cek Pengetahuanmu</h2>
+
+      <!-- Tombol untuk mulai quiz -->
+      <button id="btnMulaiQuiz" class="btn-utama">Mulai Quiz</button>
+
+      <!-- Form Quiz -->
+      <form id="miniQuizForm" class="interactive-container" style="display: none;">
+        <!-- Pertanyaan 1 -->
+        <div class="pertanyaan">
+          <p>1️⃣ Penyebab tersering sinusitis adalah…</p>
+          <label><input type="radio" name="q1" value="benar" /> Virus</label>
+          <label><input type="radio" name="q1" value="salah" /> Cahaya matahari</label>
+          <label><input type="radio" name="q1" value="salah" /> Suara bising</label>
+        </div>
+
+        <!-- Pertanyaan 2 -->
+        <div class="pertanyaan">
+          <p>2️⃣ Apakah sinusitis bisa menular?</p>
+          <label><input type="radio" name="q2" value="salah" /> Tidak bisa menular sama sekali</label>
+          <label><input type="radio" name="q2" value="salah" /> Bisa langsung menular</label>
+          <label><input type="radio" name="q2" value="benar" /> Tidak secara langsung</label>
+        </div>
+
+        <!-- Pertanyaan 3 -->
+        <div class="pertanyaan">
+          <p>3️⃣ Cara sederhana untuk membantu meredakan sinusitis adalah…</p>
+          <label><input type="radio" name="q3" value="salah" /> Tidur terlalu malam</label>
+          <label><input type="radio" name="q3" value="benar" /> Menghirup uap air hangat</label>
+          <label><input type="radio" name="q3" value="salah" /> Tidak minum air</label>
+        </div>
+
+        <button type="button" id="cekQuiz" class="quiz-btn">Lihat Skor</button>
+      </form>
+
+      <!-- Hasil -->
+      <div id="hasilQuiz"></div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>POLTEKKES KEMENKES TANJUNGKARANG</p>
+    <p>JURUSAN KEPERAWATAN</p>
+    <p>PROGRAM STUDI SARJANA TERAPAN KEPERAWATAN</p>
+    <p>REGULER 2 TINGKAT 2 - TAHUN AJARAN 2025/2026</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

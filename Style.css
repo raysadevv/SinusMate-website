@@ -1,0 +1,709 @@
+/* ========== RESET DASAR + FRAME LEMBUT ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #fde8f0; /* warna latar luar (di belakang body) */
+}
+
+body {
+  background-color: #ffffff;
+  color: #333;
+  line-height: 1.6;
+
+  border-radius: 25px;
+  margin: 15px;
+  overflow: hidden; 
+  box-shadow: 0 0 30px rgba(243, 173, 195, 0.4);
+}
+
+/* Hilangkan efek membulat di layar kecil */
+@media (max-width: 768px) {
+  body {
+    border-radius: 0;
+    margin: 0;
+    box-shadow: none;
+  }
+}
+
+/* ========== HEADER ========== */
+header {
+  background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+  text-align: center;
+  padding: 60px 20px;
+  color: #fff;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+header h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #ffe6f0;
+}
+
+
+/* ========== NAVBAR ========== */
+nav {
+  background: #fce4ec;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+nav li {
+  margin: 8px 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #b35c72;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background-color: #f48fb1;
+  color: #fff;
+}
+
+/* ========== HERO SECTION ========== */
+#hero h3 {
+  color: #b35c72;
+  font-size: 2.3rem;
+  margin-bottom: 10px;
+}
+
+#hero p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-utama, .btn-secondary {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-utama {
+  background-color: #d23f6a;
+  color: white;
+}
+
+.btn-utama:hover {
+  background-color: #b33558;
+}
+
+.btn-secondary {
+  background-color: #fce4ec;
+  color: #b35c72;
+  border: 2px solid #f48fb1;
+}
+
+.btn-secondary:hover {
+  background-color: #f48fb1;
+  color: white;
+}
+
+/* ========== SECTION KONTEN ========== */
+.content-section {
+  max-width: 900px;
+  margin: 50px auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.content-section h2 {
+  color: #d23f6a;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  position: relative;
+}
+
+.content-section h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #f8bbd0;
+  margin-top: 5px;
+  border-radius: 2px;
+}
+
+.content-section p, 
+.content-section li {
+  color: #444;
+  font-size: 1rem;
+}
+
+.content-section ul, 
+.content-section ol {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+#faq details {
+  background-color: #fce4ec;
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+#faq details[open] {
+  background-color: #f8bbd0;
+}
+
+#faq summary {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #b35c72;
+  list-style: none;
+  outline: none;
+}
+
+#faq summary::before {
+  content: "+";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #b35c72;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#faq details[open] summary::before {
+  content: "−";
+  color: #d23f6a;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+#faq details[open] summary {
+  color: #d23f6a;
+}
+
+#faq details p {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  margin-top: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #5c374a;
+}
+
+#faq details[open] p {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 10px;
+}
+
+/* ========== FORM CEK GEJALA & KALKULATOR ========== */
+form label {
+  display: block;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #f8bbd0;
+  margin-right: 5px;
+}
+
+input[type="date"] {
+  padding: 6px;
+  border: 1px solid #f8bbd0;
+  border-radius: 6px;
+}
+
+/* CONTAINER UMUM FORM */
+.interactive-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px 30px;
+  background-color: #fff0f5; /* very soft pink */
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(243, 173, 195, 0.25);
+  font-family: "Poppins", sans-serif;
+  color: #6a1b4d;
+}
+
+/* JUDUL PERTANYAAN */
+.interactive-container .pertanyaan p {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #b35c72; /* dark pink */
+}
+
+/* === LABEL PILIHAN (Estetik & Kompatibel) === */
+.interactive-container label,
+#cek-gejala label,
+#formKalkulator label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #fce4ec;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #8a3a5a;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(211, 63, 106, 0.15);
+  position: relative;
+  user-select: none;
+}
+
+.interactive-container label:hover,
+#cek-gejala label:hover,
+#formKalkulator label:hover {
+  background-color: #f8bbd0;
+  transform: translateY(-1px);
+}
+
+/* === Efek Saat Dipilih === */
+.interactive-container label input[type="radio"]:checked,
+.interactive-container label input[type="checkbox"]:checked,
+#cek-gejala label input[type="checkbox"]:checked,
+#formKalkulator label input[type="radio"]:checked {
+  accent-color: #d23f6a;
+}
+
+.interactive-container label input[type="radio"]:checked + span,
+.interactive-container label input[type="checkbox"]:checked + span,
+#cek-gejala label input[type="checkbox"]:checked + span,
+#formKalkulator label input[type="radio"]:checked + span {
+  font-weight: bold;
+  color: #6a1b4d;
+}
+
+/* Buat <span> agar isi label bisa di-style terpisah dari <input> */
+label span {
+  flex: 1;
+}
+
+#cekBtn {
+  background-color: #d23f6a;  /* warna pink kuat */
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(210, 63, 106, 0.5);
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  user-select: none;
+}
+
+#cekBtn:hover {
+  background-color: #b33558; /* pink lebih gelap saat hover */
+  transform: scale(1.05);
+}
+
+/* RADIO BUTTON CUSTOM */
+.interactive-container input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 3px solid #b35c72;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  background-color: #fff;
+  flex-shrink: 0;
+  transition: border-color 0.3s ease;
+}
+
+.interactive-container input[type="radio"]:checked::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: #d23f6a;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.interactive-container input[type="radio"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(210, 63, 106, 0.4);
+}
+
+/* TOMBOL */
+.interactive-container .quiz-btn,
+.interactive-container button {
+  display: block;
+  width: 100%;
+  padding: 14px 0;
+  margin-top: 20px;
+  background-color: #d23f6a; /* strong pink */
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(210, 63, 106, 0.5);
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  user-select: none;
+}
+
+.interactive-container .quiz-btn:hover,
+.interactive-container button:hover {
+  background-color: #b33558;
+  transform: scale(1.05);
+}
+
+#formKalkulator button {
+  padding: 12px 28px;
+  margin: 10px 10px 0 0;
+  border: none;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  user-select: none;
+  box-shadow: 0 6px 15px rgba(210, 63, 106, 0.4);
+}
+
+#hitungBtn {
+  background-color: #d23f6a; /* pink kuat */
+  color: white;
+}
+
+#hitungBtn:hover {
+  background-color: #b33558;
+  transform: scale(1.05);
+}
+
+#resetBtn {
+  background-color: #f8bbd0; /* pink lembut */
+  color: #6a1b4d;
+  box-shadow: 0 4px 12px rgba(243, 173, 195, 0.4);
+}
+
+#resetBtn:hover {
+  background-color: #f48fb1;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .interactive-container {
+    padding: 20px;
+    margin: 20px 15px;
+  }
+
+  .interactive-container .pertanyaan p {
+    font-size: 1rem;
+  }
+
+  .interactive-container .quiz-btn,
+  .interactive-container button {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+}
+
+/* HASIL QUIZ */
+#hasilQuiz {
+  margin-top: 25px;
+  padding: 18px 22px;
+  background-color: #f8bbd0;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #6a1b4d;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(210, 63, 106, 0.3);
+  user-select: none;
+  min-height: 60px; /* supaya gak terlalu berubah ukuran */
+}
+
+/* ========== FOOTER ========== */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  background: #f8bbd0;
+  color: #6a1b4d;
+  margin-top: 50px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+footer p {
+  margin-bottom: 5px;
+}
+
+#cek-gejala,
+#kalkulator-sembuh {
+  display: none;
+}
+
+.content-section {
+  display: none;
+}
+
+/* Tampilkan section aktif */
+.content-section.active {
+  display: block;
+}
+
+@media (max-width: 480px) {
+  nav ul {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  nav li {
+    flex-basis: calc(50% - 16px); /* 2 item per baris */
+    text-align: center;
+    margin: 6px 8px;
+  }
+
+  nav a {
+    font-size: 0.9rem;      /* font lebih kecil tapi tetap readable */
+    padding: 8px 12px;      /* padding lebih pas supaya klik mudah */
+    display: block;         /* supaya area klik full */
+  }
+
+  /* Tombol hero */
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-utama,
+  .btn-secondary {
+    font-size: 1rem;        /* font tombol lebih kecil */
+    padding: 10px 20px;     /* padding tombol pas untuk jari */
+    width: 100%;            /* tombol full lebar di HP */
+    max-width: 300px;       /* supaya gak kebesaran */
+    margin: 0 auto;         /* center tombol */
+  }
+}
+
+/* ===== HERO SECTION ===== */
+#hero {
+  background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+  text-align: center;
+  padding: 70px 20px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+#hero h1 {
+  color: #b33558;
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+}
+
+#hero p {
+  color: #6a1b4d;
+  font-size: 1rem;
+}
+
+#hero .subtext {
+  font-style: italic;
+  color: #b35c72;
+  margin-top: -5px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+/* Animasi halus */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== HEADER & NAVIGASI  ===== */
+header {
+  background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.menu-button {
+  background: #f48fb1;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  flex-grow: 1;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background-color: #f48fb1;
+}
+
+/* ===== RESPONSIVE UNTUK HP ===== */
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fce4ec;
+    border-radius: 0 0 15px 15px;
+    padding: 10px 0;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  nav a {
+    color: #6a1b4d;
+    padding: 10px;
+  }
+}
+
+nav a {
+  text-decoration: none;
+  color: #6a1b4d;
+  padding: 8px 0;
+  font-weight: 500;
+  transition: 0.3s;
+  text-align: center;
+}
+
+nav a:hover {
+  color: #b33558;
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+  .menu-button { display: none; }
+  nav {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    box-shadow: none;
+  }
+  nav a { padding: 10px 15px; }
+}
+
+/* ===== RESPONSIVE UNTUK HP ===== */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  #hero {
+    padding: 40px 15px;
+  }
+
+  #hero h1 {
+    font-size: 1.4rem;
+  }
+
+  #hero p {
+    font-size: 0.95rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-utama, .btn-secondary {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  nav a {
+    font-size: 0.95rem;
+  }
+}
+
