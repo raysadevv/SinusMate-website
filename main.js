@@ -91,41 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ===== MENU TOGGLE HP =====
-  const menuBtn = document.getElementById("menuBtn");
-  const navList = document.querySelector("nav ul");
-if (menuBtn && navList && mainContent) {
-  navList.classList.remove("show"); // sembunyikan awal
-
-  menuBtn.addEventListener("click", () => {
-    navList.classList.toggle("show");
-
-    if (navList.classList.contains("show")) {
-      // dorong main content sesuai tinggi menu
-      mainContent.style.marginTop = navList.scrollHeight + "px";
-    } else {
-      mainContent.style.marginTop = "0";
-    }
-  });
-
-  // tutup menu otomatis saat klik link
-  navList.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      navList.classList.remove("show");
-      mainContent.style.marginTop = "0";
-    });
-  });
-}
-
-  // tutup menu otomatis saat klik link
-  navList.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      navList.classList.remove("show");
-      mainContent.style.marginTop = "0";
-    });
-  });
-}
-
+  
   // ===== MITOS & FAKTA SINUSITIS =====
   const faktaElements = document.querySelectorAll(".fakta");
   faktaElements.forEach(f => f.style.display = "none"); // sembunyikan semua fakta awal
@@ -162,6 +128,7 @@ function showSection(id) {
     target.classList.add('active');
   }
 }
+
 
 
 
