@@ -34,12 +34,12 @@ header h1 {
   font-weight: 700;
 }
 
-/* ===== NAV ===== */
+/* ===== NAVIGASI ===== */
 nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 16px;
   flex-grow: 1;
 }
 
@@ -47,7 +47,9 @@ nav ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  gap: 12px;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
 }
 
 nav li {
@@ -58,13 +60,62 @@ nav a {
   text-decoration: none;
   color: #fff;
   font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 12px;
-  transition: 0.3s;
+  padding: 8px 16px;      /* lebih nyaman di jari */
+  border-radius: 20px;    /* lembut & modern */
+  transition: all 0.35s ease;  /* transisi lebih smooth */
+  backdrop-filter: blur(2px);  /* efek glass soft */
 }
 
 nav a:hover {
-  background-color: rgba(255,255,255,0.25);
+  background-color: rgba(255, 255, 255, 0.2); /* tetap soft */
+  transform: translateY(-2px) scale(1.05);   /* hover ringan */
+}
+
+/* ===== NAVIGASI RESPONSIVE UNTUK HP ===== */
+.menu-button {
+  display: none; /* default hidden di desktop */
+  background: #f48fb1;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* Hide nav by default di HP */
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+  }
+
+  nav {
+    display: none; /* hidden default */
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav li {
+    margin: 0;
+  }
+
+  nav a {
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+  }
+
+  nav.active { /* saat menu dibuka */
+    display: flex;
+  }
 }
 
 /* ===== HERO SECTION ===== */
@@ -532,3 +583,4 @@ footer a:hover {
     margin-bottom: 6px;
   }
 }
+
