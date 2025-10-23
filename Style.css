@@ -55,6 +55,8 @@ nav {
   display: flex;
   flex-wrap: wrap;
   gap: 18px;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
 }
 
 nav a {
@@ -113,6 +115,7 @@ nav a:hover {
 
   nav.active {
     max-height: 500px;
+    opacity: 1;
   }
 
   nav a {
@@ -814,6 +817,7 @@ footer a:hover {
     margin-bottom: 6px;
   }
 }
+
 
 
 
