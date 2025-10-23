@@ -707,3 +707,110 @@ nav a:hover {
   }
 }
 
+/* ========== MITOS & FAKTA SINUSITIS ========== */
+.mitos-fakta-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 25px 30px;
+  background-color: #fff0f5; /* very soft pink */
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(243, 173, 195, 0.25);
+  color: #6a1b4d;
+  font-family: "Poppins", sans-serif;
+}
+
+.mitos-fakta-section h2 {
+  font-size: 1.8rem;
+  color: #d23f6a;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.mitos-fakta-section h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #f8bbd0;
+  margin-top: 5px;
+  border-radius: 2px;
+}
+
+.mitos-fakta-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.mitos-fakta-item {
+  background-color: #fce4ec;
+  padding: 18px 22px;
+  margin-bottom: 18px;
+  border-radius: 18px;
+  box-shadow: 0 4px 15px rgba(210, 63, 106, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.mitos-fakta-item strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #b35c72;
+}
+
+.mitos-fakta-item .btn-toggle {
+  background-color: #d23f6a;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease, transform 0.15s ease;
+}
+
+.mitos-fakta-item .btn-toggle:hover {
+  background-color: #b33558;
+  transform: scale(1.05);
+}
+
+.mitos-fakta-item .fakta {
+  display: none; /* disembunyikan default */
+  padding: 12px 15px;
+  background-color: #f8bbd0;
+  border-radius: 12px;
+  color: #5c374a;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 10px;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  overflow: hidden;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 480px) {
+  .mitos-fakta-section {
+    padding: 20px 15px;
+    margin: 30px 10px;
+  }
+
+  .mitos-fakta-item {
+    padding: 15px 18px;
+  }
+
+  .mitos-fakta-item strong {
+    font-size: 1rem;
+  }
+
+  .mitos-fakta-item .btn-toggle {
+    font-size: 0.95rem;
+    padding: 6px 14px;
+  }
+
+  .mitos-fakta-item .fakta {
+    font-size: 0.95rem;
+  }
+}
+
+
