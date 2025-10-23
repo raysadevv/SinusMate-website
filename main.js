@@ -1,41 +1,100 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // MINI QUIZ
+  // --- MINI QUIZ INTERAKTIF ---
   const miniQuizForm = document.getElementById('miniQuizForm');
   const btnMulaiQuiz = document.getElementById('btnMulaiQuiz');
   const hasilQuiz = document.getElementById('hasilQuiz');
   const tombolCek = document.getElementById('cekQuiz');
 
-  if (miniQuizForm) miniQuizForm.style.display = 'none';
+  if (!miniQuizForm) return;
 
-  if (btnMulaiQuiz && miniQuizForm) {
+  // Sembunyikan form quiz di awal
+  miniQuizForm.style.display = 'none';
+
+  // Hitung total pertanyaan otomatis
+  const totalPertanyaan = miniQuizForm.querySelectorAll('.pertanyaan').length;
+
+  // Fungsi reset warna & hasil
+  const resetQuiz = () => {
+    hasilQuiz.innerHTML = '';
+    miniQuizForm.querySelectorAll('.pertanyaan').forEach((q) => {
+      q.classList.remove('benar', 'salah');
+    });
+    miniQuizForm.reset();
+  };
+
+  // Tombol mulai quiz
+  if (btnMulaiQuiz) {
     btnMulaiQuiz.addEventListener('click', () => {
       btnMulaiQuiz.style.display = 'none';
       miniQuizForm.style.display = 'block';
       hasilQuiz.innerHTML = '';
+      resetQuiz();
     });
   }
 
-  if (tombolCek && miniQuizForm) {
+  // Tombol cek hasil
+  if (tombolCek) {
     tombolCek.addEventListener('click', () => {
       let skor = 0;
-      const totalPertanyaan = 3;
 
+      // Periksa tiap jawaban
       for (let i = 1; i <= totalPertanyaan; i++) {
+        const pertanyaan = miniQuizForm.querySelector(`.pertanyaan:nth-child(${i})`);
         const jawaban = miniQuizForm.querySelector(`input[name="q${i}"]:checked`);
-        if (jawaban && jawaban.value === 'benar') {
-          skor++;
+
+        if (jawaban) {
+          if (jawaban.value === 'benar') {
+            skor++;
+            pertanyaan.classList.add('benar');
+            pertanyaan.classList.remove('salah');
+          } else {
+            pertanyaan.classList.add('salah');
+            pertanyaan.classList.remove('benar');
+          }
+        } else {
+          pertanyaan.classList.remove('benar');
+          pertanyaan.classList.add('salah');
         }
       }
 
+      // Tampilkan hasil
+      let pesan = '';
       if (skor === totalPertanyaan) {
-        hasilQuiz.innerHTML = `🎉 Jawabanmu benar semua! Skor: <strong>${skor}/${totalPertanyaan}</strong> 🩷`;
+        pesan = `🎉 Hebat! Jawabanmu benar semua! Skor: <strong>${skor}/${totalPertanyaan}</strong> 🩷`;
+      } else if (skor >= totalPertanyaan * 0.6) {
+        pesan = `👏 Bagus! Skor kamu <strong>${skor}/${totalPertanyaan}</strong> — Tinggal sedikit lagi untuk sempurna! 🌟`;
       } else if (skor > 0) {
-        hasilQuiz.innerHTML = `✨ Skor kamu: <strong>${skor}/${totalPertanyaan}</strong> — Bagus, tapi masih bisa lebih baik 💪`;
+        pesan = `✨ Skor kamu <strong>${skor}/${totalPertanyaan}</strong> — Yuk pelajari lagi supaya makin paham 💪`;
       } else {
-        hasilQuiz.innerHTML = `😅 Belum ada jawaban benar. Yuk belajar lagi 📖`;
+        pesan = `😅 Belum ada jawaban benar. Coba ulangi lagi ya 📖`;
+      }
+
+      hasilQuiz.innerHTML = `
+        <div class="hasil-box">
+          ${pesan}
+          <br><br>
+          <button id="ulangQuiz" class="quiz-btn">Ulangi Quiz</button>
+        </div>
+      `;
+
+      // Tombol ulang quiz
+      const ulangBtn = document.getElementById('ulangQuiz');
+      if (ulangBtn) {
+        ulangBtn.addEventListener('click', () => {
+          resetQuiz();
+          hasilQuiz.innerHTML = '';
+          btnMulaiQuiz.style.display = 'inline-block';
+          miniQuizForm.style.display = 'none';
+        });
       }
     });
   }
+
+  // Tambah efek hover & animasi kecil
+  miniQuizForm.addEventListener('change', (e) => {
+    e.target.closest('.pertanyaan').classList.add('aktif');
+  });
+});
 
   // CEK GEJALA
   const cekBtn = document.getElementById("cekBtn");
@@ -143,4 +202,5 @@ function toggleMenu() {
   const nav = document.querySelector("header nav");
   nav.classList.toggle("show");
 }
+
 
