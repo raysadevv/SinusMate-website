@@ -34,87 +34,80 @@ header h1 {
   font-weight: 700;
 }
 
-/* ===== NAVIGASI ===== */
+/* ===== NAV ===== */
 nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
-  flex-grow: 1;
+  position: relative;
 }
 
 nav ul {
-  display: flex;
-  flex-wrap: wrap;
   list-style: none;
-  gap: 14px;
   padding: 0;
   margin: 0;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-nav li {
-  margin: 0;
-}
-
-nav a {
+/* Style default menu links horizontal */
+nav li a {
   text-decoration: none;
   color: #fff;
   font-weight: 500;
-  padding: 8px 16px;      /* lebih nyaman di jari */
-  border-radius: 20px;    /* lembut & modern */
-  transition: all 0.35s ease;  /* transisi lebih smooth */
-  backdrop-filter: blur(2px);  /* efek glass soft */
+  padding: 8px 14px;
+  border-radius: 12px;
+  transition: 0.3s;
 }
 
-nav a:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* tetap soft */
-  transform: translateY(-2px) scale(1.05);   /* hover ringan */
+nav li a:hover {
+  background-color: rgba(255,255,255,0.25);
 }
 
-/* ===== NAVIGASI RESPONSIVE UNTUK HP ===== */
+/* ===== MOBILE MENU BUTTON ===== */
 .menu-button {
-  display: none; /* default hidden di desktop */
-  background: #f48fb1;
+  display: none;
+  font-size: 1.6rem;
+  background: none;
   border: none;
-  border-radius: 8px;
-  padding: 8px 15px;
-  font-size: 16px;
   color: #fff;
   cursor: pointer;
-  z-index: 1100;
+  margin-bottom: 10px;
 }
 
-/* Hide nav by default di HP */
+/* ===== MOBILE VERTICAL MENU ===== */
 @media (max-width: 768px) {
   .menu-button {
     display: block;
   }
 
-  nav {
-    display: none; /* hidden default */
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
-  }
-
   nav ul {
     flex-direction: column;
-    gap: 10px;
+    background-color: #d23f6a; /* pink kuat */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
   }
 
-  nav li {
-    margin: 0;
+  nav ul.mobile-active {
+    max-height: 500px; /* cukup untuk semua link */
   }
 
-  nav a {
-    padding: 10px 15px;
-    border-radius: 12px;
-    font-size: 0.95rem;
+  nav li a {
+    color: #fff;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
   }
 
-  nav.active { /* saat menu dibuka */
-    display: flex;
+  nav li:last-child a {
+    border-bottom: none;
+  }
+
+  nav li a:hover {
+    background-color: #b33558; /* pink gelap hover */
   }
 }
 
@@ -292,93 +285,62 @@ nav a:hover {
 .interactive-container {
   max-width: 600px;
   margin: 40px auto;
-  padding: 25px 30px;
-  background-color: #fff0f5; /* soft pink lembut */
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(243, 173, 195, 0.25);
+  padding: 30px 35px;
+  background: linear-gradient(135deg, #fff0f5, #ffe4f1); /* gradient soft pink */
+  border-radius: 25px;
+  box-shadow: 0 12px 30px rgba(243, 173, 195, 0.2), 0 4px 12px rgba(243, 173, 195, 0.1); /* depth */
   color: #6a1b4d;
   font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease-in-out;
 }
 
+/* Pertanyaan */
 .interactive-container .pertanyaan p {
   font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 12px;
-  color: #b35c72; /* pink gelap lembut */
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+  color: #b35c72;
 }
 
+/* Pilihan */
 .interactive-container label {
   display: flex;
   align-items: center;
-  gap: 12px;
-  background-color: #fce4ec; /* soft pink */
-  padding: 12px 16px;
-  margin-bottom: 12px;
-  border-radius: 25px;
+  gap: 14px;
+  background-color: #fce4ec;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  border-radius: 30px;
   cursor: pointer;
   font-weight: 600;
-  color: #8a3a5a; /* pink tua lembut */
-  box-shadow: 0 3px 8px rgba(211, 63, 106, 0.15);
-  transition: all 0.3s ease;
+  color: #8a3a5a;
+  box-shadow: 0 5px 15px rgba(211, 63, 106, 0.12);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .interactive-container label:hover {
-  background-color: #f8bbd0; /* pink lembut hover */
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, #f8bbd0, #fdd0e0); /* subtle hover gradient */
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(210, 63, 106, 0.2);
 }
 
+/* Checked state */
 .interactive-container label input[type="radio"]:checked + span,
 .interactive-container label input[type="checkbox"]:checked + span {
-  font-weight: bold;
+  font-weight: 700;
   color: #6a1b4d;
+  transition: all 0.25s ease-in-out;
 }
 
+/* Text inside label */
 label span {
   flex: 1;
 }
 
-/* BUTTONS */
-.interactive-container button,
-#cekBtn,
-#hitungBtn,
-#resetBtn {
-  border-radius: 30px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-#cekBtn,
-.interactive-container .quiz-btn,
-#hitungBtn {
-  background-color: #d23f6a; /* pink kuat */
-  color: #fff;
-  box-shadow: 0 6px 15px rgba(210, 63, 106, 0.5);
-}
-
-#cekBtn:hover,
-.interactive-container .quiz-btn:hover,
-#hitungBtn:hover {
-  background-color: #b33558; /* pink gelap saat hover */
-  transform: scale(1.05);
-}
-
-#resetBtn {
-  background-color: #f8bbd0; /* pink lembut */
-  color: #6a1b4d;
-  box-shadow: 0 4px 12px rgba(243, 173, 195, 0.4);
-}
-
-#resetBtn:hover {
-  background-color: #f48fb1; /* pink medium */
-  color: white;
-  transform: scale(1.05);
-}
-
-/* RESPONSIVE */
+/* Responsive */
 @media (max-width: 768px) {
   .interactive-container {
-    padding: 20px 20px;
+    padding: 25px 20px;
     margin: 30px 15px;
   }
 
@@ -387,22 +349,14 @@ label span {
   }
 
   .interactive-container label {
-    padding: 10px 14px;
+    padding: 12px 14px;
     font-size: 0.95rem;
-  }
-
-  .interactive-container button,
-  #cekBtn,
-  #hitungBtn,
-  #resetBtn {
-    font-size: 1rem;
-    padding: 12px 0;
   }
 }
 
 @media (max-width: 480px) {
   .interactive-container {
-    padding: 18px 15px;
+    padding: 20px 15px;
     margin: 20px 10px;
   }
 
@@ -414,128 +368,266 @@ label span {
     padding: 10px 12px;
     font-size: 0.9rem;
   }
-
-  .interactive-container button,
-  #cekBtn,
-  #hitungBtn,
-  #resetBtn {
-    font-size: 0.95rem;
-    padding: 10px 0;
-  }
-}
-/* ===== FORM INTERACTIVE ===== */
-/* ...kode sebelumnya tetap sama... */
-
-/* Hover & Animasi Halus */
-.interactive-container label {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.interactive-container label:hover {
-  background-color: #f8bbd0;
-  transform: translateY(-2px) scale(1.02); /* naik tipis & zoom lembut */
-  box-shadow: 0 6px 15px rgba(210, 63, 106, 0.2); /* shadow lebih terasa */
-}
-
+/* ===== STYLING TOMBOL ===== */
+button,
 #cekBtn,
-.interactive-container .quiz-btn,
-#hitungBtn {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+#hitungBtn,
+#resetBtn,
+.quiz-btn {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  margin-top: 18px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #f48fb1, #ec407a);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(236, 64, 122, 0.3);
 }
 
+button:hover,
 #cekBtn:hover,
-.interactive-container .quiz-btn:hover,
-#hitungBtn:hover {
-  background-color: #b33558;
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(210, 63, 106, 0.35);
+#hitungBtn:hover,
+.quiz-btn:hover {
+  background: linear-gradient(135deg, #ec407a, #d81b60);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(216, 27, 96, 0.35);
 }
 
 #resetBtn {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+  color: #6a1b4d;
+  box-shadow: 0 6px 15px rgba(243, 173, 195, 0.3);
 }
 
 #resetBtn:hover {
-  background-color: #f48fb1;
+  background: linear-gradient(135deg, #f48fb1, #ec407a);
   color: white;
   transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 6px 18px rgba(243, 173, 195, 0.35);
 }
 
-/* Efek smooth pada cek/radio span */
-.interactive-container label input[type="radio"]:checked + span,
-.interactive-container label input[type="checkbox"]:checked + span {
-  transition: all 0.25s ease-in-out;
-  color: #6a1b4d;
-  font-weight: 700;
-}
-
-/* ===== MITOS & FAKTA ===== */
-.mitos-fakta-section {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 30px 25px;
-  background: linear-gradient(145deg, #fff0f5, #ffe6f0);
-  border-radius: 30px;
-  box-shadow: 0 12px 30px rgba(243, 173, 195, 0.2);
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.8s forwards;
-  animation-delay: 0.2s;
-}
-
-.mitos-fakta-item {
-  background: linear-gradient(135deg, #fce4ec, #ffe6f0);
-  padding: 20px 24px;
-  margin-bottom: 20px;
-  border-radius: 20px;
-  box-shadow: 0 6px 18px rgba(210, 63, 106, 0.12);
-  transition: all 0.3s ease, transform 0.25s ease;
+/* ===== STYLING CHECKBOX & RADIO ===== */
+.interactive-container input[type="radio"],
+.interactive-container input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ec407a;
+  border-radius: 50%;
+  outline: none;
   cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
-.mitos-fakta-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(210, 63, 106, 0.18);
+.interactive-container input[type="checkbox"] {
+  border-radius: 6px; /* checkbox bentuk kotak */
+}
+
+.interactive-container input[type="radio"]:checked,
+.interactive-container input[type="checkbox"]:checked {
+  background-color: #ec407a;
+  border-color: #ec407a;
+  box-shadow: 0 0 10px rgba(236, 64, 122, 0.4);
+}
+
+.interactive-container input[type="checkbox"]:checked::after {
+  content: "✔";
+  position: absolute;
+  color: white;
+  font-size: 0.8rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+}
+
+.interactive-container input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .mitos-fakta-section {
-    padding: 25px 20px;
-    margin: 30px 15px;
+  button,
+  #cekBtn,
+  #hitungBtn,
+  #resetBtn,
+  .quiz-btn {
+    font-size: 0.95rem;
+    padding: 10px 0;
   }
 
-  .mitos-fakta-item {
-    padding: 18px 20px;
-    margin-bottom: 18px;
+  .interactive-container input[type="radio"],
+  .interactive-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
   }
 }
 
 @media (max-width: 480px) {
-  .mitos-fakta-section {
-    padding: 20px 15px;
-    margin: 25px 10px;
+  button,
+  #cekBtn,
+  #hitungBtn,
+  #resetBtn,
+  .quiz-btn {
+    font-size: 0.9rem;
+    padding: 9px 0;
   }
 
-  .mitos-fakta-item {
-    padding: 15px 16px;
-    margin-bottom: 15px;
+  .interactive-container input[type="radio"],
+  .interactive-container input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
   }
 }
+/* ===== MITOS & FAKTA ===== */
+.mitos-fakta-section {
+  max-width: 850px;
+  margin: 50px auto;
+  padding: 35px 30px;
+  background: linear-gradient(145deg, #fff0f5, #ffe6f0);
+  border-radius: 28px;
+  box-shadow: 0 10px 30px rgba(243, 173, 195, 0.25);
+  color: #6a1b4d;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 0.9s forwards;
+  animation-delay: 0.1s;
+}
 
-/* ===== ANIMASI FADE IN UP ===== */
+.mitos-fakta-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #b33558;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
+
+.mitos-fakta-item {
+  background: linear-gradient(135deg, #fce4ec, #ffe6f0);
+  padding: 22px 26px;
+  margin-bottom: 22px;
+  border-radius: 18px;
+  box-shadow: 0 6px 15px rgba(210, 63, 106, 0.12);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efek hover elegan */
+.mitos-fakta-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(210, 63, 106, 0.18);
+  background: linear-gradient(135deg, #ffdbe8, #fff0f5);
+}
+
+/* Tombol toggle */
+.btn-toggle {
+  display: inline-block;
+  background-color: #d23f6a;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(210, 63, 106, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-toggle:hover {
+  background-color: #b33558;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(210, 63, 106, 0.35);
+}
+
+/* Fakta text */
+.fakta {
+  margin-top: 12px;
+  padding: 12px 16px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: inset 0 0 8px rgba(243, 173, 195, 0.25);
+  color: #7a3a54;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  display: none;
+  animation: fadeSlide 0.4s ease forwards;
+}
+
+/* Animasi */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .mitos-fakta-section {
+    padding: 28px 20px;
+    margin: 35px 15px;
+  }
+
+  .mitos-fakta-title {
+    font-size: 1.5rem;
+  }
+
+  .mitos-fakta-item {
+    padding: 18px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mitos-fakta-section {
+    padding: 22px 15px;
+    margin: 25px 10px;
+  }
+
+  .mitos-fakta-title {
+    font-size: 1.3rem;
+  }
+
+  .mitos-fakta-item {
+    padding: 15px 16px;
+  }
+}
+
 
 /* ===== FOOTER ===== */
 footer {
@@ -583,4 +675,5 @@ footer a:hover {
     margin-bottom: 6px;
   }
 }
+
 
