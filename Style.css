@@ -8,7 +8,7 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #ffffff; /* FIX: Latar luar jadi putih */
+  background-color: #fcf4f7; /* Pink Paling Pucat */
 }
 
 body { 
@@ -782,3 +782,4 @@ nav a:hover {
         display: none;
     }
 }
+
