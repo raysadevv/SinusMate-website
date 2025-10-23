@@ -1,10 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
 
  function toggleMenu() {
-  const menu = document.querySelector("nav");
+  const menu = document.querySelector("header nav");
+  if (!menu) return;
   menu.classList.toggle("active");
 }
 
+ function goBack() {
+  window.history.back();
+}
+ 
   // ===== MINI QUIZ =====
   const miniQuizForm = document.getElementById('miniQuizForm');
   const btnMulaiQuiz = document.getElementById('btnMulaiQuiz');
@@ -118,6 +123,7 @@ function showSection(id) {
     target.classList.add('active');
   }
 }
+
 
 
 
