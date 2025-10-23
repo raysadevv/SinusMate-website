@@ -1,4 +1,4 @@
-/* ========== RESET DASAR + FRAME LEMBUT ========== */
+/* ========== RESET DASAR + FRAME FULL-WIDTH ========== */
 * {
   margin: 0;
   padding: 0;
@@ -8,33 +8,30 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #f5f5f5; /* Abu-abu Sangat Terang */
+  background-color: #f5f5f5; /* FIX: Abu-abu Sangat Terang */
 }
 
-body { 
-  background-color: #ffffff; 
-  color: #333; 
-  line-height: 1.6; 
-  
-  /* --- HAPUS SEMUA ATRIBUT KOTAK MENGAMBANG --- */
-  border-radius: 0; /* Menghilangkan sudut melengkung */
-  box-shadow: none; /* Menghilangkan bayangan */
-  margin: 0;        /* Menghilangkan margin agar menyatu ke tepi */
-  max-width: none;  /* Memastikan lebar penuh */
-  
-  /* Perbaikan Scroll tetap dipertahankan */
-  overflow-x: hidden; 
-  overflow-y: auto; 
+body {
+  background-color: #ffffff;
+  color: #333;
+  line-height: 1.6;
+
+  /* FIX: Layout Full-Width, Menghilangkan Efek Kotak Mengambang di Body */
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  max-width: none;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-
-/* ========== HEADER (Fix Tampilan Rapi) ========== */
+/* ========== HEADER & NAVIGASI DESKTOP (Rapi & Tipis) ========== */
 header {
   background: linear-gradient(135deg, #f8bbd0, #f48fb1);
-  padding: 15px 40px; /* FIX: Padding lebih kecil dan modern */
+  padding: 15px 40px;
   color: #fff;
-  display: flex; /* Untuk menata Judul dan Navigasi */
-  justify-content: space-between; /* Judul di kiri, Menu/Navigasi di kanan */
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
@@ -42,123 +39,61 @@ header {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Biar Judul/Logo di header nggak kegedean dan nggak ada margin aneh */
-header h1, header h2 {
-  font-size: 1.5rem; 
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
   padding: 0;
   margin: 0;
 }
 
-  /* Perbaikan Navigasi */
-  nav a {
-    font-size: 0.85rem;
-    padding: 6px 10px;
-  }
-
-  /* Perbaikan Hero Section */
-  #hero {
-    padding: 30px 15px; /* Mengurangi padding vertikal */
-  }
-
-  /* Perbaikan Tombol Hero */
-  .btn-utama, .btn-secondary {
-    font-size: 0.9rem;
-    padding: 8px 15px;
-  }
-
-  /* Perbaikan Semua Content Section */
-  .content-section {
-    padding: 15px; /* Padding sangat kecil */
-    margin: 20px auto;
-  }
-
-  .content-section h2 {
-    font-size: 1.5rem; /* Ukuran Judul konten lebih kecil */
-  }
-}
-
-/* RESPONSIVE PADA LAYAR SANGAT KECIL */
-@media (max-width: 480px) {
-  /* Pastikan semua tombol hero menjadi kolom */
-  .hero-buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .btn-utama, .btn-secondary {
-    width: 100%;
-    max-width: 250px;
-    margin: 0 auto;
-  }
-
-  /* Kontainer interaktif (Quiz, Kalkulator) */
-  .interactive-container {
-    padding: 15px;
-    margin: 20px 10px;
-  }
-}
-
-header h1 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-header h2 {
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: #ffe6f0;
-}
-
-
-/* ========== NAVBAR ========== */
+/* Navigasi Link (Desktop) */
 nav {
-  background: #fce4ec;
-  padding: 10px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-nav ul {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  list-style: none;
-}
-
-nav li {
-  margin: 8px 15px;
+  gap: 15px;
+  background-color: transparent;
+  position: static;
 }
 
 nav a {
   text-decoration: none;
-  color: #b35c72;
+  color: #fff; /* Teks Navigasi Putih untuk Desktop */
   font-weight: 500;
-  padding: 6px 10px;
+  padding: 6px 12px;
   border-radius: 6px;
   transition: 0.3s;
 }
 
 nav a:hover {
-  background-color: #f48fb1;
-  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* ========== HERO SECTION ========== */
+.menu-button {
+  display: none; /* Tombol menu disembunyikan di Desktop */
+  background: #f48fb1;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* ========== HERO SECTION (MENGAMBANG di Desktop) ========== */
 #hero {
   text-align: center;
   padding: 70px 20px;
-  background-color: #fce4ec; /* Background pink muda */
-  
-  max-width: 900px; /* Batasi lebar agar tidak memenuhi layar */
-  margin: 40px auto; /* Membuatnya mengambang di tengah */
-  border-radius: 15px; /* Sudut melengkung */
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Bayangan mengambang */
+  background-color: #fce4ec;
+
+  /* EFEK MENGAMBANG DI DESKTOP */
+  max-width: 900px;
+  margin: 40px auto;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.8s ease-in-out;
 }
 
-#hero h1 { /* Gunakan h1 jika 'Kenali...' ada di h1 */
+#hero h1 {
   color: #b35c72;
   font-size: 2.3rem;
   margin-bottom: 10px;
@@ -171,10 +106,13 @@ nav a:hover {
 
 .hero-buttons {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
+  margin-top: 25px;
 }
 
+/* Tombol */
 .btn-utama, .btn-secondary {
   padding: 10px 20px;
   border: none;
@@ -204,7 +142,13 @@ nav a:hover {
   color: white;
 }
 
-/* ========== SECTION KONTEN ========== */
+/* Animasi halus */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== SECTION KONTEN UMUM ========== */
 .content-section {
   max-width: 900px;
   margin: 50px auto;
@@ -212,6 +156,11 @@ nav a:hover {
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  display: none; /* Default tersembunyi */
+}
+
+.content-section.active {
+  display: block; /* Tampilkan section aktif */
 }
 
 .content-section h2 {
@@ -231,18 +180,19 @@ nav a:hover {
   border-radius: 2px;
 }
 
-.content-section p, 
+.content-section p,
 .content-section li {
   color: #444;
   font-size: 1rem;
 }
 
-.content-section ul, 
+.content-section ul,
 .content-section ol {
   padding-left: 20px;
   margin-top: 10px;
 }
 
+/* ========== FAQ SECTION ========== */
 #faq details {
   background-color: #fce4ec;
   padding: 16px 20px;
@@ -347,9 +297,7 @@ input[type="date"] {
 }
 
 /* === LABEL PILIHAN (Estetik & Kompatibel) === */
-.interactive-container label,
-#cek-gejala label,
-#formKalkulator label {
+.interactive-container label {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -366,25 +314,19 @@ input[type="date"] {
   user-select: none;
 }
 
-.interactive-container label:hover,
-#cek-gejala label:hover,
-#formKalkulator label:hover {
+.interactive-container label:hover {
   background-color: #f8bbd0;
   transform: translateY(-1px);
 }
 
 /* === Efek Saat Dipilih === */
 .interactive-container label input[type="radio"]:checked,
-.interactive-container label input[type="checkbox"]:checked,
-#cek-gejala label input[type="checkbox"]:checked,
-#formKalkulator label input[type="radio"]:checked {
+.interactive-container label input[type="checkbox"]:checked {
   accent-color: #d23f6a;
 }
 
 .interactive-container label input[type="radio"]:checked + span,
-.interactive-container label input[type="checkbox"]:checked + span,
-#cek-gejala label input[type="checkbox"]:checked + span,
-#formKalkulator label input[type="radio"]:checked + span {
+.interactive-container label input[type="checkbox"]:checked + span {
   font-weight: bold;
   color: #6a1b4d;
 }
@@ -392,25 +334,6 @@ input[type="date"] {
 /* Buat <span> agar isi label bisa di-style terpisah dari <input> */
 label span {
   flex: 1;
-}
-
-#cekBtn {
-  background-color: #d23f6a;  /* warna pink kuat */
-  color: white;
-  padding: 14px 28px;
-  border: none;
-  border-radius: 30px;
-  font-weight: 700;
-  font-size: 1.15rem;
-  cursor: pointer;
-  box-shadow: 0 6px 15px rgba(210, 63, 106, 0.5);
-  transition: background-color 0.3s ease, transform 0.15s ease;
-  user-select: none;
-}
-
-#cekBtn:hover {
-  background-color: #b33558; /* pink lebih gelap saat hover */
-  transform: scale(1.05);
 }
 
 /* RADIO BUTTON CUSTOM */
@@ -446,7 +369,7 @@ label span {
   box-shadow: 0 0 0 4px rgba(210, 63, 106, 0.4);
 }
 
-/* TOMBOL */
+/* TOMBOL FORM (Cek Quiz) */
 .interactive-container .quiz-btn,
 .interactive-container button {
   display: block;
@@ -471,9 +394,11 @@ label span {
   transform: scale(1.05);
 }
 
+/* Tombol Kalkulator */
 #formKalkulator button {
   padding: 12px 28px;
   margin: 10px 10px 0 0;
+  display: inline-block; /* Agar tombol berdampingan */
   border: none;
   border-radius: 30px;
   font-weight: 700;
@@ -485,7 +410,7 @@ label span {
 }
 
 #hitungBtn {
-  background-color: #d23f6a; /* pink kuat */
+  background-color: #d23f6a;
   color: white;
 }
 
@@ -495,7 +420,7 @@ label span {
 }
 
 #resetBtn {
-  background-color: #f8bbd0; /* pink lembut */
+  background-color: #f8bbd0;
   color: #6a1b4d;
   box-shadow: 0 4px 12px rgba(243, 173, 195, 0.4);
 }
@@ -504,24 +429,6 @@ label span {
   background-color: #f48fb1;
   color: white;
   transform: scale(1.05);
-}
-
-/* RESPONSIVE */
-@media (max-width: 480px) {
-  .interactive-container {
-    padding: 20px;
-    margin: 20px 15px;
-  }
-
-  .interactive-container .pertanyaan p {
-    font-size: 1rem;
-  }
-
-  .interactive-container .quiz-btn,
-  .interactive-container button {
-    font-size: 1rem;
-    padding: 12px 0;
-  }
 }
 
 /* HASIL QUIZ */
@@ -536,7 +443,7 @@ label span {
   text-align: center;
   box-shadow: 0 5px 15px rgba(210, 63, 106, 0.3);
   user-select: none;
-  min-height: 60px; /* supaya gak terlalu berubah ukuran */
+  min-height: 60px;
 }
 
 /* ========== FOOTER ========== */
@@ -550,213 +457,71 @@ footer {
   line-height: 1.4;
 }
 
-footer p {
-  margin-bottom: 5px;
-}
+/* ================================================= */
+/* ===== RESPONSIVE UNTUK LAYAR KECIL (HP) - FINAL FIX ===== */
+/* ================================================= */
 
-#cek-gejala,
-#kalkulator-sembuh {
-  display: none;
-}
-
-.content-section {
-  display: none;
-}
-
-/* Tampilkan section aktif */
-.content-section.active {
-  display: block;
-}
-
-@media (max-width: 480px) {
-  nav ul {
-    justify-content: center;
-    gap: 8px;
-  }
-
-  nav li {
-    flex-basis: calc(50% - 16px); /* 2 item per baris */
-    text-align: center;
-    margin: 6px 8px;
-  }
-
-  nav a {
-    font-size: 0.9rem;      /* font lebih kecil tapi tetap readable */
-    padding: 8px 12px;      /* padding lebih pas supaya klik mudah */
-    display: block;         /* supaya area klik full */
-  }
-
-  /* Tombol hero */
-  .hero-buttons {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .btn-utama,
-  .btn-secondary {
-    font-size: 1rem;        /* font tombol lebih kecil */
-    padding: 10px 20px;     /* padding tombol pas untuk jari */
-    width: 100%;            /* tombol full lebar di HP */
-    max-width: 300px;       /* supaya gak kebesaran */
-    margin: 0 auto;         /* center tombol */
+/* Sembunyikan Tombol Menu di Desktop (Baru dari 769px ke atas) */
+@media (min-width: 769px) {
+  .menu-button {
+      display: none;
   }
 }
 
-/* GANTI DAN PASANG KODE INI */
-#hero {
-  text-align: center;
-  padding: 70px 20px;
-  background-color: #fce4ec; /* Background pink muda solid */
-  
-  /* --- EFEK MENGAMBANG UNTUK DESKTOP --- */
-  max-width: 900px; /* Batasi lebar */
-  margin: 40px auto; /* Membuatnya mengambang di tengah */
-  border-radius: 15px; /* Sudut melengkung */
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Bayangan mengambang */
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Tambahkan kembali kode style untuk h1, p, dan buttons di bawah #hero ini: */
-#hero h1 {
-  color: #b33558;
-  font-size: 1.9rem;
-  margin-bottom: 10px;
-}
-
-#hero h1 {
-  color: #b33558;
-  font-size: 1.9rem;
-  margin-bottom: 10px;
-}
-
-#hero p {
-  color: #6a1b4d;
-  font-size: 1rem;
-}
-
-#hero .subtext {
-  font-style: italic;
-  color: #b35c72;
-  margin-top: -5px;
-}
-
-.hero-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 25px;
-}
-
-/* Animasi halus */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ===== HEADER & NAVIGASI  ===== */
-header {
-  background: linear-gradient(135deg, #f8bbd0, #f48fb1);
-  padding: 15px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.menu-button {
-  background: #f48fb1;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 15px;
-  font-size: 16px;
-  color: #fff;
-  cursor: pointer;
-  display: none;
-}
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  flex-grow: 1;
-}
-
-nav a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  background-color: #f48fb1;
-}
-
-/* ===== RESPONSIVE UNTUK LAYAR KECIL (HP) ===== */
+/* Semua perbaikan Ringkas HP ada di sini */
 @media (max-width: 768px) {
   /* Perbaikan Header dan Tombol Menu HP */
   header {
-    padding: 8px 12px; /* Lebih kecil */
+    padding: 8px 12px;
   }
 
   .menu-button {
     display: block; /* Tombol menu muncul di HP */
   }
 
-  /* NAVIGASI HP (Tersembunyi secara default) */
+  /* NAVIGASI HP (Toggle Menu) */
   nav {
     display: none; /* SEMBUNYIKAN NAV DI HP SECARA DEFAULT */
-    position: absolute; 
+    position: absolute;
     top: 100%;
     right: 0;
     width: 100%;
     flex-direction: column;
-    /* BACKGROUND UNTUK MENU TERBUKA */
-    background-color: #fce4ec; 
+    background-color: #fce4ec;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 10px 10px;
   }
 
   nav.show {
-    display: flex; /* TAMPILKAN NAV SAAT DIKLIK (Toggle) */
+    display: flex; /* TAMPILKAN NAV SAAT DIKLIK (JS toggle) */
   }
 
   /* Link di Menu HP */
   nav a {
-    color: #6a1b4d; 
+    color: #6a1b4d; /* Warna gelap agar terbaca di menu pink muda */
     padding: 10px 20px;
     text-align: left;
     background-color: transparent;
   }
-  
+
+  /* PERBAIKAN #HERO UNTUK HP (Ringkas/Tidak Mengambang) */
+  #hero {
+    margin: 20px 0; /* Margin samping hilang agar menyatu */
+    padding: 30px 15px;
+    box-shadow: none;
+    border-radius: 0;
+    max-width: none;
+  }
+
   /* Perbaikan Content Sections agar Ringkas di HP */
   .content-section {
-    padding: 15px; /* Padding sangat kecil */
-    margin: 20px 0; /* Margin samping hilang */
-    border-radius: 5px; /* Sudut lebih kecil */
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    max-width: none;
   }
-  
-  .content-section h2 {
-    font-size: 1.5rem; /* Judul lebih kecil */
-  }
-  
-  /* Perbaikan Tombol Hero dan Hero Section */
-  #hero {
-    padding: 30px 15px; 
-  }
-  
+
+  /* Perbaikan Tombol dan Teks Hero */
   .btn-utama, .btn-secondary {
     font-size: 0.9rem;
     padding: 8px 15px;
@@ -782,13 +547,10 @@ nav a:hover {
     padding: 15px;
     margin: 20px 10px;
   }
+
+  .interactive-container .quiz-btn,
+  .interactive-container button {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
 }
-
-/* Sembunyikan Tombol Menu di Desktop */
-@media (min-width: 769px) {
-    .menu-button {
-        display: none;
-    }
-}
-
-
