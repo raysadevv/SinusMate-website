@@ -1,15 +1,19 @@
-document.addEventListener('DOMContentLoaded', () => {
+ document.addEventListener('DOMContentLoaded', () => {
 
- function toggleMenu() {
-  const menu = document.querySelector("header nav");
-  if (!menu) return;
-  menu.classList.toggle("active");
-}
+  // ===== TOGGLE MENU =====
+  const menuButton = document.querySelector(".menu-button");
+  const navMenu = document.querySelector("header nav");
+  if (menuButton && navMenu) {
+    menuButton.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+  }
 
- function goBack() {
-  window.history.back();
-}
- 
+  // ===== GO BACK =====
+  function goBack() {
+    window.history.back();
+  }
+  
   // ===== MINI QUIZ =====
   const miniQuizForm = document.getElementById('miniQuizForm');
   const btnMulaiQuiz = document.getElementById('btnMulaiQuiz');
@@ -123,6 +127,7 @@ function showSection(id) {
     target.classList.add('active');
   }
 }
+
 
 
 
