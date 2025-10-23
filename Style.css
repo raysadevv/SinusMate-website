@@ -1,129 +1,96 @@
-/* ========== RESET DASAR + FRAME LEMBUT ========== */
+/* ===== RESET & BODY ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", "Segoe UI", sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-  background-color: #fde8f0; /* warna latar luar (di belakang body) */
-}
-
-  body {
+body {
+  font-family: "Poppins", sans-serif;
   background-color: #ffffff;
   color: #333;
   line-height: 1.6;
-  border-radius: 0; /* hilangkan rounded corner */
-  margin: 0;         /* hilangkan margin luar */
-  box-shadow: none;  /* hilangkan shadow */
+  margin: 0;
   padding-bottom: 70px;
 }
 
-/* Hilangkan efek membulat di layar kecil */
-@media (max-width: 768px) {
-  body {
-    border-radius: 0;
-    margin: 0;
-    box-shadow: none;
-  }
-}
-
-/* ========== HEADER ========== */
+/* ===== HEADER ===== */
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px 40px;
   background: linear-gradient(135deg, #f8bbd0, #f48fb1);
-  text-align: center;
-  padding: 60px 20px;
-  color: #fff;
-}
-
-header h1 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-header h2 {
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: #ffe6f0;
-}
-
-
-/* ===== NAVBAR ===== */
-nav {
-  background: linear-gradient(135deg, #f8bbd0, #f48fb1);
-  padding: 12px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   border-radius: 0 0 20px 20px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
-/* LIST ITEM */
+header h1 {
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+/* ===== NAV ===== */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  flex-grow: 1;
+}
+
 nav ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  gap: 12px;
 }
 
 nav li {
-  margin: 8px 12px;
+  margin: 0;
 }
 
-/* LINK */
 nav a {
   text-decoration: none;
   color: #fff;
   font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-  text-align: center;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
 }
 
 nav a:hover {
   background-color: rgba(255,255,255,0.2);
-  transform: translateY(-2px);
 }
 
-/* ===== MENU BUTTON UNTUK HP ===== */
+/* ===== MENU BUTTON (HAMBURGER) ===== */
 .menu-button {
-  display: none;
+  display: none; /* default hidden di desktop */
   background: #f48fb1;
-  color: #fff;
   border: none;
-  padding: 8px 16px;
-  border-radius: 10px;
-  font-size: 1rem;
+  border-radius: 8px;
+  padding: 8px 15px;
+  font-size: 18px;
+  color: #fff;
   cursor: pointer;
-  margin-left: auto;
+  z-index: 1500;
 }
 
-/* RESPONSIVE UNTUK HP */
+/* ===== RESPONSIVE UNTUK HP ===== */
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: stretch;
-    border-radius: 0;
-  }
-
   nav ul {
     flex-direction: column;
-    display: none; /* default disembunyikan */
+    display: none; /* default hidden */
     width: 100%;
+    gap: 0;
   }
 
   nav ul.show {
-    display: flex; /* ditampilkan saat tombol diklik */
+    display: flex; /* muncul saat tombol diklik */
   }
 
   nav li {
@@ -132,16 +99,15 @@ nav a:hover {
   }
 
   nav a {
-    padding: 12px 0;
-    width: 100%;
     display: block;
+    width: 100%;
+    padding: 12px 0;
   }
 
   .menu-button {
-    display: block;
+    display: block; /* tampil di HP */
   }
 }
-
 /* OPTIONAL: Smooth shadow transition saat scroll */
 nav {
   transition: box-shadow 0.3s ease, background 0.3s ease;
@@ -837,6 +803,7 @@ footer {
   box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
+
 
 
 
