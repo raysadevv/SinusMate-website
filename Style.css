@@ -11,17 +11,14 @@ html {
   background-color: #fde8f0; /* warna latar luar (di belakang body) */
 }
 
-body {
+  body {
   background-color: #ffffff;
   color: #333;
   line-height: 1.6;
-
-  border-radius: 25px;
-  margin: 15px;
-  overflow-x: hidden;   /* biar nggak ada scroll ke samping */
-  overflow-y: auto;     /* biar halaman bisa discroll */
-  padding-bottom: 70px; /* ruang untuk footer fixed */
-  box-shadow: 0 0 30px rgba(243, 173, 195, 0.4);
+  border-radius: 0; /* hilangkan rounded corner */
+  margin: 0;         /* hilangkan margin luar */
+  box-shadow: none;  /* hilangkan shadow */
+  padding-bottom: 70px;
 }
 
 /* Hilangkan efek membulat di layar kecil */
@@ -840,6 +837,7 @@ footer {
   box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
+
 
 
 
