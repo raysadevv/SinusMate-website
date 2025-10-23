@@ -11,21 +11,20 @@ html {
   background-color: #ffffff; /* FIX: Latar luar jadi putih */
 }
 
-body {
-  background-color: #ffffff;
-  color: #333;
-  line-height: 1.6;
-  border-radius: 25px;
+body { 
+  background-color: #ffffff; 
+  color: #333; 
+  line-height: 1.6; 
   
-  /* FIX: Atur lebar max di desktop dan centering */
-  max-width: 1200px;
-  margin: 20px auto; 
+  /* --- HAPUS SEMUA ATRIBUT KOTAK MENGAMBANG --- */
+  border-radius: 0; /* Menghilangkan sudut melengkung */
+  box-shadow: none; /* Menghilangkan bayangan */
+  margin: 0;        /* Menghilangkan margin agar menyatu ke tepi */
+  max-width: none;  /* Memastikan lebar penuh */
   
-  /* FIX: Memperbaiki masalah scroll */
+  /* Perbaikan Scroll tetap dipertahankan */
   overflow-x: hidden; 
   overflow-y: auto; 
-  
-  box-shadow: 0 0 30px rgba(243, 173, 195, 0.4); 
 }
 
 
@@ -697,76 +696,68 @@ nav a:hover {
   background-color: #f48fb1;
 }
 
-/* ===== RESPONSIVE UNTUK HP ===== */
+/* ===== RESPONSIVE UNTUK LAYAR KECIL (HP) ===== */
 @media (max-width: 768px) {
-  .menu-button {
-    display: block;
+  /* Perbaikan Header dan Tombol Menu HP */
+  header {
+    padding: 8px 12px; /* Lebih kecil */
   }
 
+  .menu-button {
+    display: block; /* Tombol menu muncul di HP */
+  }
+
+  /* NAVIGASI HP (Tersembunyi secara default) */
   nav {
-    display: none;
-    flex-direction: column;
+    display: none; /* SEMBUNYIKAN NAV DI HP SECARA DEFAULT */
+    position: absolute; 
+    top: 100%;
+    right: 0;
     width: 100%;
-    background-color: #fce4ec;
-    border-radius: 0 0 15px 15px;
-    padding: 10px 0;
+    flex-direction: column;
+    /* BACKGROUND UNTUK MENU TERBUKA */
+    background-color: #fce4ec; 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 10px 10px;
   }
 
   nav.show {
-    display: flex;
+    display: flex; /* TAMPILKAN NAV SAAT DIKLIK (Toggle) */
   }
 
+  /* Link di Menu HP */
   nav a {
-    color: #6a1b4d;
-    padding: 10px;
+    color: #6a1b4d; 
+    padding: 10px 20px;
+    text-align: left;
+    background-color: transparent;
   }
-}
-
-nav a {
-  text-decoration: none;
-  color: #6a1b4d;
-  padding: 8px 0;
-  font-weight: 500;
-  transition: 0.3s;
-  text-align: center;
-}
-
-nav a:hover {
-  color: #b33558;
-}
-
-/* RESPONSIVE */
-@media (min-width: 768px) {
-  .menu-button { display: none; }
-  nav {
-    display: flex !important;
-    position: static;
-    flex-direction: row;
-    justify-content: center;
-    box-shadow: none;
+  
+  /* Perbaikan Content Sections agar Ringkas di HP */
+  .content-section {
+    padding: 15px; /* Padding sangat kecil */
+    margin: 20px 0; /* Margin samping hilang */
+    border-radius: 5px; /* Sudut lebih kecil */
   }
-  nav a { padding: 10px 15px; }
-}
-
-/* ===== RESPONSIVE UNTUK HP ===== */
-@media (max-width: 768px) {
-  body {
-    font-size: 15px;
-    padding: 10px;
+  
+  .content-section h2 {
+    font-size: 1.5rem; /* Judul lebih kecil */
   }
-
+  
+  /* Perbaikan Tombol Hero dan Hero Section */
   #hero {
-    padding: 40px 15px;
+    padding: 30px 15px; 
   }
-
-  #hero h1 {
-    font-size: 1.4rem;
+  
+  .btn-utama, .btn-secondary {
+    font-size: 0.9rem;
+    padding: 8px 15px;
   }
+}
 
-  #hero p {
-    font-size: 0.95rem;
-  }
-
+/* RESPONSIVE PADA LAYAR SANGAT KECIL (480px ke bawah) */
+@media (max-width: 480px) {
+  /* Tombol Hero menjadi kolom */
   .hero-buttons {
     flex-direction: column;
     gap: 10px;
@@ -774,22 +765,20 @@ nav a:hover {
 
   .btn-utama, .btn-secondary {
     width: 100%;
-    max-width: 280px;
+    max-width: 250px;
     margin: 0 auto;
-    font-size: 0.95rem;
-    padding: 10px;
   }
 
-  nav a {
-    font-size: 0.95rem;
+  /* Kontainer interaktif (Quiz, Kalkulator) */
+  .interactive-container {
+    padding: 15px;
+    margin: 20px 10px;
   }
 }
 
-
-
-
-
-
-
-
-
+/* Sembunyikan Tombol Menu di Desktop */
+@media (min-width: 769px) {
+    .menu-button {
+        display: none;
+    }
+}
