@@ -8,7 +8,7 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #fcf4f7; /* Pink Paling Pucat */
+  background-color: #f5f5f5; /* Abu-abu Sangat Terang */
 }
 
 body { 
@@ -147,7 +147,18 @@ nav a:hover {
 }
 
 /* ========== HERO SECTION ========== */
-#hero h3 {
+#hero {
+  text-align: center;
+  padding: 70px 20px;
+  background-color: #fce4ec; /* Background pink muda */
+  
+  max-width: 900px; /* Batasi lebar agar tidak memenuhi layar */
+  margin: 40px auto; /* Membuatnya mengambang di tengah */
+  border-radius: 15px; /* Sudut melengkung */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Bayangan mengambang */
+}
+
+#hero h1 { /* Gunakan h1 jika 'Kenali...' ada di h1 */
   color: #b35c72;
   font-size: 2.3rem;
   margin-bottom: 10px;
@@ -591,34 +602,31 @@ footer p {
   }
 }
 
-/* ===== HERO SECTION ===== */
+/* GANTI DAN PASANG KODE INI */
 #hero {
-  background: linear-gradient(135deg, #fce4ec, #f8bbd0);
   text-align: center;
   padding: 70px 20px;
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  animation: fadeInUp 0.8s ease-in-out;
-}
-
-/* ===== TAMBAHAN: PERBAIKAN TAMPILAN RINGKAS DI HP (max-width: 768px) ===== */
-@media (max-width: 768px) {
-  /* Header */
-  header {
-    padding: 10px 15px; /* Kurangi padding vertikal dari 15px */
-  }
+  background-color: #fce4ec; /* Background pink muda solid */
   
-  /* Hero Section */
-  #hero {
-    padding: 40px 15px; /* Sedikit dikurangi dari 70px */
-  }
-
-  /* Content Sections (Pengertian, Gejala, dll.) */
-  .content-section {
-    padding: 20px; /* Lebih ringkas dari 30px */
-    margin: 30px auto; /* Jarak vertikal yang lebih sedikit */
-  }
+  /* --- EFEK MENGAMBANG UNTUK DESKTOP --- */
+  max-width: 900px; /* Batasi lebar */
+  margin: 40px auto; /* Membuatnya mengambang di tengah */
+  border-radius: 15px; /* Sudut melengkung */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Bayangan mengambang */
 }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tambahkan kembali kode style untuk h1, p, dan buttons di bawah #hero ini: */
+#hero h1 {
+  color: #b33558;
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+}
+
 #hero h1 {
   color: #b33558;
   font-size: 1.9rem;
@@ -782,4 +790,5 @@ nav a:hover {
         display: none;
     }
 }
+
 
