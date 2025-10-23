@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // MINI QUIZ
+  // ===== MINI QUIZ =====
   const miniQuizForm = document.getElementById('miniQuizForm');
   const btnMulaiQuiz = document.getElementById('btnMulaiQuiz');
   const hasilQuiz = document.getElementById('hasilQuiz');
@@ -22,9 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       for (let i = 1; i <= totalPertanyaan; i++) {
         const jawaban = miniQuizForm.querySelector(`input[name="q${i}"]:checked`);
-        if (jawaban && jawaban.value === 'benar') {
-          skor++;
-        }
+        if (jawaban && jawaban.value === 'benar') skor++;
       }
 
       if (skor === totalPertanyaan) {
@@ -37,10 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // CEK GEJALA
+  // ===== CEK GEJALA =====
   const cekBtn = document.getElementById("cekBtn");
   if (cekBtn) {
-    cekBtn.addEventListener("click", function () {
+    cekBtn.addEventListener("click", () => {
       const checkboxes = document.querySelectorAll('input[name="gejala"]:checked');
       const hasilDiv = document.getElementById("hasilCek");
 
@@ -50,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       let hasil = "";
-
       if (checkboxes.length <= 2) {
         hasil = "Kemungkinan sinusitis ringan. Istirahat dan jaga kesehatan.";
       } else if (checkboxes.length <= 4) {
@@ -63,10 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // KALKULATOR SEMBUH
+  // ===== KALKULATOR SEMBUH =====
   const hitungBtn = document.getElementById("hitungBtn");
   if (hitungBtn) {
-    hitungBtn.addEventListener("click", function () {
+    hitungBtn.addEventListener("click", () => {
       const tglMulai = document.getElementById("tglMulai").value;
       const severity = document.querySelector('input[name="severity"]:checked');
       const hasilKalkulator = document.getElementById("hasilKalkulator");
@@ -86,42 +83,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // RESET KALKULATOR
   const resetBtn = document.getElementById("resetBtn");
   if (resetBtn) {
-    resetBtn.addEventListener("click", function () {
+    resetBtn.addEventListener("click", () => {
       document.getElementById("formKalkulator").reset();
       document.getElementById("hasilKalkulator").innerHTML = "";
     });
   }
 
-  // MENU TOGGLE UNTUK HP
-  const menuToggle = document.getElementById("menu-toggle");
-  const navList = document.querySelector("nav ul");
-  if (menuToggle && navList) {
-    menuToggle.addEventListener("click", () => {
-      navList.classList.toggle("active");
-    });
-  }
+  // ===== MENU TOGGLE HP =====
   const menuBtn = document.getElementById("menuBtn");
-  const nav = document.querySelector("nav");
-  if (menuBtn && nav) {
+  const navList = document.querySelector("nav ul");
+
+  if (menuBtn && navList) {
+    // sembunyikan menu awal
+    navList.classList.remove("show");
+
     menuBtn.addEventListener("click", () => {
-      nav.classList.toggle("show");
+      navList.classList.toggle("show");
+    });
+
+    // hide menu saat klik link
+    navList.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navList.classList.remove("show");
+      });
     });
   }
-  document.querySelectorAll("nav a").forEach(link => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("show");
-    });
-  });
 
-  // Tampilkan section beranda saat halaman pertama kali dimuat
-  showSection('beranda');
-
-  // ===============================
-  // MITOS & FAKTA SINUSITIS
-  // ===============================
+  // ===== MITOS & FAKTA SINUSITIS =====
   const faktaElements = document.querySelectorAll(".fakta");
   faktaElements.forEach(f => f.style.display = "none"); // sembunyikan semua fakta awal
 
@@ -139,9 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ===== Tampilkan section beranda awal =====
+  showSection('beranda');
 });
 
-// Fungsi untuk menampilkan section tertentu (misal cek-gejala, kalkulator-sembuh)
+// ===== FUNGSI SHOW SECTION =====
 function showSection(id) {
   const allSections = document.querySelectorAll('section.content-section');
   allSections.forEach(section => {
@@ -156,9 +148,6 @@ function showSection(id) {
   }
 }
 
-function toggleMenu() {
-  const nav = document.querySelector("header nav");
-  nav.classList.toggle("show");
-}
+
 
 
