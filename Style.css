@@ -887,6 +887,22 @@ nav a {
   display: block;
 }
 
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f48fb1;
+    /* hapus position: absolute/fixed */
+    padding: 10px 0;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+}
+
+
 
 
 
