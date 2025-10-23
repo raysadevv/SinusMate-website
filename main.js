@@ -140,32 +140,6 @@ document.querySelectorAll('header nav a').forEach(link => {
 
 // Pastikan tombol menu memanggil toggleMenu()
 document.querySelector('.menu-button').addEventListener('click', toggleMenu);
-// --- TOGGLE MENU HP ---
-window.toggleMenu = function() {
-  const nav = document.querySelector('header nav');
-  nav.classList.toggle('show');
-};
-
-// Tutup menu saat klik link
-document.querySelectorAll('header nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.querySelector('header nav').classList.remove('show');
-  });
-});
-  
-  const menuBtn = document.getElementById("menuBtn");
-  const nav = document.querySelector("nav");
-  if (menuBtn && nav) {
-    menuBtn.addEventListener("click", () => {
-      nav.classList.toggle("show");
-    });
-  }
-
-  document.querySelectorAll("nav a").forEach(link => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("show");
-    });
-  });
 
   // --- FUNGSI SHOW SECTION ---
   function showSection(id) {
@@ -186,11 +160,24 @@ document.querySelectorAll('header nav a').forEach(link => {
   const nav = document.querySelector('header nav');
   if (nav.classList.contains('show')) nav.classList.remove('show');
 }
+function toggleMenu() {
+  const nav = document.querySelector('header nav');
+  nav.classList.toggle('show');
+}
+
+document.querySelectorAll('header nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelector('header nav').classList.remove('show');
+  });
+});
+
+document.querySelector('.menu-button').addEventListener('click', toggleMenu);
 
 
   // --- TAMPILKAN BERANDA SAAT PERTAMA ---
   showSection('beranda');
 });
+
 
 
 
