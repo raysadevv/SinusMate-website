@@ -126,6 +126,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- MENU NAVIGASI ---
  // --- TOGGLE MENU HP ---
+function toggleMenu() {
+  const nav = document.querySelector('header nav');
+  nav.classList.toggle('show');
+}
+
+// Tutup menu saat klik link
+document.querySelectorAll('header nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelector('header nav').classList.remove('show');
+  });
+});
+
+// Pastikan tombol menu memanggil toggleMenu()
+document.querySelector('.menu-button').addEventListener('click', toggleMenu);
+// --- TOGGLE MENU HP ---
 window.toggleMenu = function() {
   const nav = document.querySelector('header nav');
   nav.classList.toggle('show');
@@ -176,5 +191,6 @@ document.querySelectorAll('header nav a').forEach(link => {
   // --- TAMPILKAN BERANDA SAAT PERTAMA ---
   showSection('beranda');
 });
+
 
 
