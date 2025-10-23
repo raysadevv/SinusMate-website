@@ -6,14 +6,14 @@
   font-family: "Poppins", "Segoe UI", sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-  background-color: #fde8f0; /* warna latar luar (di belakang body) */
-}
+html { scroll-behavior: smooth; 
+      background-color: #ffffff; /* Ganti dengan putih agar menyatu dengan body */ 
+     }
 
-body { background-color: #ffffff; color: #333; line-height: 1.6; border-radius: 25px; margin: 15px; overflow-x: hidden; /* Mencegah scroll horizontal */ 
-      overflow-y: auto; /* Mengizinkan scroll vertikal */ 
-      box-shadow: 0 0 30px rgba(243, 173, 195, 0.4); 
+body { background-color: #ffffff; color: #333; 
+      line-height: 1.6; 
+      border-radius: 25px; margin: 0 auto; /* Hilangkan margin di samping, tapi biarkan margin atas/bawah */ 
+      overflow-x: hidden; overflow-y: auto; box-shadow: 0 0 30px rgba(243, 173, 195, 0.4); 
      }
 
 @media (max-width: 768px) { 
@@ -713,6 +713,7 @@ nav a:hover {
     font-size: 0.95rem;
   }
 }
+
 
 
 
