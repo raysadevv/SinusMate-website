@@ -804,6 +804,47 @@ footer {
   z-index: 1000;
 }
 
+/* ===== MENU HAMBURGER UNTUK HP ===== */
+.menu-button {
+  display: none; /* default hidden di desktop */
+  background: #f48fb1;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1500;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    display: none; /* default hidden */
+    width: 100%;
+    gap: 0;
+  }
+
+  nav ul.show {
+    display: flex; /* muncul saat tombol diklik */
+  }
+
+  nav li {
+    margin: 6px 0;
+    text-align: center;
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  .menu-button {
+    display: block; /* tampil di HP */
+  }
+}
+
 
 
 
