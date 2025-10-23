@@ -119,6 +119,12 @@ nav li a:hover {
   border-radius: 25px;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
   animation: fadeInUp 0.8s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#hero:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 #hero h1 {
@@ -173,6 +179,51 @@ nav li a:hover {
 .btn-secondary:hover {
   background-color: #f48fb1;
   color: white;
+}
+/* ===== RESPONSIVE HERO ===== */
+@media (max-width: 768px) {
+  #hero {
+    padding: 50px 15px;
+  }
+
+  #hero h1 {
+    font-size: 1.6rem;
+  }
+
+  #hero p {
+    font-size: 0.95rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-utama,
+  .btn-secondary {
+    width: 80%;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero {
+    padding: 40px 12px;
+  }
+
+  #hero h1 {
+    font-size: 1.4rem;
+  }
+
+  #hero p {
+    font-size: 0.9rem;
+  }
+
+  .btn-utama,
+  .btn-secondary {
+    width: 90%;
+    padding: 9px 0;
+  }
 }
 
 /* ===== SECTIONS ===== */
@@ -675,5 +726,6 @@ footer a:hover {
     margin-bottom: 6px;
   }
 }
+
 
 
