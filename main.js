@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  function toggleMenu() {
-  const menu = document.querySelector("nav ul");
+ function toggleMenu() {
+  const menu = document.querySelector("nav");
   menu.classList.toggle("active");
 }
+
   // ===== MINI QUIZ =====
   const miniQuizForm = document.getElementById('miniQuizForm');
   const btnMulaiQuiz = document.getElementById('btnMulaiQuiz');
@@ -117,5 +118,6 @@ function showSection(id) {
     target.classList.add('active');
   }
 }
+
 
 
