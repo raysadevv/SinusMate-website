@@ -18,8 +18,9 @@ body {
 
   border-radius: 25px;
   margin: 15px;
-  overflow-y: auto; /* ✅ biar bisa scroll vertikal */
-  overflow-x: hidden; /* ✅ tapi tetap sembunyikan scroll ke samping */
+  overflow-x: hidden;   /* biar nggak ada scroll ke samping */
+  overflow-y: auto;     /* biar halaman bisa discroll */
+  padding-bottom: 70px; /* ruang untuk footer fixed */
   box-shadow: 0 0 30px rgba(243, 173, 195, 0.4);
 }
 
@@ -813,6 +814,22 @@ nav a:hover {
     font-size: 0.95rem;
   }
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #f8bbd0;
+  color: #6a1b4d;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
 
 
 
