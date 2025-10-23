@@ -22,14 +22,9 @@ body {
   box-shadow: 0 0 30px rgba(243, 173, 195, 0.4);
 }
 
-/* Hilangkan efek membulat di layar kecil */
-@media (max-width: 768px) {
-  body {
-    border-radius: 0;
-    margin: 0;
-    box-shadow: none;
-  }
-}
+@media (max-width: 768px) { 
+  body { border-radius: 15px;  
+        margin: 10px; box-shadow: none; } }
 
 /* ========== HEADER ========== */
 header {
@@ -706,6 +701,7 @@ nav a:hover {
     font-size: 0.95rem;
   }
 }
+
 
 
 
