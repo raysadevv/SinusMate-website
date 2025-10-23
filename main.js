@@ -149,18 +149,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- FUNGSI SHOW SECTION ---
   function showSection(id) {
-    const allSections = document.querySelectorAll('section.content-section');
-    allSections.forEach(section => {
-      section.style.display = 'none';
-      section.classList.remove('active');
-    });
-    const target = document.getElementById(id);
-    if (target) {
-      target.style.display = 'block';
-      target.classList.add('active');
-    }
+  const allSections = document.querySelectorAll('section.content-section');
+  allSections.forEach(section => {
+    section.style.display = 'none';
+    section.classList.remove('active');
+  });
+
+  const target = document.getElementById(id);
+  if (target) {
+    target.style.display = 'block';
+    target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  // Tutup menu di HP otomatis
+  const nav = document.querySelector('header nav');
+  if (nav.classList.contains('show')) nav.classList.remove('show');
+}
+
 
   // --- TAMPILKAN BERANDA SAAT PERTAMA ---
   showSection('beranda');
 });
+
