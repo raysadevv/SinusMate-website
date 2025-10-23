@@ -54,39 +54,100 @@ header h2 {
 }
 
 
-/* ========== NAVBAR ========== */
+/* ===== NAVBAR ===== */
 nav {
-  background: #fce4ec;
-  padding: 10px 0;
+  background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+  padding: 12px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-nav ul {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 0 0 20px 20px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+/* LIST ITEM */
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 nav li {
-  margin: 8px 15px;
+  margin: 8px 12px;
 }
 
+/* LINK */
 nav a {
   text-decoration: none;
-  color: #b35c72;
+  color: #fff;
   font-weight: 500;
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: 0.3s;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  text-align: center;
 }
 
 nav a:hover {
-  background-color: #f48fb1;
+  background-color: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+/* ===== MENU BUTTON UNTUK HP ===== */
+.menu-button {
+  display: none;
+  background: #f48fb1;
   color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* RESPONSIVE UNTUK HP */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    display: none; /* default disembunyikan */
+    width: 100%;
+  }
+
+  nav ul.show {
+    display: flex; /* ditampilkan saat tombol diklik */
+  }
+
+  nav li {
+    margin: 6px 0;
+    text-align: center;
+  }
+
+  nav a {
+    padding: 12px 0;
+    width: 100%;
+    display: block;
+  }
+
+  .menu-button {
+    display: block;
+  }
+}
+
+/* OPTIONAL: Smooth shadow transition saat scroll */
+nav {
+  transition: box-shadow 0.3s ease, background 0.3s ease;
 }
 
 /* ========== HERO SECTION ========== */
@@ -621,56 +682,6 @@ nav a:hover {
   background-color: #f48fb1;
 }
 
-/* ===== RESPONSIVE UNTUK HP ===== */
-@media (max-width: 768px) {
-  .menu-button {
-    display: block;
-  }
-
-  nav {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: #fce4ec;
-    border-radius: 0 0 15px 15px;
-    padding: 10px 0;
-  }
-
-  nav.show {
-    display: flex;
-  }
-
-  nav a {
-    color: #6a1b4d;
-    padding: 10px;
-  }
-}
-
-nav a {
-  text-decoration: none;
-  color: #6a1b4d;
-  padding: 8px 0;
-  font-weight: 500;
-  transition: 0.3s;
-  text-align: center;
-}
-
-nav a:hover {
-  color: #b33558;
-}
-
-/* RESPONSIVE */
-@media (min-width: 768px) {
-  .menu-button { display: none; }
-  nav {
-    display: flex !important;
-    position: static;
-    flex-direction: row;
-    justify-content: center;
-    box-shadow: none;
-  }
-  nav a { padding: 10px 15px; }
-}
 
 /* ===== RESPONSIVE UNTUK HP ===== */
 @media (max-width: 768px) {
@@ -829,6 +840,7 @@ footer {
   box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
+
 
 
 
