@@ -789,10 +789,19 @@ nav a:hover {
   }
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* isi halaman mengambil space yang tersisa */
+}
+
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  /* hapus position: fixed */
   width: 100%;
   background: #f8bbd0;
   color: #6a1b4d;
@@ -801,7 +810,6 @@ footer {
   font-size: 0.9rem;
   line-height: 1.4;
   box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
 }
 
 /* ===== MENU HAMBURGER UNTUK HP ===== */
@@ -844,6 +852,7 @@ footer {
     display: block; /* tampil di HP */
   }
 }
+
 
 
 
