@@ -125,14 +125,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- MENU NAVIGASI ---
-  const menuToggle = document.getElementById("menu-toggle");
-  const navList = document.querySelector("nav ul");
-  if (menuToggle && navList) {
-    menuToggle.addEventListener("click", () => {
-      navList.classList.toggle("active");
-    });
-  }
+ // --- TOGGLE MENU HP ---
+window.toggleMenu = function() {
+  const nav = document.querySelector('header nav');
+  nav.classList.toggle('show');
+};
 
+// Tutup menu saat klik link
+document.querySelectorAll('header nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelector('header nav').classList.remove('show');
+  });
+});
+  
   const menuBtn = document.getElementById("menuBtn");
   const nav = document.querySelector("nav");
   if (menuBtn && nav) {
@@ -171,4 +176,5 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- TAMPILKAN BERANDA SAAT PERTAMA ---
   showSection('beranda');
 });
+
 
