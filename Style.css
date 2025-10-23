@@ -853,6 +853,40 @@ footer {
   }
 }
 
+/* Default nav untuk HP: disembunyikan */
+nav ul {
+  display: none; /* disembunyiin dulu */
+  position: absolute; /* muncul di atas konten */
+  top: 60px; /* di bawah header */
+  left: 0;
+  width: 100%;
+  background-color: #f48fb1;
+  flex-direction: column;
+  padding: 10px 0;
+  z-index: 100;
+}
+
+/* ketika tombol ditekan */
+nav ul.show {
+  display: flex;
+}
+
+nav li {
+  margin: 8px 0;
+  text-align: center;
+}
+
+nav a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+}
+
+/* tombol hamburger */
+.menu-button {
+  display: block;
+}
+
 
 
 
