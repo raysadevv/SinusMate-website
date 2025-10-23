@@ -18,7 +18,6 @@ body {
 
   border-radius: 25px;
   margin: 15px;
-  overflow: hidden; 
   box-shadow: 0 0 30px rgba(243, 173, 195, 0.4);
 }
 
@@ -706,4 +705,5 @@ nav a:hover {
     font-size: 0.95rem;
   }
 }
+
 
