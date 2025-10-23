@@ -67,51 +67,6 @@ nav a:hover {
   background-color: rgba(255,255,255,0.2);
 }
 
-/* ===== MENU BUTTON (HAMBURGER) ===== */
-.menu-button {
-  display: none; /* default hidden di desktop */
-  background: #f48fb1;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 15px;
-  font-size: 18px;
-  color: #fff;
-  cursor: pointer;
-  z-index: 1500;
-}
-
-/* ===== RESPONSIVE UNTUK HP ===== */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    display: none; /* default hidden */
-    width: 100%;
-    gap: 0;
-  }
-
-  nav ul.show {
-    display: flex; /* muncul saat tombol diklik */
-  }
-
-  nav li {
-    margin: 6px 0;
-    text-align: center;
-  }
-
-  nav a {
-    display: block;
-    width: 100%;
-    padding: 12px 0;
-  }
-
-  .menu-button {
-    display: block; /* tampil di HP */
-  }
-}
-/* OPTIONAL: Smooth shadow transition saat scroll */
-nav {
-  transition: box-shadow 0.3s ease, background 0.3s ease;
-}
 
 /* ========== HERO SECTION ========== */
 #hero h3 {
@@ -524,24 +479,6 @@ footer p {
   display: block;
 }
 
-@media (max-width: 480px) {
-  nav ul {
-    justify-content: center;
-    gap: 8px;
-  }
-
-  nav li {
-    flex-basis: calc(50% - 16px); /* 2 item per baris */
-    text-align: center;
-    margin: 6px 8px;
-  }
-
-  nav a {
-    font-size: 0.9rem;      /* font lebih kecil tapi tetap readable */
-    padding: 8px 12px;      /* padding lebih pas supaya klik mudah */
-    display: block;         /* supaya area klik full */
-  }
-
   /* Tombol hero */
   .hero-buttons {
     flex-direction: column;
@@ -788,120 +725,6 @@ nav a:hover {
     font-size: 0.95rem;
   }
 }
-
-html, body {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1; /* isi halaman mengambil space yang tersisa */
-}
-
-footer {
-  /* hapus position: fixed */
-  width: 100%;
-  background: #f8bbd0;
-  color: #6a1b4d;
-  text-align: center;
-  padding: 15px 10px;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* ===== MENU HAMBURGER UNTUK HP ===== */
-.menu-button {
-  display: none; /* default hidden di desktop */
-  background: #f48fb1;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 15px;
-  font-size: 18px;
-  color: #fff;
-  cursor: pointer;
-  z-index: 1500;
-}
-
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    display: none; /* default hidden */
-    width: 100%;
-    gap: 0;
-  }
-
-  nav ul.show {
-    display: flex; /* muncul saat tombol diklik */
-  }
-
-  nav li {
-    margin: 6px 0;
-    text-align: center;
-  }
-
-  nav a {
-    display: block;
-    width: 100%;
-    padding: 12px 0;
-  }
-
-  .menu-button {
-    display: block; /* tampil di HP */
-  }
-}
-
-/* Default nav untuk HP: disembunyikan */
-nav ul {
-  display: none; /* disembunyiin dulu */
-  position: absolute; /* muncul di atas konten */
-  top: 60px; /* di bawah header */
-  left: 0;
-  width: 100%;
-  background-color: #f48fb1;
-  flex-direction: column;
-  padding: 10px 0;
-  z-index: 100;
-}
-
-/* ketika tombol ditekan */
-nav ul.show {
-  display: flex;
-}
-
-nav li {
-  margin: 8px 0;
-  text-align: center;
-}
-
-nav a {
-  display: block;
-  padding: 10px 20px;
-  color: white;
-}
-
-/* tombol hamburger */
-.menu-button {
-  display: block;
-}
-
-@media (max-width: 768px) {
-  nav ul {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: #f48fb1;
-    /* hapus position: absolute/fixed */
-    padding: 10px 0;
-  }
-
-  nav ul.show {
-    display: flex;
-  }
-}
-
 
 
 
