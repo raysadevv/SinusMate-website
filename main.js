@@ -1,10 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+  // ===== MENU MOBILE =====
+  const menuBtn = document.getElementById('menuBtn');
+  const navUl = document.querySelector('nav ul');
+  if (menuBtn && navUl) {
+    menuBtn.addEventListener('click', () => navUl.classList.toggle('mobile-active'));
+
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (navUl.classList.contains('mobile-active')) navUl.classList.remove('mobile-active');
+
+        const targetSection = link.getAttribute('data-target');
+        if (targetSection) showSection(targetSection);
+      });
+    });
+  }
+
   // ===== MINI QUIZ =====
   const miniQuizForm = document.getElementById('miniQuizForm');
   const btnMulaiQuiz = document.getElementById('btnMulaiQuiz');
   const hasilQuiz = document.getElementById('hasilQuiz');
   const tombolCek = document.getElementById('cekQuiz');
-
   if (miniQuizForm) miniQuizForm.style.display = 'none';
 
   if (btnMulaiQuiz && miniQuizForm) {
@@ -19,12 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
     tombolCek.addEventListener('click', () => {
       let skor = 0;
       const totalPertanyaan = 3;
-
       for (let i = 1; i <= totalPertanyaan; i++) {
         const jawaban = miniQuizForm.querySelector(`input[name="q${i}"]:checked`);
         if (jawaban && jawaban.value === 'benar') skor++;
       }
-
       if (skor === totalPertanyaan) {
         hasilQuiz.innerHTML = `🎉 Jawabanmu benar semua! Skor: <strong>${skor}/${totalPertanyaan}</strong> 🩷`;
       } else if (skor > 0) {
@@ -41,20 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
     cekBtn.addEventListener("click", () => {
       const checkboxes = document.querySelectorAll('input[name="gejala"]:checked');
       const hasilDiv = document.getElementById("hasilCek");
-
-      if (checkboxes.length === 0) {
-        hasilDiv.innerHTML = "Silakan pilih minimal satu gejala.";
-        return;
-      }
+      if (checkboxes.length === 0) return hasilDiv.innerHTML = "Silakan pilih minimal satu gejala.";
 
       let hasil = "";
-      if (checkboxes.length <= 2) {
-        hasil = "Kemungkinan sinusitis ringan. Istirahat dan jaga kesehatan.";
-      } else if (checkboxes.length <= 4) {
-        hasil = "Kemungkinan sinusitis sedang. Pertimbangkan untuk konsultasi ke dokter.";
-      } else {
-        hasil = "Kemungkinan sinusitis berat. Segera periksa ke dokter!";
-      }
+      if (checkboxes.length <= 2) hasil = "Kemungkinan sinusitis ringan. Istirahat dan jaga kesehatan.";
+      else if (checkboxes.length <= 4) hasil = "Kemungkinan sinusitis sedang. Pertimbangkan untuk konsultasi ke dokter.";
+      else hasil = "Kemungkinan sinusitis berat. Segera periksa ke dokter!";
 
       hasilDiv.innerHTML = `<p>${hasil}</p>`;
     });
@@ -67,16 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const tglMulai = document.getElementById("tglMulai").value;
       const severity = document.querySelector('input[name="severity"]:checked');
       const hasilKalkulator = document.getElementById("hasilKalkulator");
-
-      if (!tglMulai || !severity) {
-        hasilKalkulator.innerHTML = "Silakan isi tanggal mulai dan pilih tingkat keparahan.";
-        return;
-      }
+      if (!tglMulai || !severity) return hasilKalkulator.innerHTML = "Silakan isi tanggal mulai dan pilih tingkat keparahan.";
 
       const startDate = new Date(tglMulai);
-      const hariSembuh = parseInt(severity.value);
       const endDate = new Date(startDate);
-      endDate.setDate(startDate.getDate() + hariSembuh);
+      endDate.setDate(startDate.getDate() + parseInt(severity.value));
 
       const options = { year: "numeric", month: "long", day: "numeric" };
       hasilKalkulator.innerHTML = `Perkiraan sembuh: <strong>${endDate.toLocaleDateString("id-ID", options)}</strong>`;
@@ -91,10 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  
-  // ===== MITOS & FAKTA SINUSITIS =====
+  // ===== MITOS & FAKTA =====
   const faktaElements = document.querySelectorAll(".fakta");
-  faktaElements.forEach(f => f.style.display = "none"); // sembunyikan semua fakta awal
+  faktaElements.forEach(f => f.style.display = "none");
 
   const toggleButtons = document.querySelectorAll(".btn-toggle");
   toggleButtons.forEach(btn => {
@@ -110,28 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ===== TOGGLE NAV MENU =====
-const menuBtn = document.getElementById('menuBtn');
-const nav = document.querySelector('nav');
-
-if (menuBtn && nav) {
-  menuBtn.addEventListener('click', () => {
-    nav.classList.toggle('active'); // toggle muncul/tidak
-  });
-
-  // Tutup menu otomatis saat klik salah satu navigasi
-  const navLinks = nav.querySelectorAll('a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if (nav.classList.contains('active')) {
-        nav.classList.remove('active');
-      }
-    });
-  });
-}
-
   // ===== Tampilkan section beranda awal =====
   showSection('beranda');
+
 });
 
 // ===== FUNGSI SHOW SECTION =====
@@ -148,11 +130,4 @@ function showSection(id) {
     target.classList.add('active');
   }
 }
-
-
-
-
-
-
-
 
