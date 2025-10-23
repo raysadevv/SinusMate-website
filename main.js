@@ -1,41 +1,54 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // MINI QUIZ
+  // --- MINI QUIZ INTERAKTIF ---
   const miniQuizForm = document.getElementById('miniQuizForm');
   const btnMulaiQuiz = document.getElementById('btnMulaiQuiz');
   const hasilQuiz = document.getElementById('hasilQuiz');
   const tombolCek = document.getElementById('cekQuiz');
 
-  if (miniQuizForm) miniQuizForm.style.display = 'none';
+  if (miniQuizForm) {
+    miniQuizForm.style.display = 'none';
+    const totalPertanyaan = miniQuizForm.querySelectorAll('.pertanyaan').length;
 
-  if (btnMulaiQuiz && miniQuizForm) {
-    btnMulaiQuiz.addEventListener('click', () => {
+    const resetQuiz = () => {
+      hasilQuiz.innerHTML = '';
+      miniQuizForm.querySelectorAll('.pertanyaan').forEach(q => q.classList.remove('benar', 'salah'));
+      miniQuizForm.reset();
+    };
+
+    btnMulaiQuiz?.addEventListener('click', () => {
       btnMulaiQuiz.style.display = 'none';
       miniQuizForm.style.display = 'block';
       hasilQuiz.innerHTML = '';
+      resetQuiz();
     });
-  }
 
-  if (tombolCek && miniQuizForm) {
-    tombolCek.addEventListener('click', () => {
+    tombolCek?.addEventListener('click', () => {
       let skor = 0;
-      const totalPertanyaan = 3;
 
       for (let i = 1; i <= totalPertanyaan; i++) {
+        const pertanyaan = miniQuizForm.querySelector(`.pertanyaan:nth-of-type(${i})`);
         const jawaban = miniQuizForm.querySelector(`input[name="q${i}"]:checked`);
+
         if (jawaban && jawaban.value === 'benar') {
           skor++;
+          pertanyaan.classList.add('benar');
+        } else {
+          pertanyaan.classList.add('salah');
         }
       }
 
-      if (skor === totalPertanyaan) {
-        hasilQuiz.innerHTML = `🎉 Jawabanmu benar semua! Skor: <strong>${skor}/${totalPertanyaan}</strong> 🩷`;
-      } else if (skor > 0) {
-        hasilQuiz.innerHTML = `✨ Skor kamu: <strong>${skor}/${totalPertanyaan}</strong> — Bagus, tapi masih bisa lebih baik 💪`;
-      } else {
-        hasilQuiz.innerHTML = `😅 Belum ada jawaban benar. Yuk belajar lagi 📖`;
-      }
-    });
-  }
+      let pesan = '';
+      if (skor === totalPertanyaan) pesan = `🎉 Hebat! Semua benar! Skor: <strong>${skor}/${totalPertanyaan}</strong> 🩷`;
+      else if (skor >= totalPertanyaan * 0.6) pesan = `👏 Bagus! Skor kamu <strong>${skor}/${totalPertanyaan}</strong> 🌟`;
+      else if (skor > 0) pesan = `✨ Skor kamu <strong>${skor}/${totalPertanyaan}</strong>. Yuk belajar lagi 💪`;
+      else pesan = `😅 Belum ada jawaban benar. Coba lagi ya 📖`;
+
+      hasilQuiz.innerHTML = `
+        <div class="hasil-box">
+          ${pesan}<br><br>
+          <button id="ulangQuiz" class="quiz-btn">Ulangi Quiz</button>
+        </div>
+      `;
 
   // CEK GEJALA
   const cekBtn = document.getElementById("cekBtn");
@@ -143,4 +156,5 @@ function toggleMenu() {
   const nav = document.querySelector("header nav");
   nav.classList.toggle("show");
 }
+
 
