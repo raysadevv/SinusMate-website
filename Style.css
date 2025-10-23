@@ -11,16 +11,10 @@ html {
   background-color: #fde8f0; /* warna latar luar (di belakang body) */
 }
 
-body {
-  background-color: #ffffff;
-  color: #333;
-  line-height: 1.6;
-
-  border-radius: 25px;
-  margin: 15px;
-  overflow-y: auto;
-  box-shadow: 0 0 30px rgba(243, 173, 195, 0.4);
-}
+body { background-color: #ffffff; color: #333; line-height: 1.6; border-radius: 25px; margin: 15px; overflow-x: hidden; /* Mencegah scroll horizontal */ 
+      overflow-y: auto; /* Mengizinkan scroll vertikal */ 
+      box-shadow: 0 0 30px rgba(243, 173, 195, 0.4); 
+     }
 
 @media (max-width: 768px) { 
   body { border-radius: 15px;  
@@ -537,6 +531,24 @@ footer p {
   animation: fadeInUp 0.8s ease-in-out;
 }
 
+/* ===== TAMBAHAN: PERBAIKAN TAMPILAN RINGKAS DI HP (max-width: 768px) ===== */
+@media (max-width: 768px) {
+  /* Header */
+  header {
+    padding: 10px 15px; /* Kurangi padding vertikal dari 15px */
+  }
+  
+  /* Hero Section */
+  #hero {
+    padding: 40px 15px; /* Sedikit dikurangi dari 70px */
+  }
+
+  /* Content Sections (Pengertian, Gejala, dll.) */
+  .content-section {
+    padding: 20px; /* Lebih ringkas dari 30px */
+    margin: 30px auto; /* Jarak vertikal yang lebih sedikit */
+  }
+}
 #hero h1 {
   color: #b33558;
   font-size: 1.9rem;
@@ -701,6 +713,7 @@ nav a:hover {
     font-size: 0.95rem;
   }
 }
+
 
 
 
