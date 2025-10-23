@@ -94,29 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===== MENU TOGGLE HP =====
   const menuBtn = document.getElementById("menuBtn");
   const navList = document.querySelector("nav ul");
-
-  if (menuBtn && navList) {
-    // sembunyikan menu awal
-    navList.classList.remove("show");
-
-    menuBtn.addEventListener("click", () => {
-      navList.classList.toggle("show");
-    });
-
-    // hide menu saat klik link
-    navList.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navList.classList.remove("show");
-      });
-    });
-  }
-  const menuBtn = document.getElementById("menuBtn");
-const navList = document.querySelector("nav ul");
-const mainContent = document.querySelector("main"); // konten utama
-
 if (menuBtn && navList && mainContent) {
-  // sembunyikan menu awal
-  navList.classList.remove("show");
+  navList.classList.remove("show"); // sembunyikan awal
 
   menuBtn.addEventListener("click", () => {
     navList.classList.toggle("show");
@@ -128,6 +107,15 @@ if (menuBtn && navList && mainContent) {
       mainContent.style.marginTop = "0";
     }
   });
+
+  // tutup menu otomatis saat klik link
+  navList.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navList.classList.remove("show");
+      mainContent.style.marginTop = "0";
+    });
+  });
+}
 
   // tutup menu otomatis saat klik link
   navList.querySelectorAll("a").forEach(link => {
@@ -174,6 +162,7 @@ function showSection(id) {
     target.classList.add('active');
   }
 }
+
 
 
 
