@@ -1,72 +1,91 @@
-/* ===== RESET & BODY ===== */
+/* ========== RESET DASAR + FRAME LEMBUT ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #fde8f0; /* warna latar luar (di belakang body) */
 }
 
 body {
-  font-family: "Poppins", sans-serif;
   background-color: #ffffff;
   color: #333;
   line-height: 1.6;
-  margin: 0;
-  padding-bottom: 70px;
+
+  border-radius: 25px;
+  margin: 15px;
+  overflow: hidden; 
+  box-shadow: 0 0 30px rgba(243, 173, 195, 0.4);
 }
 
-/* ===== HEADER ===== */
+/* Hilangkan efek membulat di layar kecil */
+@media (max-width: 768px) {
+  body {
+    border-radius: 0;
+    margin: 0;
+    box-shadow: none;
+  }
+}
+
+/* ========== HEADER ========== */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 15px 40px;
   background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+  text-align: center;
+  padding: 60px 20px;
+  color: #fff;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+header h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #ffe6f0;
+}
+
+
+/* ========== NAVBAR ========== */
+nav {
+  background: #fce4ec;
+  padding: 10px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  border-radius: 0 0 20px 20px;
-}
-
-header h1 {
-  color: #fff;
-  font-size: 1.8rem;
-}
-
-/* ===== NAV ===== */
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  flex-grow: 1;
 }
 
 nav ul {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   list-style: none;
-  gap: 12px;
 }
 
 nav li {
-  margin: 0;
+  margin: 8px 15px;
 }
 
 nav a {
   text-decoration: none;
-  color: #fff;
+  color: #b35c72;
   font-weight: 500;
-  padding: 6px 12px;
+  padding: 6px 10px;
   border-radius: 6px;
   transition: 0.3s;
 }
 
 nav a:hover {
-  background-color: rgba(255,255,255,0.2);
+  background-color: #f48fb1;
+  color: #fff;
 }
-
 
 /* ========== HERO SECTION ========== */
 #hero h3 {
@@ -479,6 +498,24 @@ footer p {
   display: block;
 }
 
+@media (max-width: 480px) {
+  nav ul {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  nav li {
+    flex-basis: calc(50% - 16px); /* 2 item per baris */
+    text-align: center;
+    margin: 6px 8px;
+  }
+
+  nav a {
+    font-size: 0.9rem;      /* font lebih kecil tapi tetap readable */
+    padding: 8px 12px;      /* padding lebih pas supaya klik mudah */
+    display: block;         /* supaya area klik full */
+  }
+
   /* Tombol hero */
   .hero-buttons {
     flex-direction: column;
@@ -582,6 +619,56 @@ nav a:hover {
   background-color: #f48fb1;
 }
 
+/* ===== RESPONSIVE UNTUK HP ===== */
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fce4ec;
+    border-radius: 0 0 15px 15px;
+    padding: 10px 0;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  nav a {
+    color: #6a1b4d;
+    padding: 10px;
+  }
+}
+
+nav a {
+  text-decoration: none;
+  color: #6a1b4d;
+  padding: 8px 0;
+  font-weight: 500;
+  transition: 0.3s;
+  text-align: center;
+}
+
+nav a:hover {
+  color: #b33558;
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+  .menu-button { display: none; }
+  nav {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    box-shadow: none;
+  }
+  nav a { padding: 10px 15px; }
+}
 
 /* ===== RESPONSIVE UNTUK HP ===== */
 @media (max-width: 768px) {
@@ -619,117 +706,4 @@ nav a:hover {
     font-size: 0.95rem;
   }
 }
-
-/* ========== MITOS & FAKTA SINUSITIS ========== */
-.mitos-fakta-section {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 25px 30px;
-  background-color: #fff0f5; /* very soft pink */
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(243, 173, 195, 0.25);
-  color: #6a1b4d;
-  font-family: "Poppins", sans-serif;
-}
-
-.mitos-fakta-section h2 {
-  font-size: 1.8rem;
-  color: #d23f6a;
-  margin-bottom: 20px;
-  position: relative;
-}
-
-.mitos-fakta-section h2::after {
-  content: "";
-  display: block;
-  width: 50px;
-  height: 3px;
-  background-color: #f8bbd0;
-  margin-top: 5px;
-  border-radius: 2px;
-}
-
-.mitos-fakta-list {
-  list-style: none;
-  padding-left: 0;
-}
-
-.mitos-fakta-item {
-  background-color: #fce4ec;
-  padding: 18px 22px;
-  margin-bottom: 18px;
-  border-radius: 18px;
-  box-shadow: 0 4px 15px rgba(210, 63, 106, 0.15);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.mitos-fakta-item strong {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 1.1rem;
-  color: #b35c72;
-}
-
-.mitos-fakta-item .btn-toggle {
-  background-color: #d23f6a;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  padding: 8px 16px;
-  cursor: pointer;
-  font-weight: 600;
-  margin-bottom: 10px;
-  transition: background-color 0.3s ease, transform 0.15s ease;
-}
-
-.mitos-fakta-item .btn-toggle:hover {
-  background-color: #b33558;
-  transform: scale(1.05);
-}
-
-.mitos-fakta-item .fakta {
-  display: none; /* disembunyikan default */
-  padding: 12px 15px;
-  background-color: #f8bbd0;
-  border-radius: 12px;
-  color: #5c374a;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-top: 10px;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
-  overflow: hidden;
-}
-
-/* Responsif untuk HP */
-@media (max-width: 480px) {
-  .mitos-fakta-section {
-    padding: 20px 15px;
-    margin: 30px 10px;
-  }
-
-  .mitos-fakta-item {
-    padding: 15px 18px;
-  }
-
-  .mitos-fakta-item strong {
-    font-size: 1rem;
-  }
-
-  .mitos-fakta-item .btn-toggle {
-    font-size: 0.95rem;
-    padding: 6px 14px;
-  }
-
-  .mitos-fakta-item .fakta {
-    font-size: 0.95rem;
-  }
-}
-
-
-
-
-
-
-
 
