@@ -96,33 +96,36 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // MENU TOGGLE UNTUK HP
-const menuToggle = document.getElementById("menu-toggle");
-const navList = document.querySelector("nav ul");
-if (menuToggle && navList) {
-  menuToggle.addEventListener("click", () => {
-    navList.classList.toggle("active");
+  const menuToggle = document.getElementById("menu-toggle");
+  const navList = document.querySelector("nav ul");
+  if (menuToggle && navList) {
+    menuToggle.addEventListener("click", () => {
+      navList.classList.toggle("active");
+    });
+  }
+  const menuBtn = document.getElementById("menuBtn");
+  const nav = document.querySelector("nav");
+  if (menuBtn && nav) {
+    menuBtn.addEventListener("click", () => {
+      nav.classList.toggle("show");
+    });
+  }
+  document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("show");
+    });
   });
-}
-// Tombol menu (☰) buka/tutup navigasi
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.querySelector("nav");
 
-if (menuBtn && nav) {
-  menuBtn.addEventListener("click", () => {
-    nav.classList.toggle("show");
-  });
-}
+  // Tampilkan section beranda saat halaman pertama kali dimuat
+  showSection('beranda');
 
-// Tutup menu otomatis setelah link diklik
-document.querySelectorAll("nav a").forEach(link => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("show");
-  });
-});
+  // ===============================
+  // MITOS & FAKTA SINUSITIS
+  // ===============================
+  const faktaElements = document.querySelectorAll(".fakta");
+  faktaElements.forEach(f => f.style.display = "none"); // sembunyikan semua fakta awal
 
-  document.addEventListener("DOMContentLoaded", () => {
   const toggleButtons = document.querySelectorAll(".btn-toggle");
-
   toggleButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       const fakta = btn.nextElementSibling;
@@ -135,10 +138,7 @@ document.querySelectorAll("nav a").forEach(link => {
       }
     });
   });
-});
 
-  // Tampilkan section beranda saat halaman pertama kali dimuat
-  showSection('beranda');
 });
 
 // Fungsi untuk menampilkan section tertentu (misal cek-gejala, kalkulator-sembuh)
