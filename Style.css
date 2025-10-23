@@ -242,36 +242,37 @@ nav a:hover {
   max-width: 600px;
   margin: 40px auto;
   padding: 25px 30px;
-  background-color: #fff0f5;
+  background-color: #fff0f5; /* soft pink lembut */
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(243, 173, 195, 0.25);
   color: #6a1b4d;
+  font-family: "Poppins", sans-serif;
 }
 
 .interactive-container .pertanyaan p {
   font-weight: 700;
   font-size: 1.1rem;
   margin-bottom: 12px;
-  color: #b35c72;
+  color: #b35c72; /* pink gelap lembut */
 }
 
 .interactive-container label {
   display: flex;
   align-items: center;
   gap: 12px;
-  background-color: #fce4ec;
+  background-color: #fce4ec; /* soft pink */
   padding: 12px 16px;
   margin-bottom: 12px;
   border-radius: 25px;
   cursor: pointer;
   font-weight: 600;
-  color: #8a3a5a;
+  color: #8a3a5a; /* pink tua lembut */
   box-shadow: 0 3px 8px rgba(211, 63, 106, 0.15);
   transition: all 0.3s ease;
 }
 
 .interactive-container label:hover {
-  background-color: #f8bbd0;
+  background-color: #f8bbd0; /* pink lembut hover */
   transform: translateY(-1px);
 }
 
@@ -296,49 +297,238 @@ label span {
   transition: all 0.3s ease;
 }
 
-#cekBtn, .interactive-container .quiz-btn, #hitungBtn {
-  background-color: #d23f6a;
+#cekBtn,
+.interactive-container .quiz-btn,
+#hitungBtn {
+  background-color: #d23f6a; /* pink kuat */
   color: #fff;
   box-shadow: 0 6px 15px rgba(210, 63, 106, 0.5);
 }
 
-#cekBtn:hover, .interactive-container .quiz-btn:hover, #hitungBtn:hover {
-  background-color: #b33558;
+#cekBtn:hover,
+.interactive-container .quiz-btn:hover,
+#hitungBtn:hover {
+  background-color: #b33558; /* pink gelap saat hover */
   transform: scale(1.05);
 }
 
 #resetBtn {
-  background-color: #f8bbd0;
+  background-color: #f8bbd0; /* pink lembut */
   color: #6a1b4d;
   box-shadow: 0 4px 12px rgba(243, 173, 195, 0.4);
 }
 
 #resetBtn:hover {
-  background-color: #f48fb1;
+  background-color: #f48fb1; /* pink medium */
   color: white;
   transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .interactive-container {
+    padding: 20px 20px;
+    margin: 30px 15px;
+  }
+
+  .interactive-container .pertanyaan p {
+    font-size: 1rem;
+  }
+
+  .interactive-container label {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+  }
+
+  .interactive-container button,
+  #cekBtn,
+  #hitungBtn,
+  #resetBtn {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .interactive-container {
+    padding: 18px 15px;
+    margin: 20px 10px;
+  }
+
+  .interactive-container .pertanyaan p {
+    font-size: 0.95rem;
+  }
+
+  .interactive-container label {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .interactive-container button,
+  #cekBtn,
+  #hitungBtn,
+  #resetBtn {
+    font-size: 0.95rem;
+    padding: 10px 0;
+  }
+}
+/* ===== FORM INTERACTIVE ===== */
+/* ...kode sebelumnya tetap sama... */
+
+/* Hover & Animasi Halus */
+.interactive-container label {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-container label:hover {
+  background-color: #f8bbd0;
+  transform: translateY(-2px) scale(1.02); /* naik tipis & zoom lembut */
+  box-shadow: 0 6px 15px rgba(210, 63, 106, 0.2); /* shadow lebih terasa */
+}
+
+#cekBtn,
+.interactive-container .quiz-btn,
+#hitungBtn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#cekBtn:hover,
+.interactive-container .quiz-btn:hover,
+#hitungBtn:hover {
+  background-color: #b33558;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(210, 63, 106, 0.35);
+}
+
+#resetBtn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#resetBtn:hover {
+  background-color: #f48fb1;
+  color: white;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(243, 173, 195, 0.35);
+}
+
+/* Efek smooth pada cek/radio span */
+.interactive-container label input[type="radio"]:checked + span,
+.interactive-container label input[type="checkbox"]:checked + span {
+  transition: all 0.25s ease-in-out;
+  color: #6a1b4d;
+  font-weight: 700;
 }
 
 /* ===== MITOS & FAKTA ===== */
 .mitos-fakta-section {
   max-width: 800px;
   margin: 40px auto;
-  padding: 25px 30px;
-  background-color: #fff0f5;
-  border-radius: 25px;
-  box-shadow: 0 10px 25px rgba(243, 173, 195, 0.25);
+  padding: 30px 25px;
+  background: linear-gradient(145deg, #fff0f5, #ffe6f0);
+  border-radius: 30px;
+  box-shadow: 0 12px 30px rgba(243, 173, 195, 0.2);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: 0.2s;
 }
 
 .mitos-fakta-item {
-  background-color: #fce4ec;
-  padding: 18px 22px;
-  margin-bottom: 18px;
-  border-radius: 18px;
-  box-shadow: 0 4px 15px rgba(210, 63, 106, 0.15);
-  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #fce4ec, #ffe6f0);
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(210, 63, 106, 0.12);
+  transition: all 0.3s ease, transform 0.25s ease;
+  cursor: pointer;
+}
+
+.mitos-fakta-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(210, 63, 106, 0.18);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .mitos-fakta-section {
+    padding: 25px 20px;
+    margin: 30px 15px;
+  }
+
+  .mitos-fakta-item {
+    padding: 18px 20px;
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mitos-fakta-section {
+    padding: 20px 15px;
+    margin: 25px 10px;
+  }
+
+  .mitos-fakta-item {
+    padding: 15px 16px;
+    margin-bottom: 15px;
+  }
+}
+
+/* ===== ANIMASI FADE IN UP ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===== FOOTER ===== */
 footer {
   text-align: center;
-  padding: 30px 20px;
+  padding: 25px 15px; /* responsive */
+  background: linear-gradient(135deg, #f8bbd0, #fce4ec); /* gradasi lembut */
+  color: #6a1b4d;
+  border-radius: 20px 20px 0 0; /* sudut atas halus */
+  box-shadow: 0 -4px 15px rgba(210, 63, 106, 0.1); /* shadow tipis atas */
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+}
+
+footer p {
+  margin-bottom: 8px;
+}
+
+footer a {
+  color: #b35c72;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #d23f6a;
+}
+
+/* ===== RESPONSIVE FOOTER ===== */
+@media (max-width: 768px) {
+  footer {
+    padding: 20px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 18px 10px;
+    font-size: 0.85rem;
+  }
+
+  footer p {
+    margin-bottom: 6px;
+  }
+}
