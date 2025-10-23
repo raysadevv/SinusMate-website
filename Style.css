@@ -50,6 +50,33 @@ header h1 {
   transform: scale(1.05);
 }
 
+..back-button {
+  background-color: #2b7cff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s, transform 0.2s;
+  display: inline-block;
+  margin: 10px;
+}
+
+.back-button:hover {
+  background-color: #1e63d9;
+  transform: scale(1.05);
+}
+
+/* Biar rapi di HP kecil */
+@media (max-width: 600px) {
+  .back-button {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
 /* === NAV LINK (Versi tanpa <ul>) === */
 nav {
   display: flex;
@@ -817,6 +844,7 @@ footer a:hover {
     margin-bottom: 6px;
   }
 }
+
 
 
 
