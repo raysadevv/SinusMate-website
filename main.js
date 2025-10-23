@@ -110,6 +110,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ===== TOGGLE NAV MENU =====
+const menuBtn = document.getElementById('menuBtn');
+const nav = document.querySelector('nav');
+
+if (menuBtn && nav) {
+  menuBtn.addEventListener('click', () => {
+    nav.classList.toggle('active'); // toggle muncul/tidak
+  });
+
+  // Tutup menu otomatis saat klik salah satu navigasi
+  const navLinks = nav.querySelectorAll('a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (nav.classList.contains('active')) {
+        nav.classList.remove('active');
+      }
+    });
+  });
+}
+
   // ===== Tampilkan section beranda awal =====
   showSection('beranda');
 });
@@ -128,6 +148,7 @@ function showSection(id) {
     target.classList.add('active');
   }
 }
+
 
 
 
