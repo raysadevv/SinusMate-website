@@ -1,4 +1,4 @@
-/* ========== RESET DASAR + FRAME FULL-WIDTH ========== */
+/* ========== RESET DASAR + FRAME LEMBUT ========== */
 * {
   margin: 0;
   padding: 0;
@@ -8,78 +8,87 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #f5f5f5; /* Background abu-abu luar (tempat Hero mengambang) */
+  background-color: #fde8f0; /* warna latar luar (di belakang body) */
 }
 
 body {
-  background-color: #ffffff; /* Background putih di dalam */
+  background-color: #ffffff;
   color: #333;
   line-height: 1.6;
 
-  /* Layout Full-Width */
-  border-radius: 0;
-  box-shadow: none;
-  margin: 0;
-  max-width: none;
-  overflow-x: hidden;
-  overflow-y: auto;
+  border-radius: 25px;
+  margin: 15px;
+  overflow: hidden; 
+  box-shadow: 0 0 30px rgba(243, 173, 195, 0.4);
 }
 
-/* ========== HEADER & NAVIGASI DESKTOP (FIXED: Centered) ========== */
+/* Hilangkan efek membulat di layar kecil */
+@media (max-width: 768px) {
+  body {
+    border-radius: 0;
+    margin: 0;
+    box-shadow: none;
+  }
+}
+
+/* ========== HEADER ========== */
 header {
-  background: none;
-  padding: 0;
-  display: block; /* Memastikan NAV kembali centered */
+  background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+  text-align: center;
+  padding: 60px 20px;
+  color: #fff;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+header h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #ffe6f0;
+}
+
+
+/* ========== NAVBAR ========== */
+nav {
+  background: #fce4ec;
+  padding: 10px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.menu-button {
-  display: none;
-}
-
-nav {
-  background-color: #fce4ec; /* Light pink background */
-  padding: 15px 40px;
+nav ul {
   display: flex;
-  justify-content: center; /* LINK Centered */
-  gap: 15px;
-  position: static;
-  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+nav li {
+  margin: 8px 15px;
 }
 
 nav a {
   text-decoration: none;
-  color: #b35c72; /* Dark pink text */
+  color: #b35c72;
   font-weight: 500;
-  padding: 6px 12px;
+  padding: 6px 10px;
   border-radius: 6px;
   transition: 0.3s;
 }
 
-/* FIX: Perbaikan Warna Hover/Clicked - Teks Tetap Dark Pink */
 nav a:hover {
   background-color: #f48fb1;
-  color: #6a1b4d; 
+  color: #fff;
 }
 
-/* ========== HERO SECTION (MENGAMBANG di Desktop & RINGKAS di HP) ========== */
-#hero {
-  text-align: center;
-  padding: 70px 20px;
-  background-color: #fce4ec; 
-
-  /* EFEK MENGAMBANG DI DESKTOP */
-  max-width: 900px;
-  margin: 40px auto;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  animation: fadeInUp 0.8s ease-in-out;
-}
-
-#hero h1 {
+/* ========== HERO SECTION ========== */
+#hero h3 {
   color: #b35c72;
   font-size: 2.3rem;
   margin-bottom: 10px;
@@ -92,13 +101,10 @@ nav a:hover {
 
 .hero-buttons {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  margin-top: 25px;
 }
 
-/* Tombol Hero */
 .btn-utama, .btn-secondary {
   padding: 10px 20px;
   border: none;
@@ -128,12 +134,7 @@ nav a:hover {
   color: white;
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ========== SECTION KONTEN UMUM ========== */
+/* ========== SECTION KONTEN ========== */
 .content-section {
   max-width: 900px;
   margin: 50px auto;
@@ -141,11 +142,6 @@ nav a:hover {
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-  display: none;
-}
-
-.content-section.active {
-  display: block;
 }
 
 .content-section h2 {
@@ -164,55 +160,190 @@ nav a:hover {
   margin-top: 5px;
   border-radius: 2px;
 }
-/* ... (Konten Section lainnya) ... */
 
-/* ========== FORM CEK GEJALA & KALKULATOR (ESTETIK ENHANCEMENT) ========== */
+.content-section p, 
+.content-section li {
+  color: #444;
+  font-size: 1rem;
+}
+
+.content-section ul, 
+.content-section ol {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+#faq details {
+  background-color: #fce4ec;
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+#faq details[open] {
+  background-color: #f8bbd0;
+}
+
+#faq summary {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #b35c72;
+  list-style: none;
+  outline: none;
+}
+
+#faq summary::before {
+  content: "+";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #b35c72;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#faq details[open] summary::before {
+  content: "−";
+  color: #d23f6a;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+#faq details[open] summary {
+  color: #d23f6a;
+}
+
+#faq details p {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  margin-top: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #5c374a;
+}
+
+#faq details[open] p {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 10px;
+}
+
+/* ========== FORM CEK GEJALA & KALKULATOR ========== */
+form label {
+  display: block;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #f8bbd0;
+  margin-right: 5px;
+}
+
+input[type="date"] {
+  padding: 6px;
+  border: 1px solid #f8bbd0;
+  border-radius: 6px;
+}
+
+/* CONTAINER UMUM FORM */
 .interactive-container {
   max-width: 600px;
   margin: 40px auto;
-  padding: 30px 35px; /* Ditingkatkan: Lebih tebal */
-  background-color: #fff0f5; /* FIX: Pink muda background container */
+  padding: 25px 30px;
+  background-color: #fff0f5; /* very soft pink */
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(243, 173, 195, 0.25);
   font-family: "Poppins", sans-serif;
   color: #6a1b4d;
 }
 
+/* JUDUL PERTANYAAN */
 .interactive-container .pertanyaan p {
   font-weight: 700;
-  font-size: 1.15rem; /* Ditingkatkan: Teks pertanyaan sedikit besar */
-  margin-bottom: 15px; /* Ditingkatkan: Jarak antar pertanyaan lebih jelas */
-  color: #b35c72;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #b35c72; /* dark pink */
 }
 
-/* FIX: Perkuat Style Label (Opsi Jawaban) */
-.interactive-container label {
+/* === LABEL PILIHAN (Estetik & Kompatibel) === */
+.interactive-container label,
+#cek-gejala label,
+#formKalkulator label {
   display: flex;
   align-items: center;
-  gap: 15px;
-  background-color: #fce4ec; /* FIX: Pink muda untuk setiap opsi */
-  padding: 14px 20px; /* Ditingkatkan: Opsi lebih tebal/besar */
-  margin-bottom: 10px; 
-  border-radius: 30px; /* Ditingkatkan: Lebih melingkar */
+  gap: 12px;
+  background-color: #fce4ec;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border-radius: 25px;
   cursor: pointer;
   font-weight: 600;
   color: #8a3a5a;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(211, 63, 106, 0.1); /* Bayangan lembut */
+  box-shadow: 0 2px 5px rgba(211, 63, 106, 0.15);
   position: relative;
   user-select: none;
 }
 
-.interactive-container label:hover {
+.interactive-container label:hover,
+#cek-gejala label:hover,
+#formKalkulator label:hover {
   background-color: #f8bbd0;
   transform: translateY(-1px);
 }
 
+/* === Efek Saat Dipilih === */
+.interactive-container label input[type="radio"]:checked,
+.interactive-container label input[type="checkbox"]:checked,
+#cek-gejala label input[type="checkbox"]:checked,
+#formKalkulator label input[type="radio"]:checked {
+  accent-color: #d23f6a;
+}
+
+.interactive-container label input[type="radio"]:checked + span,
+.interactive-container label input[type="checkbox"]:checked + span,
+#cek-gejala label input[type="checkbox"]:checked + span,
+#formKalkulator label input[type="radio"]:checked + span {
+  font-weight: bold;
+  color: #6a1b4d;
+}
+
+/* Buat <span> agar isi label bisa di-style terpisah dari <input> */
 label span {
   flex: 1;
 }
 
-/* Radio Button Custom (Tetap Estetik) */
+#cekBtn {
+  background-color: #d23f6a;  /* warna pink kuat */
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(210, 63, 106, 0.5);
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  user-select: none;
+}
+
+#cekBtn:hover {
+  background-color: #b33558; /* pink lebih gelap saat hover */
+  transform: scale(1.05);
+}
+
+/* RADIO BUTTON CUSTOM */
 .interactive-container input[type="radio"] {
   appearance: none;
   -webkit-appearance: none;
@@ -240,14 +371,19 @@ label span {
   transform: translate(-50%, -50%);
 }
 
-/* Tombol Form (Tetap Estetik) */
+.interactive-container input[type="radio"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(210, 63, 106, 0.4);
+}
+
+/* TOMBOL */
 .interactive-container .quiz-btn,
 .interactive-container button {
   display: block;
   width: 100%;
   padding: 14px 0;
-  margin-top: 25px; /* Ditingkatkan: Jarak dari opsi */
-  background-color: #d23f6a;
+  margin-top: 20px;
+  background-color: #d23f6a; /* strong pink */
   color: white;
   font-size: 1.15rem;
   font-weight: 700;
@@ -265,11 +401,9 @@ label span {
   transform: scale(1.05);
 }
 
-/* Tombol Kalkulator */
 #formKalkulator button {
   padding: 12px 28px;
   margin: 10px 10px 0 0;
-  display: inline-block;
   border: none;
   border-radius: 30px;
   font-weight: 700;
@@ -281,7 +415,7 @@ label span {
 }
 
 #hitungBtn {
-  background-color: #d23f6a;
+  background-color: #d23f6a; /* pink kuat */
   color: white;
 }
 
@@ -291,7 +425,7 @@ label span {
 }
 
 #resetBtn {
-  background-color: #f8bbd0;
+  background-color: #f8bbd0; /* pink lembut */
   color: #6a1b4d;
   box-shadow: 0 4px 12px rgba(243, 173, 195, 0.4);
 }
@@ -302,6 +436,25 @@ label span {
   transform: scale(1.05);
 }
 
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .interactive-container {
+    padding: 20px;
+    margin: 20px 15px;
+  }
+
+  .interactive-container .pertanyaan p {
+    font-size: 1rem;
+  }
+
+  .interactive-container .quiz-btn,
+  .interactive-container button {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+}
+
+/* HASIL QUIZ */
 #hasilQuiz {
   margin-top: 25px;
   padding: 18px 22px;
@@ -313,70 +466,7 @@ label span {
   text-align: center;
   box-shadow: 0 5px 15px rgba(210, 63, 106, 0.3);
   user-select: none;
-  min-height: 60px;
-}
-/* ========== ANIMASI & EFEK TAMBAHAN UNTUK MINI QUIZ ========== */
-
-/* Animasi masuk setiap pertanyaan */
-.pertanyaan {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: muncul 0.6s ease forwards;
-}
-
-@keyframes muncul {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Efek glow ketika hover pada opsi */
-.interactive-container label:hover {
-  background-color: #f8bbd0;
-  transform: scale(1.02);
-  box-shadow: 0 6px 15px rgba(210, 63, 106, 0.2);
-}
-
-/* Efek animasi saat hasil muncul */
-#hasilQuiz {
-  animation: munculHasil 0.5s ease forwards;
-}
-
-@keyframes munculHasil {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Tombol mulai quiz dengan efek shimmer */
-#btnMulaiQuiz {
-  background: linear-gradient(90deg, #d23f6a, #f48fb1, #d23f6a);
-  background-size: 300%;
-  color: #fff;
-  border: none;
-  border-radius: 30px;
-  padding: 14px 25px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 6px 15px rgba(210, 63, 106, 0.5);
-  animation: shimmer 4s infinite linear;
-}
-
-@keyframes shimmer {
-  0% { background-position: 0%; }
-  100% { background-position: 300%; }
-}
-
-#btnMulaiQuiz:hover {
-  transform: scale(1.05);
-  background-position: 100%;
+  min-height: 60px; /* supaya gak terlalu berubah ukuran */
 }
 
 /* ========== FOOTER ========== */
@@ -390,79 +480,215 @@ footer {
   line-height: 1.4;
 }
 
-/* ================================================= */
-/* ===== RESPONSIVE UNTUK LAYAR KECIL (HP) - ALL FIXES APPLIED ===== */
-/* ================================================= */
+footer p {
+  margin-bottom: 5px;
+}
 
-/* Sembunyikan Tombol Menu di Desktop */
-@media (min-width: 769px) {
-  .menu-button {
-      display: none;
+#cek-gejala,
+#kalkulator-sembuh {
+  display: none;
+}
+
+.content-section {
+  display: none;
+}
+
+/* Tampilkan section aktif */
+.content-section.active {
+  display: block;
+}
+
+@media (max-width: 480px) {
+  nav ul {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  nav li {
+    flex-basis: calc(50% - 16px); /* 2 item per baris */
+    text-align: center;
+    margin: 6px 8px;
+  }
+
+  nav a {
+    font-size: 0.9rem;      /* font lebih kecil tapi tetap readable */
+    padding: 8px 12px;      /* padding lebih pas supaya klik mudah */
+    display: block;         /* supaya area klik full */
+  }
+
+  /* Tombol hero */
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-utama,
+  .btn-secondary {
+    font-size: 1rem;        /* font tombol lebih kecil */
+    padding: 10px 20px;     /* padding tombol pas untuk jari */
+    width: 100%;            /* tombol full lebar di HP */
+    max-width: 300px;       /* supaya gak kebesaran */
+    margin: 0 auto;         /* center tombol */
   }
 }
 
-@media (max-width: 768px) {
-  /* Perbaikan Header dan Tombol Menu HP */
-  header {
-    background: linear-gradient(135deg, #f8bbd0, #f48fb1);
-    padding: 8px 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+/* ===== HERO SECTION ===== */
+#hero {
+  background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+  text-align: center;
+  padding: 70px 20px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.8s ease-in-out;
+}
 
+#hero h1 {
+  color: #b33558;
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+}
+
+#hero p {
+  color: #6a1b4d;
+  font-size: 1rem;
+}
+
+#hero .subtext {
+  font-style: italic;
+  color: #b35c72;
+  margin-top: -5px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+/* Animasi halus */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== HEADER & NAVIGASI  ===== */
+header {
+  background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.menu-button {
+  background: #f48fb1;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  flex-grow: 1;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background-color: #f48fb1;
+}
+
+/* ===== RESPONSIVE UNTUK HP ===== */
+@media (max-width: 768px) {
   .menu-button {
     display: block;
-    z-index: 1001;
   }
 
-  /* NAVIGASI HP (Toggle Menu) */
   nav {
-    background-color: #fce4ec;
-    padding: 0;
     display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 100%;
     flex-direction: column;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 10px 10px;
+    width: 100%;
+    background-color: #fce4ec;
+    border-radius: 0 0 15px 15px;
+    padding: 10px 0;
   }
 
   nav.show {
     display: flex;
   }
 
-  /* Link di Menu HP */
   nav a {
     color: #6a1b4d;
-    padding: 10px 20px;
-    text-align: left;
-    background-color: transparent;
-  }
-
-  /* #HERO UNTUK HP (Ringkas) */
-  #hero {
-    margin: 20px 0; 
-    padding: 15px 10px; 
-    box-shadow: none;
-    border-radius: 0;
-    max-width: none;
-  }
-
-  /* Konten Section Ringkas di HP */
-  .content-section {
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 5px;
-    max-width: none;
+    padding: 10px;
   }
 }
 
-/* RESPONSIVE PADA LAYAR SANGAT KECIL (480px ke bawah) */
-@media (max-width: 480px) {
-  /* Tombol Hero menjadi kolom */
+nav a {
+  text-decoration: none;
+  color: #6a1b4d;
+  padding: 8px 0;
+  font-weight: 500;
+  transition: 0.3s;
+  text-align: center;
+}
+
+nav a:hover {
+  color: #b33558;
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+  .menu-button { display: none; }
+  nav {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    box-shadow: none;
+  }
+  nav a { padding: 10px 15px; }
+}
+
+/* ===== RESPONSIVE UNTUK HP ===== */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  #hero {
+    padding: 40px 15px;
+  }
+
+  #hero h1 {
+    font-size: 1.4rem;
+  }
+
+  #hero p {
+    font-size: 0.95rem;
+  }
+
   .hero-buttons {
     flex-direction: column;
     gap: 10px;
@@ -470,58 +696,14 @@ footer {
 
   .btn-utama, .btn-secondary {
     width: 100%;
-    max-width: 250px;
+    max-width: 280px;
     margin: 0 auto;
+    font-size: 0.95rem;
+    padding: 10px;
   }
 
-  /* Kontainer interaktif (Quiz, Kalkulator) */
-  .interactive-container {
-    padding: 15px;
-    margin: 20px 10px;
-  }
-
-  .interactive-container .quiz-btn,
-  .interactive-container button {
-    font-size: 1rem;
-    padding: 12px 0;
+  nav a {
+    font-size: 0.95rem;
   }
 }
-
-/* ========== ANIMASI SLIDE + FADE UNTUK MENU HP ========== */
-nav {
-  transition: all 0.35s ease;
-  opacity: 0;
-  transform: translateY(-10px);
-  pointer-events: none; /* Supaya gak bisa diklik kalau belum tampil */
-}
-
-nav.show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: all;
-}
-
-/* Efek halus saat link menu diklik */
-nav a {
-  transition: background-color 0.25s ease, color 0.25s ease;
-}
-
-/* ========== FOOTER TETAP DI BAWAH LAYAR ========== */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1; /* Biar konten dorong footer ke bawah */
-}
-
-footer {
-  margin-top: auto;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
-
 
