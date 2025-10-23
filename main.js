@@ -120,6 +120,23 @@ document.querySelectorAll("nav a").forEach(link => {
   });
 });
 
+  document.addEventListener("DOMContentLoaded", () => {
+  const toggleButtons = document.querySelectorAll(".btn-toggle");
+
+  toggleButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const fakta = btn.nextElementSibling;
+      if (fakta.style.display === "block") {
+        fakta.style.display = "none";
+        btn.textContent = "Tampilkan Fakta";
+      } else {
+        fakta.style.display = "block";
+        btn.textContent = "Sembunyikan Fakta";
+      }
+    });
+  });
+});
+
   // Tampilkan section beranda saat halaman pertama kali dimuat
   showSection('beranda');
 });
@@ -143,4 +160,5 @@ function toggleMenu() {
   const nav = document.querySelector("header nav");
   nav.classList.toggle("show");
 }
+
 
