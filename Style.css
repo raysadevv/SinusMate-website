@@ -436,141 +436,68 @@ nav li a:hover {
   opacity: 1;
   margin-top: 10px;
 }
-
-/* ===== FORM INTERACTIVE ===== */
-.interactive-container {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 30px 35px;
-  background: linear-gradient(135deg, #fff0f5, #ffe4f1); /* gradient soft pink */
+/* 🌸 ===== FORM INTERAKTIF (Cek Gejala / Kalkulator) ===== */
+.interactive-form {
+  max-width: 650px;
+  margin: 50px auto;
+  padding: 35px 40px;
+  background: linear-gradient(145deg, #fff0f5, #ffe6f0);
   border-radius: 25px;
-  box-shadow: 0 12px 30px rgba(243, 173, 195, 0.2), 0 4px 12px rgba(243, 173, 195, 0.1); /* depth */
-  color: #6a1b4d;
+  box-shadow: 0 12px 35px rgba(243, 173, 195, 0.25);
   font-family: "Poppins", sans-serif;
-  transition: all 0.3s ease-in-out;
+  color: #6a1b4d;
+  animation: fadeInUp 0.8s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Pertanyaan */
-.interactive-container .pertanyaan p {
+.interactive-form:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(243, 173, 195, 0.35);
+}
+
+.interactive-form h3 {
+  color: #b33558;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* 🩺 Pertanyaan */
+.interactive-form .pertanyaan {
+  margin-bottom: 25px;
+}
+
+.interactive-form .pertanyaan p {
   font-weight: 700;
-  font-size: 1.15rem;
-  margin-bottom: 16px;
+  font-size: 1.1rem;
   color: #b35c72;
+  margin-bottom: 10px;
 }
 
-/* Pilihan */
-.interactive-container label {
+/* 💗 Input (radio & checkbox) */
+.interactive-form label {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   background-color: #fce4ec;
-  padding: 14px 18px;
-  margin-bottom: 14px;
-  border-radius: 30px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border-radius: 20px;
   cursor: pointer;
   font-weight: 600;
   color: #8a3a5a;
-  box-shadow: 0 5px 15px rgba(211, 63, 106, 0.12);
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.interactive-container label:hover {
-  background: linear-gradient(135deg, #f8bbd0, #fdd0e0); /* subtle hover gradient */
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 20px rgba(210, 63, 106, 0.2);
-}
-
-/* Checked state */
-.interactive-container label input[type="radio"]:checked + span,
-.interactive-container label input[type="checkbox"]:checked + span {
-  font-weight: 700;
-  color: #6a1b4d;
-  transition: all 0.25s ease-in-out;
-}
-
-/* Text inside label */
-label span {
-  flex: 1;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .interactive-container {
-    padding: 25px 20px;
-    margin: 30px 15px;
-  }
-
-  .interactive-container .pertanyaan p {
-    font-size: 1rem;
-  }
-
-  .interactive-container label {
-    padding: 12px 14px;
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .interactive-container {
-    padding: 20px 15px;
-    margin: 20px 10px;
-  }
-
-  .interactive-container .pertanyaan p {
-    font-size: 0.95rem;
-  }
-
-  .interactive-container label {
-    padding: 10px 12px;
-    font-size: 0.9rem;
-  }
-}
-
-/* ===== STYLING TOMBOL ===== */
-button,
-#cekBtn,
-#hitungBtn,
-#resetBtn,
-.quiz-btn {
-  display: block;
-  width: 100%;
-  padding: 12px 0;
-  margin-top: 18px;
-  border: none;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #f48fb1, #ec407a);
-  color: white;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(211, 63, 106, 0.15);
   transition: all 0.3s ease;
-  box-shadow: 0 6px 15px rgba(236, 64, 122, 0.3);
 }
 
-button:hover,
-#cekBtn:hover,
-#hitungBtn:hover,
-.quiz-btn:hover {
-  background: linear-gradient(135deg, #ec407a, #d81b60);
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 8px 20px rgba(216, 27, 96, 0.35);
+.interactive-form label:hover {
+  background: linear-gradient(135deg, #f8bbd0, #fdd0e0);
+  transform: translateY(-2px);
 }
 
-#resetBtn {
-  background: linear-gradient(135deg, #f8bbd0, #f48fb1);
-  color: #6a1b4d;
-  box-shadow: 0 6px 15px rgba(243, 173, 195, 0.3);
-}
-
-#resetBtn:hover {
-  background: linear-gradient(135deg, #f48fb1, #ec407a);
-  color: white;
-  transform: translateY(-2px) scale(1.05);
-}
-
-/* ===== STYLING CHECKBOX & RADIO ===== */
-.interactive-container input[type="radio"],
-.interactive-container input[type="checkbox"] {
+/* Custom checkbox & radio */
+.interactive-form input[type="radio"],
+.interactive-form input[type="checkbox"] {
   appearance: none;
   width: 20px;
   height: 20px;
@@ -580,21 +507,20 @@ button:hover,
   cursor: pointer;
   position: relative;
   transition: all 0.3s ease;
-  flex-shrink: 0;
 }
 
-.interactive-container input[type="checkbox"] {
-  border-radius: 6px; /* checkbox bentuk kotak */
+.interactive-form input[type="checkbox"] {
+  border-radius: 6px;
 }
 
-.interactive-container input[type="radio"]:checked,
-.interactive-container input[type="checkbox"]:checked {
+.interactive-form input[type="radio"]:checked,
+.interactive-form input[type="checkbox"]:checked {
   background-color: #ec407a;
   border-color: #ec407a;
-  box-shadow: 0 0 10px rgba(236, 64, 122, 0.4);
+  box-shadow: 0 0 8px rgba(236, 64, 122, 0.4);
 }
 
-.interactive-container input[type="checkbox"]:checked::after {
+.interactive-form input[type="checkbox"]:checked::after {
   content: "✔";
   position: absolute;
   color: white;
@@ -604,7 +530,7 @@ button:hover,
   transform: translate(-50%, -55%);
 }
 
-.interactive-container input[type="radio"]:checked::after {
+.interactive-form input[type="radio"]:checked::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -616,40 +542,90 @@ button:hover,
   transform: translate(-50%, -50%);
 }
 
-/* ===== RESPONSIVE ===== */
+/* ✨ Tombol */
+.btn-cek,
+.btn-hitung,
+.btn-reset {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 18px;
+  transition: all 0.3s ease;
+}
+
+.btn-cek,
+.btn-hitung {
+  background: linear-gradient(135deg, #f48fb1, #ec407a);
+  color: white;
+  box-shadow: 0 6px 15px rgba(236, 64, 122, 0.3);
+}
+
+.btn-cek:hover,
+.btn-hitung:hover {
+  background: linear-gradient(135deg, #ec407a, #d81b60);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(216, 27, 96, 0.35);
+}
+
+.btn-reset {
+  background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+  color: #6a1b4d;
+  box-shadow: 0 6px 15px rgba(243, 173, 195, 0.3);
+}
+
+.btn-reset:hover {
+  background: linear-gradient(135deg, #f48fb1, #ec407a);
+  color: white;
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* 🌿 Responsif */
 @media (max-width: 768px) {
-  button,
-  #cekBtn,
-  #hitungBtn,
-  #resetBtn,
-  .quiz-btn {
-    font-size: 0.95rem;
-    padding: 10px 0;
+  .interactive-form {
+    padding: 25px 20px;
   }
 
-  .interactive-container input[type="radio"],
-  .interactive-container input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
+  .interactive-form h3 {
+    font-size: 1.3rem;
+  }
+
+  .interactive-form label {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+
+  .btn-cek,
+  .btn-hitung,
+  .btn-reset {
+    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 480px) {
-  button,
-  #cekBtn,
-  #hitungBtn,
-  #resetBtn,
-  .quiz-btn {
-    font-size: 0.9rem;
-    padding: 9px 0;
+  .interactive-form {
+    padding: 20px 15px;
   }
 
-  .interactive-container input[type="radio"],
-  .interactive-container input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
+  .interactive-form h3 {
+    font-size: 1.1rem;
+  }
+
+  .interactive-form label {
+    font-size: 0.9rem;
+  }
+
+  .btn-cek,
+  .btn-hitung,
+  .btn-reset {
+    font-size: 0.9rem;
   }
 }
+
 /* ===== MITOS & FAKTA ===== */
 .mitos-fakta-section {
   max-width: 850px;
@@ -831,6 +807,7 @@ footer a:hover {
     margin-bottom: 6px;
   }
 }
+
 
 
 
