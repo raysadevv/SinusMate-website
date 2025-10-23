@@ -1,22 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ===== MENU MOBILE =====
-  const menuBtn = document.getElementById('menuBtn');
-  const navUl = document.querySelector('nav ul');
-  if (menuBtn && navUl) {
-    menuBtn.addEventListener('click', () => navUl.classList.toggle('mobile-active'));
-
-    const navLinks = document.querySelectorAll('nav ul li a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (navUl.classList.contains('mobile-active')) navUl.classList.remove('mobile-active');
-
-        const targetSection = link.getAttribute('data-target');
-        if (targetSection) showSection(targetSection);
-      });
-    });
-  }
-
+  function toggleMenu() {
+  const menu = document.querySelector("nav ul");
+  menu.classList.toggle("active");
+}
   // ===== MINI QUIZ =====
   const miniQuizForm = document.getElementById('miniQuizForm');
   const btnMulaiQuiz = document.getElementById('btnMulaiQuiz');
@@ -130,4 +117,5 @@ function showSection(id) {
     target.classList.add('active');
   }
 }
+
 
