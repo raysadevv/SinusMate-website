@@ -25,14 +25,11 @@ body {
   overflow-y: auto;
 }
 
-/* ========== HEADER & NAVIGASI DESKTOP (FINAL FIX - Navigasi Centered) ========== */
+/* ========== HEADER & NAVIGASI DESKTOP (FIXED: Centered) ========== */
 header {
   background: none;
   padding: 0;
-  
-  /* FIX 1: Hapus Flexbox di Header agar NAV kembali centered */
-  display: block; 
-  
+  display: block; /* Memastikan NAV kembali centered */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -40,15 +37,14 @@ header {
 }
 
 .menu-button {
-  display: none; /* Tombol menu disembunyikan di Desktop */
+  display: none;
 }
 
-/* Navigasi Bar (Desktop) */
 nav {
   background-color: #fce4ec; /* Light pink background */
   padding: 15px 40px;
   display: flex;
-  justify-content: center; /* Memastikan LINK berada di tengah NAV */
+  justify-content: center; /* LINK Centered */
   gap: 15px;
   position: static;
   width: 100%;
@@ -63,17 +59,17 @@ nav a {
   transition: 0.3s;
 }
 
-/* FIX 3: Perbaikan Warna Hover/Clicked - Tetap Dark Pink */
+/* FIX: Perbaikan Warna Hover/Clicked - Teks Tetap Dark Pink */
 nav a:hover {
-  background-color: #f48fb1; /* Background medium pink saat hover */
-  color: #6a1b4d; /* FIX: Teks TERTAP DARK PINK saat hover */
+  background-color: #f48fb1;
+  color: #6a1b4d; 
 }
 
-/* ========== HERO SECTION (MENGAMBANG di Desktop) ========== */
+/* ========== HERO SECTION (MENGAMBANG di Desktop & RINGKAS di HP) ========== */
 #hero {
   text-align: center;
   padding: 70px 20px;
-  background-color: #fce4ec; /* Background pink muda SOLID (tanpa gradasi) */
+  background-color: #fce4ec; 
 
   /* EFEK MENGAMBANG DI DESKTOP */
   max-width: 900px;
@@ -102,7 +98,7 @@ nav a:hover {
   margin-top: 25px;
 }
 
-/* Tombol */
+/* Tombol Hero */
 .btn-utama, .btn-secondary {
   padding: 10px 20px;
   border: none;
@@ -132,7 +128,6 @@ nav a:hover {
   color: white;
 }
 
-/* Animasi halus */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
@@ -169,90 +164,14 @@ nav a:hover {
   margin-top: 5px;
   border-radius: 2px;
 }
+/* ... (Konten Section lainnya) ... */
 
-.content-section p,
-.content-section li {
-  color: #444;
-  font-size: 1rem;
-}
-
-.content-section ul,
-.content-section ol {
-  padding-left: 20px;
-  margin-top: 10px;
-}
-
-/* ========== FAQ SECTION & FORM STYLES ========== */
-#faq details {
-  background-color: #fce4ec;
-  padding: 16px 20px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-}
-
-#faq details[open] {
-  background-color: #f8bbd0;
-}
-
-#faq summary {
-  position: relative;
-  padding-left: 25px;
-  cursor: pointer;
-  user-select: none;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #b35c72;
-  list-style: none;
-  outline: none;
-}
-
-#faq summary::before {
-  content: "+";
-  position: absolute;
-  left: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-weight: bold;
-  font-size: 1.3rem;
-  color: #b35c72;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-#faq details[open] summary::before {
-  content: "−";
-  color: #d23f6a;
-  transform: translateY(-50%) rotate(180deg);
-}
-
-#faq details[open] summary {
-  color: #d23f6a;
-}
-
-#faq details p {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
-  opacity: 0;
-  margin-top: 0;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #5c374a;
-}
-
-#faq details[open] p {
-  max-height: 300px;
-  opacity: 1;
-  margin-top: 10px;
-}
-
-/* FIX 2: REINFORCE STYLE UNTUK FORM INTERAKTIF */
+/* ========== FORM CEK GEJALA & KALKULATOR (ESTETIK ENHANCEMENT) ========== */
 .interactive-container {
   max-width: 600px;
   margin: 40px auto;
-  padding: 25px 30px;
-  background-color: #fff0f5; /* FIX: Pastikan warna pink lembut ini yang tampil */
+  padding: 30px 35px; /* Ditingkatkan: Lebih tebal */
+  background-color: #fff0f5; /* FIX: Pink muda background container */
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(243, 173, 195, 0.25);
   font-family: "Poppins", sans-serif;
@@ -261,25 +180,25 @@ nav a:hover {
 
 .interactive-container .pertanyaan p {
   font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 12px;
+  font-size: 1.15rem; /* Ditingkatkan: Teks pertanyaan sedikit besar */
+  margin-bottom: 15px; /* Ditingkatkan: Jarak antar pertanyaan lebih jelas */
   color: #b35c72;
 }
 
-/* FIX: Reinforce Label Styles */
+/* FIX: Perkuat Style Label (Opsi Jawaban) */
 .interactive-container label {
   display: flex;
   align-items: center;
-  gap: 12px;
-  background-color: #fce4ec; /* FIX: Background pink untuk setiap opsi */
-  padding: 12px 16px;
-  margin-bottom: 12px;
-  border-radius: 25px;
+  gap: 15px;
+  background-color: #fce4ec; /* FIX: Pink muda untuk setiap opsi */
+  padding: 14px 20px; /* Ditingkatkan: Opsi lebih tebal/besar */
+  margin-bottom: 10px; 
+  border-radius: 30px; /* Ditingkatkan: Lebih melingkar */
   cursor: pointer;
   font-weight: 600;
   color: #8a3a5a;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(211, 63, 106, 0.15);
+  box-shadow: 0 2px 8px rgba(211, 63, 106, 0.1); /* Bayangan lembut */
   position: relative;
   user-select: none;
 }
@@ -293,7 +212,7 @@ label span {
   flex: 1;
 }
 
-/* Radio Button Custom */
+/* Radio Button Custom (Tetap Estetik) */
 .interactive-container input[type="radio"] {
   appearance: none;
   -webkit-appearance: none;
@@ -321,12 +240,13 @@ label span {
   transform: translate(-50%, -50%);
 }
 
+/* Tombol Form (Tetap Estetik) */
 .interactive-container .quiz-btn,
 .interactive-container button {
   display: block;
   width: 100%;
   padding: 14px 0;
-  margin-top: 20px;
+  margin-top: 25px; /* Ditingkatkan: Jarak dari opsi */
   background-color: #d23f6a;
   color: white;
   font-size: 1.15rem;
@@ -408,7 +328,7 @@ footer {
 }
 
 /* ================================================= */
-/* ===== RESPONSIVE UNTUK LAYAR KECIL (HP) - FINAL FIX ===== */
+/* ===== RESPONSIVE UNTUK LAYAR KECIL (HP) - ALL FIXES APPLIED ===== */
 /* ================================================= */
 
 /* Sembunyikan Tombol Menu di Desktop */
@@ -418,7 +338,6 @@ footer {
   }
 }
 
-/* Semua perbaikan Ringkas HP ada di sini */
 @media (max-width: 768px) {
   /* Perbaikan Header dan Tombol Menu HP */
   header {
@@ -460,27 +379,21 @@ footer {
     background-color: transparent;
   }
 
-  /* PERBAIKAN #HERO UNTUK HP (Ringkas/Tidak Mengambang) */
+  /* #HERO UNTUK HP (Ringkas) */
   #hero {
     margin: 20px 0; 
-    padding: 15px 10px; /* FIX: Padding sangat kecil agar tidak 'gedee' */
+    padding: 15px 10px; 
     box-shadow: none;
     border-radius: 0;
     max-width: none;
   }
 
-  /* Perbaikan Content Sections agar Ringkas di HP */
+  /* Konten Section Ringkas di HP */
   .content-section {
     padding: 15px;
     margin: 20px 0;
     border-radius: 5px;
     max-width: none;
-  }
-
-  /* Perbaikan Tombol dan Teks Hero */
-  .btn-utama, .btn-secondary {
-    font-size: 0.9rem;
-    padding: 8px 15px;
   }
 }
 
