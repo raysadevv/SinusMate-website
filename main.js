@@ -49,20 +49,39 @@
 
   // ===== CEK GEJALA =====
   const cekBtn = document.getElementById("cekBtn");
-  if (cekBtn) {
+  const resetBtn = document.getElementById("resetBtn");
+  const hasilDiv = document.getElementById("hasilCek");
+
+  if (cekBtn && hasilDiv) {
     cekBtn.addEventListener("click", () => {
       const checkboxes = document.querySelectorAll('input[name="gejala"]:checked');
-      const hasilDiv = document.getElementById("hasilCek");
-      if (checkboxes.length === 0) return hasilDiv.innerHTML = "Silakan pilih minimal satu gejala.";
+
+      if (checkboxes.length === 0) {
+        hasilDiv.innerHTML = "Silakan pilih minimal satu gejala.";
+        return;
+      }
 
       let hasil = "";
-      if (checkboxes.length <= 2) hasil = "Kemungkinan sinusitis ringan. Istirahat dan jaga kesehatan.";
-      else if (checkboxes.length <= 4) hasil = "Kemungkinan sinusitis sedang. Pertimbangkan untuk konsultasi ke dokter.";
-      else hasil = "Kemungkinan sinusitis berat. Segera periksa ke dokter!";
+      if (checkboxes.length <= 2) {
+        hasil = "Kemungkinan sinusitis ringan. Istirahat dan jaga kesehatan.";
+      } else if (checkboxes.length <= 4) {
+        hasil = "Kemungkinan sinusitis sedang. Pertimbangkan untuk konsultasi ke dokter.";
+      } else {
+        hasil = "Kemungkinan sinusitis berat. Segera periksa ke dokter!";
+      }
 
       hasilDiv.innerHTML = `<p>${hasil}</p>`;
     });
   }
+
+  // Reset juga hapus hasil
+  if (resetBtn && hasilDiv) {
+    resetBtn.addEventListener("click", () => {
+      hasilDiv.innerHTML = "";
+    });
+  }
+});
+
 
   // ===== KALKULATOR SEMBUH =====
   const hitungBtn = document.getElementById("hitungBtn");
@@ -127,6 +146,7 @@ function showSection(id) {
     target.classList.add('active');
   }
 }
+
 
 
 
