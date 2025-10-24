@@ -12,7 +12,6 @@
   <!-- HEADER -->
   <header>
    <button class="menu-button" onclick="toggleMenu()">Menu</button>
-    <button class="back-button" onclick="goBack()">← Kembali</button>
   <nav>
     <a href="#" onclick="showSection('beranda')">Beranda</a>
     <a href="#" onclick="showSection('pengertian')">Pengertian</a>
@@ -20,7 +19,7 @@
     <a href="#" onclick="showSection('penyebab')">Penyebab</a>
     <a href="#" onclick="showSection('faktor-risiko')">Faktor Risiko</a>
     <a href="#" onclick="showSection('pengobatan')">Pengobatan</a>
-    <a href="#" onclick="showSection('pencegahan')">Pe  ncegahan</a>
+    <a href="#" onclick="showSection('pencegahan')">Pencegahan</a>
     <a href="#" onclick="showSection('info-darurat')">Info Darurat</a>
   </nav>
 </header>
@@ -55,6 +54,7 @@
       <p>Sinusitis adalah peradangan atau pembengkakan pada jaringan yang melapisi sinus. Sinus adalah rongga udara di
         tulang wajah (dahi, pipi, dan sekitar hidung) yang berfungsi menghasilkan lendir untuk menjaga kelembapan
         saluran pernapasan dan menyaring kotoran.</p>
+        <button class="back-button" onclick="goBack()">← Kembali</button>
     </section>
 
     <!-- GEJALA -->
@@ -69,6 +69,7 @@
         <li>Lendir kental berwarna kuning kehijauan</li>
         <li>Indra penciuman terganggu</li>
       </ol>
+      <button class="back-button" onclick="goBack()">← Kembali</button>
     </section>
 
     <!-- PENYEBAB -->
@@ -80,6 +81,7 @@
         <li><strong>Infeksi Gigi:</strong> Bakteri dari gigi bisa menyebar ke sinus maksila.</li>
         <li><strong>Alergi Rhinitis:</strong> Reaksi alergi yang memicu produksi lendir berlebih.</li>
       </ol>
+      <button class="back-button" onclick="goBack()">← Kembali</button>
     </section>
 
     <!-- FAKTOR RISIKO -->
@@ -96,6 +98,7 @@
         <li>Benda asing di hidung</li>
         <li>Tinggal di lingkungan berpolusi tinggi</li>
       </ul>
+      <button class="back-button" onclick="goBack()">← Kembali</button>
     </section>
 
     <!-- PENGOBATAN -->
@@ -119,6 +122,7 @@
         <li>Antibiotik (jika infeksi bakteri)</li>
         <li>Operasi bila parah</li>
       </ul>
+      <button class="back-button" onclick="goBack()">← Kembali</button>
     </section>
 
     <!-- PENCEGAHAN -->
@@ -163,6 +167,7 @@
           </ol>
         </li>
       </ol>
+      <button class="back-button" onclick="goBack()">← Kembali</button>
     </section>
 
     <!-- INFO DARURAT -->
@@ -177,6 +182,7 @@
         <li>Kebingungan, mengantuk berat, atau penurunan kesadaran</li>
         <li>Cairan bernanah atau berdarah dari hidung terus-menerus</li>
       </ul>
+      <button class="back-button" onclick="goBack()">← Kembali</button>
     </section>
 
     <!-- FAQ -->
@@ -199,6 +205,7 @@
         <p>Bisa. Sebagian besar kasus ringan dapat sembuh dengan pengobatan medis, istirahat cukup, menjaga kelembapan
           udara, dan mengatasi alergi. Operasi hanya diperlukan jika sinusitis kronis atau tidak membaik.</p>
       </details>
+      <button class="back-button" onclick="goBack()">← Kembali</button>
     </section>
 
  <!-- CEK GEJALA -->
@@ -215,13 +222,14 @@
         <label><input type="checkbox" name="gejala" value="indra-penciuman-terganggu" /><span>Indra penciuman
             terganggu</span></label>
       <button type="button" id="cekBtn" class="btn-cek">Cek Sekarang</button>
-      <button type="reset" id="resetGejala" class="btn-reset">Reset</button>
+      <button type="reset" id="resetBtn" class="btn-reset">Reset</button>
         <div id="hasilCek" style="margin-top: 10px; color: #333;"></div>
     </form>
+    <button class="back-button" onclick="goBack()">← Kembali</button>
 </section>
 
     <!-- KALKULATOR SEMBUH -->
-    <section id="kalkulator-sembuh" class="content-section" style="display: none;">
+    <section id="kalkulator-sembuh" class="content-section">
       <h2>🧮 Kalkulator Hari Sembuh Sinusitis</h2>
       <p>Gunakan kalkulator ini untuk memperkirakan kapan gejala sinusitis kamu akan membaik berdasarkan tanggal mulai
         gejala dan tingkat keparahan.</p>
@@ -244,7 +252,7 @@
         </fieldset>
         
         <button id="hitungBtn" type="button">Hitung</button>
-        <button id="resetKlakulator" type="button">Reset</button>
+        <button id="resetBtn" type="button">Reset</button>
       </form>
 
       <div id="hasilKalkulator" style="margin-top: 15px; font-weight: bold;"></div>
@@ -258,6 +266,7 @@
           <li>Jika gejala lebih dari 14 hari, segera periksa ke dokter.</li>
         </ul>
       </div>
+      <button class="back-button" onclick="goBack()">← Kembali</button>
     </section>
 
     <!-- MINI QUIZ -->
@@ -297,9 +306,10 @@
 
       <!-- Hasil -->
       <div id="hasilQuiz"></div>
+      <button class="back-button" onclick="goBack()">← Kembali</button>
     </section>
 
-    <section id="mitos-fakta-section" class="content-section" style="display: none;">
+    <section id="mitos-fakta-section" class="content-section" >
   <h2>Mitos & Fakta Sinusitis</h2>
   <ul class="mitos-fakta-list">
     <li class="mitos-fakta-item">
@@ -318,6 +328,7 @@
       <p class="fakta">Fakta: Jika tidak diobati, sinusitis kronis bisa menimbulkan komplikasi serius seperti infeksi mata atau otak.</p>
     </li>
   </ul>
+  <button class="back-button" onclick="goBack()">← Kembali</button>
 </section>
 
   </main>
@@ -332,8 +343,8 @@
 
   <script src="main.js"></script>
 </body>
-
 </html>
+
 
 
 
