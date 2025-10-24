@@ -105,7 +105,7 @@ if (btnMulaiQuiz && miniQuizForm && cekQuiz) {
   });
 
   cekQuiz.addEventListener("click", () => {
-    const totalPertanyaan = miniQuizForm.querySelectorAll("fieldset").length;
+    const totalPertanyaan = miniQuizForm.querySelectorAll(".pertanyaan").length;
     const benar = miniQuizForm.querySelectorAll("input[value='benar']:checked").length;
 
     let pesan = "";
@@ -148,6 +148,7 @@ if (btnMulaiQuiz && miniQuizForm && cekQuiz) {
     });
   });
 });
+
 
 
 
