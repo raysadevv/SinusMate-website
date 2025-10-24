@@ -27,19 +27,48 @@ function goBack() {
 
 // === Tombol interaktif lainnya (cek gejala, kalkulator, quiz, dsb) ===
 document.addEventListener("DOMContentLoaded", () => {
-  // Cek gejala
-  const cekBtn = document.getElementById("cekBtn");
-  if (cekBtn) {
-    cekBtn.addEventListener("click", () => {
-      const gejalaDipilih = document.querySelectorAll("input[name='gejala']:checked");
-      const hasil = document.getElementById("hasilCek");
-      if (gejalaDipilih.length >= 3) {
-        hasil.textContent = "Kemungkinan kamu mengalami sinusitis. Disarankan periksa ke dokter.";
-      } else {
-        hasil.textContent = "Kemungkinan kecil kamu sinusitis, tapi tetap jaga kesehatan ya!";
-      }
-    });
-  }
+ // ===== CEK GEJALA =====
+const cekBtn = document.getElementById("cekBtn");
+if (cekBtn) {
+  cekBtn.addEventListener("click", () => {
+    const gejalaDipilih = document.querySelectorAll("input[name='gejala']:checked");
+    const hasil = document.getElementById("hasilCek");
+
+    if (gejalaDipilih.length === 0) {
+      hasil.innerHTML = `<span style="color: #e74c3c;">⚠️ Silakan pilih minimal satu gejala!</span>`;
+      return;
+    }
+
+    let pesan = "";
+    let warna = "";
+    let emoji = "";
+
+    if (gejalaDipilih.length <= 2) {
+      pesan = "Kemungkinan sinusitis ringan. Istirahat dan jaga kesehatan ya!";
+      warna = "#2ecc71"; // hijau
+      emoji = "😊";
+    } else if (gejalaDipilih.length <= 4) {
+      pesan = "Kemungkinan sinusitis sedang. Pertimbangkan untuk konsultasi ke dokter.";
+      warna = "#f1c40f"; // kuning
+      emoji = "⚠️";
+    } else {
+      pesan = "Kemungkinan sinusitis berat. Segera periksa ke dokter!";
+      warna = "#e74c3c"; // merah
+      emoji = "🚨";
+    }
+
+    // tampilkan hasil dengan warna dan emoji, plus efek fade in sederhana
+    hasil.style.color = warna;
+    hasil.style.opacity = 0;
+    hasil.innerHTML = `${emoji} ${pesan}`;
+    let op = 0;
+    const fadeIn = setInterval(() => {
+      if (op >= 1) clearInterval(fadeIn);
+      hasil.style.opacity = op;
+      op += 0.1;
+    }, 30);
+  });
+}
 
   // Kalkulator sembuh
   const hitungBtn = document.getElementById("hitungBtn");
@@ -60,23 +89,55 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Quiz
-  const btnMulaiQuiz = document.getElementById("btnMulaiQuiz");
-  const miniQuizForm = document.getElementById("miniQuizForm");
-  const cekQuiz = document.getElementById("cekQuiz");
-  const hasilQuiz = document.getElementById("hasilQuiz");
+  // ===== MINI QUIZ =====
+const btnMulaiQuiz = document.getElementById("btnMulaiQuiz");
+const miniQuizForm = document.getElementById("miniQuizForm");
+const cekQuiz = document.getElementById("cekQuiz");
+const hasilQuiz = document.getElementById("hasilQuiz");
 
-  if (btnMulaiQuiz && miniQuizForm && cekQuiz) {
-    btnMulaiQuiz.addEventListener("click", () => {
-      miniQuizForm.style.display = "block";
-      btnMulaiQuiz.style.display = "none";
-    });
+if (btnMulaiQuiz && miniQuizForm && cekQuiz) {
+  miniQuizForm.style.display = "none";
 
-    cekQuiz.addEventListener("click", () => {
-      const benar = document.querySelectorAll("input[value='benar']:checked").length;
-      hasilQuiz.textContent = `Skor kamu: ${benar}/3`;
-    });
-  }
+  btnMulaiQuiz.addEventListener("click", () => {
+    miniQuizForm.style.display = "block";
+    btnMulaiQuiz.style.display = "none";
+    hasilQuiz.innerHTML = "";
+  });
+
+  cekQuiz.addEventListener("click", () => {
+    const totalPertanyaan = miniQuizForm.querySelectorAll("fieldset").length;
+    const benar = miniQuizForm.querySelectorAll("input[value='benar']:checked").length;
+
+    let pesan = "";
+    let warna = "";
+    let emoji = "";
+
+    if (benar === totalPertanyaan) {
+      pesan = `Jawabanmu benar semua! Skor: ${benar}/${totalPertanyaan}`;
+      warna = "#2ecc71"; // hijau
+      emoji = "🎉";
+    } else if (benar > 0) {
+      pesan = `Skor kamu: ${benar}/${totalPertanyaan} — Bagus, tapi masih bisa lebih baik!`;
+      warna = "#f1c40f"; // kuning
+      emoji = "👍";
+    } else {
+      pesan = `Belum ada jawaban benar. Yuk belajar lagi!`;
+      warna = "#e74c3c"; // merah
+      emoji = "😅";
+    }
+
+    // efek fade in sederhana
+    hasilQuiz.style.color = warna;
+    hasilQuiz.style.opacity = 0;
+    hasilQuiz.innerHTML = `${emoji} ${pesan}`;
+    let op = 0;
+    const fadeIn = setInterval(() => {
+      if (op >= 1) clearInterval(fadeIn);
+      hasilQuiz.style.opacity = op;
+      op += 0.1;
+    }, 30);
+  });
+}
 
   // Mitos & Fakta
   const btnToggles = document.querySelectorAll(".btn-toggle");
@@ -87,6 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
 
 
 
