@@ -88,6 +88,17 @@ if (cekBtn) {
       hasil.textContent = `Perkiraan sembuh: ${tgl.toLocaleDateString("id-ID")}`;
     });
   }
+  const hasilCek = document.getElementById("hasilCek");
+  const hasilKalkulator = document.getElementById("hasilKalkulator");
+  const resetKalkulator = document.getElementById("resetKalkulator");
+  if (resetKalkulator) {
+    resetKalkulator.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.getElementById("kalkulatorForm").reset(); // hapus tanggal & radio
+      hasilKalkulator.innerHTML = ""; // hapus hasil
+    });
+  }
+});
 
   // ===== MINI QUIZ =====
 const btnMulaiQuiz = document.getElementById("btnMulaiQuiz");
@@ -139,6 +150,14 @@ if (btnMulaiQuiz && miniQuizForm && cekQuiz) {
   });
 }
   const resetBtn = document.getElementById("resetBtn");
+const resetCekGejala = document.getElementById("resetCekGejala");
+  if (resetCekGejala) {
+    resetCekGejala.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.getElementById("cekGejalaForm").reset(); // hapus pilihan gejala
+      hasilCek.innerHTML = ""; // hapus hasil
+    });
+  }
 
 if (resetBtn && miniQuizForm && hasilQuiz) {
   resetBtn.addEventListener("click", (e) => {
@@ -159,6 +178,7 @@ if (resetBtn && miniQuizForm && hasilQuiz) {
     });
   });
 });
+
 
 
 
