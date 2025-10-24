@@ -138,6 +138,17 @@ if (btnMulaiQuiz && miniQuizForm && cekQuiz) {
     }, 30);
   });
 }
+  const resetBtn = document.getElementById("resetBtn");
+
+if (resetBtn && miniQuizForm && hasilQuiz) {
+  resetBtn.addEventListener("click", (e) => {
+    e.preventDefault(); // cegah reload halaman
+    miniQuizForm.reset(); // hapus semua pilihan radio
+    hasilQuiz.innerHTML = ""; // hapus hasil skor
+    btnMulaiQuiz.style.display = "block"; // tampilkan tombol mulai lagi
+    miniQuizForm.style.display = "none";  // sembunyikan form lagi
+  });
+}
 
   // Mitos & Fakta
   const btnToggles = document.querySelectorAll(".btn-toggle");
@@ -148,6 +159,7 @@ if (btnMulaiQuiz && miniQuizForm && cekQuiz) {
     });
   });
 });
+
 
 
 
