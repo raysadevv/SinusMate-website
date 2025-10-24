@@ -209,6 +209,12 @@ nav a:hover {
   margin-bottom: 10px;
 }
 
+#hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #fff; /* pastikan h2 putih */
+}
+
 #hero p {
   color: #6a1b4d;
   font-size: 1rem;
@@ -870,6 +876,7 @@ footer a:hover {
     margin-bottom: 6px;
   }
 }
+
 
 
 
