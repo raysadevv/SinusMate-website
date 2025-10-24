@@ -50,38 +50,52 @@ header h1 {
   transform: scale(1.05);
 }
 
+/* ===== TOMBOL KEMBALI MINI ELEGAN ===== */
 .back-button {
-  background-color: #2b7cff;
-  color: white;
+  position: fixed;
+  bottom: 40px;  /* agak naik dari bawah */
+  right: 35px;   /* agak menjauh dari tepi kanan */
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f8bbd0, #ec407a);
+  color: #fff;
   border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
   cursor: pointer;
-  font-size: 15px;
-  transition: background-color 0.3s, transform 0.2s;
-  display: inline-block;
-  margin: 10px;
+  font-size: 14px;  /* lebih kecil dari sebelumnya */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(210, 63, 106, 0.25);
+  transition: all 0.3s ease;
+  z-index: 999;
 }
 
 .back-button:hover {
-  background-color: #1e63d9;
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #ec407a, #d81b60);
+  transform: scale(1.1);
 }
 
-/* Biar rapi di HP kecil */
+/* Responsive biar di HP juga pas */
 @media (max-width: 600px) {
   .back-button {
-    width: 100%;
-    font-size: 16px;
-    padding: 12px;
+    bottom: 30px;
+    right: 25px;
+    width: 34px;
+    height: 34px;
+    font-size: 12px;
   }
 }
 
 /* === NAV LINK (Versi tanpa <ul>) === */
 nav {
-  max-height: 0;
-  opacity: 0;
-  transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  transition: all 0.4s ease-in-out;
 }
 
 nav a {
@@ -160,7 +174,7 @@ nav a:hover {
 }
 
 /* ===== HERO SECTION ===== */
-#hero {
+  #hero {
   background: linear-gradient(135deg, #fce4ec, #f8bbd0);
   text-align: center;
   padding: 70px 20px;
@@ -842,6 +856,9 @@ footer a:hover {
     margin-bottom: 6px;
   }
 }
+
+
+
 
 
 
