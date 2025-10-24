@@ -135,6 +135,12 @@ nav a:hover {
 @media (max-width: 768px) {
   .menu-button {
     display: block;
+    cursor: pointer;
+    font-size: 1.5rem; /* tombol menu lebih mudah diklik */
+    padding: 10px;
+    background: none;
+    border: none;
+    color: #fff;
   }
 
   nav {
@@ -142,30 +148,38 @@ nav a:hover {
     flex-direction: column;
     width: 100%;
     position: absolute;
-    top: 70px;
+    top: 60px; /* dikurangi biar tidak terlalu jauh */
     left: 0;
     background: linear-gradient(135deg, #d23f6a, #f48fb1);
     border-radius: 0 0 10px 10px;
-    box-shadow: 0 8px 25px rgba(210, 63, 106, 0.25);
+    box-shadow: 0 8px 20px rgba(210, 63, 106, 0.25);
     overflow: hidden;
     max-height: 0;
-    transition: max-height 0.4s ease-in-out;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease;
+    z-index: 999;
   }
 
- nav.active {
-  max-height: 500px;
-  opacity: 1;
-}
+  nav.active {
+    max-height: 400px; /* cukup untuk semua menu */
+    padding: 10px 0;  /* beri jarak antar link */
+  }
 
   nav a {
     display: block;
     text-align: left;
-    padding: 14px 25px;
+    padding: 12px 20px; /* dikurangi supaya pas HP */
+    font-size: 1rem;    /* lebih kecil agar tidak kebesaran */
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    text-decoration: none;
   }
 
   nav a:last-child {
     border-bottom: none;
+  }
+
+  nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
   }
 
   nav a::after {
@@ -856,6 +870,7 @@ footer a:hover {
     margin-bottom: 6px;
   }
 }
+
 
 
 
